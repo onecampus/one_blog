@@ -7,7 +7,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, PostImgUploader
 
   validates :name, :password, presence: true
   validates :name, :email, uniqueness: true
