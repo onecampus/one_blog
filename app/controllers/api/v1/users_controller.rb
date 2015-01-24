@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_action :set_user, only: [:update_avatar, :update_pass, :destroy]
+  before_action :set_user, only: [:show, :update_avatar, :update_pass, :destroy]
 
   swagger_controller :users, "User Management"
 
@@ -12,6 +12,13 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
     render json: @users, status: :ok
+  end
+
+  swagger_api :show do
+    summary "Show a User"
+  end
+
+  def show
   end
 
   swagger_api :create do
