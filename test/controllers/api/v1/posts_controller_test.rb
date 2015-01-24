@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class Api::V1::PostsControllerTest < ActionController::TestCase
   self.use_instantiated_fixtures = true
 
