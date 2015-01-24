@@ -31,15 +31,15 @@ rails generate uploader Avatar
 rails g serializer user
 
 rails g model Post title summary:text content:text markdown:text author img user_id:integer publish_time:datetime is_recommend:integer is_published:integer can_comment:integer
-
+rails g serializer post
 rails generate uploader PostImg
 ```
 
 ### 部署 ###
 
 ```bash
-git clone git@bitbucket.org:flowerwrong/one_campus.git
-cd one_campus
+git clone git@github.com:onecampus/one_blog.git
+cd one_blog
 cp ./config/database.yml.example ./config/database.yml
 # 编辑 database.yml, 修改为你的 mysql 数据库密码, 其他最好别动
 bundle install
@@ -53,24 +53,10 @@ rails s # 启动开发服务器
 rake db:reset
 ```
 
-### live reload ###
-
-```ruby
-# 作用: 不用刷新浏览器, 自动更新所修改的网页
-# 原理: websocket and guard
-
-# 使用
-# 1. 启动监听服务器
-guard start
-
-# 2. 启动开发服务器
-rails s
-```
-
 ### git workflow
 
 ```bash
-git clone git@bitbucket.org:flowerwrong/one_campus.git
+git clone git@github.com:onecampus/one_blog.git
 git branch -r
 git checkout -b dev origin/dev # 检出 dev 分支, 并对应到本地的dev分支
 git checkout -b your_name dev # 创建自己的私有分支, start_point 为dev
