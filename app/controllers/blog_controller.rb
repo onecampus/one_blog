@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
 
-  def rescue_from ActiveRecord::RecordNotFound do
+  rescue_from ActiveRecord::RecordNotFound do
     render :record_not_found
   end
 
