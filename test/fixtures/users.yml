@@ -1,0 +1,34 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+yangkang:
+  name: yangkang
+  email: sysuyangkang@gmail.com
+  password: 123456
+  avatar: avatar
+
+chenhan:
+  name: chenhan
+  email: chenhan@gmail.com
+  password: 123456
+  avatar: avatar
+
+without_name:
+  email: chenhan@gmail.com
+  password: 123456
+  avatar: avatar
+
+without_email:
+  name: chenhan
+  password: 123456
+  avatar: avatar
+
+without_password:
+  name: chenhan
+  email: chenhan@gmail.com
+  avatar: avatar
+
+invide_email:
+  name: chenhan
+  email: invide_email
+  password: 123456
+  avatar: avatar
