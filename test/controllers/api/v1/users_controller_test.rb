@@ -3,21 +3,22 @@ require 'test_helper'
 class Api::V1::UsersControllerTest < ActionController::TestCase
   self.use_instantiated_fixtures = true
 
-  test "should get user index" do
+  test 'should get user index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
   end
 
   # http://matthewlehner.net/rails-api-testing-guidelines/
-  test "should create a user via post" do
+  test 'should create a user via post' do
     assert_difference('User.count') do
-      post :create, user: { name: 'yang', email: 'yang@gmail.com', password: '123456', avatar: '/test.png' }
+      post :create, user: { name: 'yang', email: 'yang@gmail.com',
+                            password: '123456', avatar: '/test.png' }
     end
     assert_response :success
     json = JSON.parse(response.body)
     assert_not_empty(json, 'No user')
-    assert_not_nil User.where(name: "yang").first
+    assert_not_nil User.where(name: 'yang').first
   end
 
   test 'should update a user pass' do
@@ -32,6 +33,6 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   test 'should delete a user' do
     delete :destroy, id: @yangkang.to_param
     assert_response :success
-    assert_nil User.where(name: "yangkang").first
+    assert_nil User.where(name: 'yangkang').first
   end
 end
