@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    render json: @user, status: :ok
   end
 
   swagger_api :create do
