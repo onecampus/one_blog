@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       match 'users/:id/avatar/update', to: 'users#update_avatar', via: :post
       match 'users/:id/password/update', to: 'users#update_pass', via: :put
       match 'users/:id/destroy', to: 'users#destroy', via: :delete
+
+      resources :posts, only: [:index, :show, :create, :update, :destroy]
     end
   end
 end
