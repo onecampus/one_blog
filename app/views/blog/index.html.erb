@@ -1,18 +1,2 @@
-<div ng-app="postApp">
-  <div ng-controller="PostController">
-    <span>{{remaining()}} of {{posts.length}} remaining</span>
-    [ <a href="" ng-click="archive()">archive</a> ]
 
-    <ul class="unstyled">
-      <li ng-repeat="post in posts">
-        <input type="checkbox" ng-model="post.done">
-        <span class="done-{{post.done}}">{{post.title}}</span>
-      </li>
-    </ul>
-    <form ng-submit="addPost()">
-      <input type="text" ng-model="postText" size="30"
-  placeholder="add new post here">
-      <input class="btn-primary" type="submit" value="add">
-    </form>
-  </div>
-</div>
+<div ng-view=""></div>
