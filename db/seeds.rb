@@ -16,7 +16,22 @@ user = User.new(
 )
 user.save!
 
-
+1.upto(50).each do |i|
+  post = Post.new(
+    title: "title#{i}",
+		summary: "summary#{i}",
+		content: "content#{i}",
+		markdown: nil,
+		author: 'yangkang',
+		img: '/test.png',
+		user_id: 1,
+		publish_time: Time.now,
+		is_published: 1,
+		can_comment: 1,
+		is_recommend: 1
+	)
+	post.save!
+end
 
 time_end = Time.now
 time = time_end - time_start
