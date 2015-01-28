@@ -16,6 +16,7 @@
 # http://guides.rubyonrails.org/testing.html
 rake test test/models/user_test.rb test_should_validate_the_email_of_user_two
 rake test test/models/user_test.rb
+rake test test/models/post_test.rb
 
 rake test test/controllers/blog_controller_test.rb
 rake test test/controllers/api/v1/users_controller_test.rb
