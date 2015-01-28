@@ -16,9 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless current_user
-      unauthenticated
-    end
+    unauthenticated unless current_user
   end
 
   def unauthenticated

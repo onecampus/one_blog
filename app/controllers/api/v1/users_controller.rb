@@ -1,12 +1,13 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :update_avatar, :update_pass, :destroy]
+  before_action :set_user, only: [:show, :update_avatar,
+                                  :update_pass, :destroy]
 
-  swagger_controller :users, "User Management"
+  swagger_controller :users, 'User Management'
 
   swagger_api :index do
-    summary "Fetches all User items"
-    notes "This lists all the active users"
+    summary 'Fetches all User items'
+    notes 'This lists all the active users'
   end
 
   def index
@@ -15,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   swagger_api :show do
-    summary "Show a User"
+    summary 'Show a User'
   end
 
   def show
@@ -23,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   swagger_api :create do
-    summary "Creates a new User"
+    summary 'Creates a new User'
   end
 
   def create
@@ -37,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   swagger_api :update_avatar do
-    summary "Upload avatar"
+    summary 'Upload avatar'
   end
 
   def update_avatar
@@ -49,7 +50,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   swagger_api :update_pass do
-    summary "Updates password of an existing User"
+    summary 'Updates password of an existing User'
   end
 
   def update_pass
@@ -62,7 +63,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   swagger_api :destroy do
-    summary "Deletes an existing User item"
+    summary 'Deletes an existing User item'
   end
 
   def destroy
