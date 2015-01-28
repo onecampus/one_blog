@@ -35,6 +35,10 @@ rails g serializer user
 rails g model Post title summary:text content:text markdown:text author img user_id:integer publish_time:datetime is_recommend:integer is_published:integer can_comment:integer
 rails g serializer post
 rails generate uploader PostImg
+
+
+rails g migration add_token_to_users token:string:index
+rails g migration AddExpirationTimeToUsers expiration_time:datetime
 ```
 
 ### 部署 ###

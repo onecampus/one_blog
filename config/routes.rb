@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       delete 'logout' => 'users#logout'
       get 'login' => 'users#login_page', as: :login_page
 
+      post 'auth' => 'auth#authenticate'
+
       resources :posts, only: [:index, :show, :create, :update, :destroy]
     end
   end
