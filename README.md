@@ -19,6 +19,7 @@ rake test test/models/user_test.rb
 
 rake test test/controllers/blog_controller_test.rb
 rake test test/controllers/api/v1/users_controller_test.rb
+rake test test/controllers/api/v1/posts_controller_test.rb
 ```
 
 ### CMD ###
