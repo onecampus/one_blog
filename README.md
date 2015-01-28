@@ -9,6 +9,15 @@
 * apache + passenger
 * mysql5
 
+### Rails token based auth
+
+1. http://adamalbrecht.com/2014/12/04/add-json-web-token-authentication-to-your-angular-rails-app/
+2. http://angular-tips.com/blog/2014/05/json-web-tokens-examples/
+3. http://api.rubyonrails.org/classes/ActiveSupport/HashWithIndifferentAccess.html
+4. http://blog.yanted.com/2014/02/13/jwt-based-authentication-with-ember-js-and-rails/
+5. http://codelife.me/blog/2014/05/17/rails-app-authenticate-by-jwt-between-master-and-agent/
+6. https://ask.auth0.com/c/jwt
+
 ### TEST ###
 
 ```ruby
