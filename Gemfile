@@ -27,7 +27,9 @@ gem 'active_model_serializers'
 
 gem 'swagger-docs'
 
+gem 'rails-assets-bootstrap'
 gem 'rails-assets-angular'
+gem 'angular-rails-templates'
 
 gem 'jwt'
 
