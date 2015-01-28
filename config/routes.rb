@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       match 'users/:id/password/update', to: 'users#update_pass', via: :put
       match 'users/:id/destroy', to: 'users#destroy', via: :delete
 
+      post 'login' => 'users#login'
+      delete 'logout' => 'users#logout'
+      get 'login' => 'users#login_page', as: :login_page
+
       resources :posts, only: [:index, :show, :create, :update, :destroy]
     end
   end

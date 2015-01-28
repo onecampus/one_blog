@@ -4,25 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
+  include ApplicationHelper
+
   private
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
-
-  def current_user
-    return unless session[:user_id]
-    @current_user ||= User.find(session[:user_id])
-  end
-
-  def require_login
-    unauthenticated unless current_user
-  end
-
-  def unauthenticated
-    render text: 'unauthenticated', status: :unauthorized
-  end
-
-  helper_method :current_user
-  helper_method :require_login
 end

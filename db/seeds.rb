@@ -11,7 +11,7 @@ time_start = Time.now
 user = User.new(
   name: 'yang',
   email: 'yang@gmail.com',
-  password: '123456',
+  password: User.hash_password('123456'),
   avatar: '/test.png'
 )
 user.save!
