@@ -12,6 +12,11 @@ class Api::V1::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    unless post_params[:content].blank?
+      post_params[:markdown] = nil
+    else
+      post_params[:content] = nil
+    end
     if @post.save
       render json: { status: :created }, status: :ok
     else

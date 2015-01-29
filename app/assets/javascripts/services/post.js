@@ -5,6 +5,9 @@ angular.module('AngularRails')
 		  getPosts: function() {
 				return $http.get('/api/v1/posts');
 			},
+	    getPostById: function(id) {
+			  return $http.get('/api/v1/posts/' + id);
+			},
 	    createPost: function() {}
 		};
   }]);

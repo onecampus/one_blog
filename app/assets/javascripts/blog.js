@@ -11,5 +11,13 @@ angular
       .when('/posts', {
         templateUrl: 'posts.html',
         controller:  'PostCtrl'
-      });
+      })
+			.when('/posts/new', {
+				templateUrl: 'new_post.html',
+			  controller: 'PostCtrl'
+			})
+			.when('/posts/:postId', {
+				templateUrl: 'post.html',
+			  controller: 'PostCtrl'
+			});
   });

@@ -1,0 +1,13 @@
+<h1>new post</h1>
+<form ng-submit="addPost()">
+  <input type="text" ng-model="title" />
+  <textarea ng-model="summary"></textarea>
+  <textarea ng-model="content"></textarea>
+  <button type="submit">Post</button>
+</form>
+<h1>The post View!</h1>
+<ul>
+  <li ng-repeat="p in posts">
+    <a href="#/posts/{{p.id}}">{{p.title}}</a>
+  </li>
+</ul>
