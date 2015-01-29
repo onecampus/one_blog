@@ -18,6 +18,25 @@
 5. http://codelife.me/blog/2014/05/17/rails-app-authenticate-by-jwt-between-master-and-agent/
 6. https://ask.auth0.com/c/jwt
 
+### Frontend ###
+
+```ruby
+mkdir ngblog && cd ngblog
+nvm install 0.11
+nvm use 0.11
+node -v
+npm -v
+npm install -g yo bower grunt-cli gulp
+npm install generator-angular generator-karma
+npm install -g yo bower grunt-cli gulp
+yo angular
+npm install && bower install
+# https://github.com/drewzboto/grunt-connect-proxy
+rails s
+grunt serve
+grunt build  # change dist to ../public
+```
+
 ### TEST ###
 
 ```ruby

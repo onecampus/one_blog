@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     render json: { error: 'Auth token is expired' }, status: 419 # unofficial timeout status code
   end
 
+  def ping
+    render text: 'pong'
+  end
+
 	protected
 
   # In Rails 4.2 and above

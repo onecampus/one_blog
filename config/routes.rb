@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'blog#index'
 
+  get "api/v1/ping" => "application#ping"
+
   get 'users' => 'blog#index_user', as: :index_user
 
   get '/api' => redirect('/swagger-ui/dist/index.html?url=/apidoc/v1/api-docs.json')
