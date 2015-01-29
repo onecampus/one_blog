@@ -21,10 +21,8 @@
 // Templates in app/assets/templates
 //= require_tree ../templates
 
-// http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails
-// http://asanderson.org/posts/2013/09/15/bootstrapping-angular-rails-part-4.html
 //= require blog
-//= require_tree ./controllers
 //= require_tree ./services
 //= require_tree ./directives
 //= require_tree ./filters
+//= require_tree ./controllers

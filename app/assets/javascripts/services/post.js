@@ -1,7 +1,10 @@
 angular.module('AngularRails')
-  .service('PostService', function($http) {
-    var _posts = [];
-		this.getPosts = function() {
-			return _posts;
-		}
-  });
+  .factory('postService', ['$http', '$q', function($http, $q) {
+		'use strict';
+		return {
+		  getPosts: function() {
+				return $http.get('/api/v1/posts');
+			},
+	    createPost: function() {}
+		};
+  }]);
