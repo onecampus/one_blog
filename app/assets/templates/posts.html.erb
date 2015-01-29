@@ -1,6 +1,6 @@
 <h1>The post View!</h1>
 <ul>
   <li ng-repeat="p in posts">
-    <a href="#/posts/{{p.id}}">{{p.title}}</a>
+    <a href="#/posts/{{p.id}}">{{p.title}}</a>&nbsp;&nbsp;&nbsp;<span ng-click="delPost(p.id)">del</span>
   </li>
 </ul>

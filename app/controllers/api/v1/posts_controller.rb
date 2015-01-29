@@ -17,6 +17,7 @@ class Api::V1::PostsController < ApplicationController
     else
       post_params[:content] = nil
     end
+		@post.publish_time = Time.now
     if @post.save
       render json: { status: :created }, status: :ok
     else
@@ -26,7 +27,7 @@ class Api::V1::PostsController < ApplicationController
 
   def update
     if @post.update post_params
-      render json: { status: :avatar_updated }, status: :ok
+      render json: { status: :updated }, status: :ok
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -54,7 +55,6 @@ class Api::V1::PostsController < ApplicationController
       :markdown,
       :author,
       :img,
-      :publish_time,
       :is_recommend,
       :is_published,
       :can_comment

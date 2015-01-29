@@ -8,6 +8,14 @@ angular.module('AngularRails')
 	    getPostById: function(id) {
 			  return $http.get('/api/v1/posts/' + id);
 			},
-	    createPost: function() {}
+	    createPost: function(post) {
+			  return $http.post('/api/v1/posts', {post: post});
+			},
+      delPost: function(id) {
+        return $http.delete('/api/v1/posts/' + id);
+      },
+      updatePost: function(post) {
+        return $http.patch('/api/v1/posts/' + post.id, {post: post});
+      }
 		};
   }]);

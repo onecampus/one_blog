@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   # before_action :set_current_user, :authenticate_request
+	after_filter :set_csrf_cookie_for_ng
 
   include ApplicationHelper
 
@@ -13,6 +14,17 @@ class ApplicationController < ActionController::Base
   rescue_from AuthenticationTimeoutError do
     render json: { error: 'Auth token is expired' }, status: 419 # unofficial timeout status code
   end
+
+	protected
+
+  # In Rails 4.2 and above
+  def verified_request?
+    super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+  end
+
+	def set_csrf_cookie_for_ng
+		cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+	end
 
   private
 
