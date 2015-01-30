@@ -1,6 +1,7 @@
 angular.module('AngularRails')
   .factory('postService', ['$http', '$q', function($http, $q) {
 		'use strict';
+    $http.defaults.headers.common.Authorization = 'Basic qQ_MU5nDjhSPxFTM1TWhyg';
 		return {
 		  getPosts: function() {
 				return $http.get('/api/v1/posts');

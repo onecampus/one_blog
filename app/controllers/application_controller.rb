@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_action :set_locale
+  before_action :set_current_user, :authenticate_request
   after_filter :set_csrf_cookie_for_ng
 
   rescue_from NotAuthenticatedError do
@@ -23,4 +24,32 @@ class ApplicationController < ActionController::Base
   def verified_request?
     super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
   end
+
+  private
+
+  # Based on the user_id inside the token payload, find the user.
+  def set_current_user
+    @auth_token = http_auth_content
+    unless @auth_token.blank?
+      @current_user ||= User.where(auth_token: @auth_token).first
+    end
+  end
+
+	def authenticate_request
+		if !@current_user
+			fail NotAuthenticatedError
+		elsif auth_token_expired?
+			fail AuthenticationTimeoutError
+		end
+	end
+
+	def auth_token_expired?
+		unless @current_user.blank?
+			unless @current_user.expiration_time.blank?
+				@current_user.expiration_time.to_i <= Time.now.to_i
+			end
+		else
+			fail NotAuthenticatedError
+		end
+	end
 end
