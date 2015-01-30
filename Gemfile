@@ -32,6 +32,7 @@ gem 'rails-assets-angular'
 gem 'rails-assets-angular-route'
 
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'angular-rails-templates'
 

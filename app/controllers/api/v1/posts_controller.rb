@@ -2,7 +2,10 @@ class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
+		page = params[:page]
+		per_page = params[:per_page]
+		offset = params[:offset]
+    @posts = Post.page(page).per(per_page).padding(offset)
     render json: @posts, status: :ok
   end
 
