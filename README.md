@@ -21,20 +21,23 @@
 ### Frontend ###
 
 ```ruby
-mkdir ngblog && cd ngblog
+# install nvm
+
+# install nodejs 0.11
 nvm install 0.11
 nvm use 0.11
 node -v
 npm -v
+# 全局安装yo bower grunt-cli glup(可不安装)
 npm install -g yo bower grunt-cli gulp
-npm install generator-angular generator-karma
-npm install -g yo bower grunt-cli gulp
-yo angular
-npm install && bower install
+
+npm install  # 安装node包依赖
+bower install  # 安装前端库, 例如jquery, bootstrap, angularjs...
 # https://github.com/drewzboto/grunt-connect-proxy
+# 需要启动两个服务器
 rails s
 grunt serve
-grunt build  # change dist to ../public
+# auto visit localhost:9000
 ```
 
 ### TEST ###
