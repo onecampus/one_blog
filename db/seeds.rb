@@ -28,7 +28,8 @@ user.save!
 		publish_time: Time.now,
 		is_published: 1,
 		can_comment: 1,
-		is_recommend: 1
+		is_recommend: 1,
+		tag_list: "tag#{i}, post_tag_#{i}, hehe"
 	)
 	post.save!
 end

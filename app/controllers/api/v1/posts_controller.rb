@@ -22,6 +22,7 @@ class Api::V1::PostsController < ApplicationController
     end
 		@post.publish_time = Time.now
     if @post.save
+			@post.reload
       render json: { status: :created }, status: :ok
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -60,7 +61,8 @@ class Api::V1::PostsController < ApplicationController
       :img,
       :is_recommend,
       :is_published,
-      :can_comment
+      :can_comment,
+			:tag_list
     )
   end
 end
