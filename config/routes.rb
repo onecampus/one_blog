@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'blog#index'
-
-  get 'users' => 'blog#index_user', as: :index_user
+  root 'posts#index'
 
   get '/api' => redirect('/swagger-ui/dist/index.html?url=/apidoc/v1/api-docs.json')
   namespace :api do
@@ -15,10 +13,6 @@ Rails.application.routes.draw do
       match 'auth', to: 'auth#create', via: :post
 
       resources :posts, only: [:index, :show, :create, :update, :destroy]
-
-      match 'login', to: 'users#login', via: :post
-      delete 'logout' => 'users#logout'
-      get 'login' => 'users#login_page', as: :login_page
     end
   end
 end

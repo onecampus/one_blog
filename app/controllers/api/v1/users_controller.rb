@@ -74,35 +74,6 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  swagger_api :login do
-    summary 'Login to this website'
-  end
-
-  def login
-    user = User.where(email: params[:user][:email].downcase).first
-    if user && User.authentication(params[:user][:email], params[:user][:password])
-      # Log the user in and redirect to the user's show page.
-      log_in user
-      redirect_to index_user_url
-    else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'login_page'
-    end
-  end
-
-  def login_page
-    @user = User.new
-  end
-
-  swagger_api :logout do
-    summary 'Logout this website'
-  end
-
-  def logout
-    log_out
-    redirect_to index_user_url
-  end
-
   private
 
   def set_user

@@ -17,6 +17,9 @@ class ApplicationController < ActionController::Base
   rescue_from NoAuthTokenError do
     render json: { error: 'Auth token is not sent' }, status: 418
   end
+  rescue_from ActiveRecord::RecordNotFound do
+    render json: { error: 'Record not found' }, status: :not_found
+  end
 
   protected
 
