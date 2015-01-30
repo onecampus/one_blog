@@ -27,8 +27,7 @@ class User < ActiveRecord::Base
     nil
   end
 
-  def generate_auth_token
-    payload = { user_id: self.id }
-    AuthToken.encode(payload)
+  def self.generate_auth_token
+    SecureRandom.urlsafe_base64(nil, false)
   end
 end

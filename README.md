@@ -69,8 +69,8 @@ rails g serializer post
 rails generate uploader PostImg
 
 
-rails g migration add_token_to_users token:string:index
-rails g migration AddExpirationTimeToUsers expiration_time:datetime
+rails g migration add_auth_token_to_users auth_token:string:index
+rails g migration AddExpirationTimeToUsers expiration_time:timestamp
 ```
 
 ### 部署 ###

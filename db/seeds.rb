@@ -12,7 +12,9 @@ user = User.new(
   name: 'yang',
   email: 'yang@gmail.com',
   password: User.hash_password('123456'),
-  avatar: '/test.png'
+  avatar: '/test.png',
+  auth_token: User.generate_auth_token,
+  expiration_time: (Time.now + 10.days).to_i
 )
 user.save!
 

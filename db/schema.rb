@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130061319) do
+ActiveRecord::Schema.define(version: 20150130072907) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -50,12 +50,16 @@ ActiveRecord::Schema.define(version: 20150130061319) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.string   "avatar",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password",        limit: 255
+    t.string   "avatar",          limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "auth_token",      limit: 255
+    t.datetime "expiration_time"
   end
+
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", using: :btree
 
 end

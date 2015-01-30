@@ -46,7 +46,6 @@ GEM
       sprockets
       tilt
     arel (6.0.0)
-    bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     brakeman (3.0.0)
@@ -98,7 +97,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    jwt (1.2.1)
     kaminari (0.16.2)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -209,14 +207,12 @@ DEPENDENCIES
   active_model_serializers
   acts-as-taggable-on (~> 3.4)
   angular-rails-templates
-  bcrypt (~> 3.1.7)
   brakeman
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  jwt
   kaminari
   mini_magick
   mysql2
