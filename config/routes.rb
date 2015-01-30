@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'blog#index'
 
-  get "api/v1/ping" => "application#ping"
-
   get 'users' => 'blog#index_user', as: :index_user
 
   get '/api' => redirect('/swagger-ui/dist/index.html?url=/apidoc/v1/api-docs.json')
@@ -14,13 +12,13 @@ Rails.application.routes.draw do
       match 'users/:id/password/update', to: 'users#update_pass', via: :put
       match 'users/:id/destroy', to: 'users#destroy', via: :delete
 
-      post 'login' => 'users#login'
-      delete 'logout' => 'users#logout'
-      get 'login' => 'users#login_page', as: :login_page
-
-      post 'auth' => 'auth#authenticate'
+      match 'auth', to: 'auth#create', via: :post
 
       resources :posts, only: [:index, :show, :create, :update, :destroy]
+
+      match 'login', to: 'users#login', via: :post
+      delete 'logout' => 'users#logout'
+      get 'login' => 'users#login_page', as: :login_page
     end
   end
 end

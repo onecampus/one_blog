@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
-  before_action :set_current_user, :authenticate_request
-	after_filter :set_csrf_cookie_for_ng
+  # before_action :set_current_user, :authenticate_request
+  after_filter :set_csrf_cookie_for_ng
 
   include ApplicationHelper
 
@@ -15,11 +15,7 @@ class ApplicationController < ActionController::Base
     render json: { error: 'Auth token is expired' }, status: 419 # unofficial timeout status code
   end
 
-  def ping
-    render text: 'pong'
-  end
-
-	protected
+  protected
 
   # In Rails 4.2 and above
   def verified_request?
@@ -28,9 +24,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-	def set_csrf_cookie_for_ng
-		cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
-	end
+  def set_csrf_cookie_for_ng
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -56,19 +52,19 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-    @auth_token = get_auth_token
+    @auth_token = auth_token
     unless @auth_token.blank?
       @current_user ||= User.where(auth_token: @auth_token).first
     end
   end
 
-  def get_auth_token
+  def auth_token
     return @http_auth_header_content if defined? @http_auth_header_content
     @http_auth_header_content = begin
-      if request.headers['Authorization'].present?
-        request.headers['Authorization'].split(' ').last
-      elsif params[:auth_token].present?
+      if params[:auth_token].present?
         params[:auth_token]
+      elsif request.headers['Authorization'].present?
+        request.headers['Authorization'].split(' ').last
       else
         nil
       end
