@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authentication(email, pass)
-    user = User.find_by(email: email)
+    user = User.where(email: email).first
     if user && Digest::SHA256.hexdigest(pass + 'yy') == user.password
       return user
     end
