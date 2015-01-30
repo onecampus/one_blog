@@ -30,7 +30,7 @@ node -v
 npm -v
 # 全局安装yo bower grunt-cli glup(可不安装)
 npm install -g yo bower grunt-cli gulp
-
+cd ngblog
 npm install  # 安装node包依赖
 bower install  # 安装前端库, 例如jquery, bootstrap, angularjs...
 # https://github.com/drewzboto/grunt-connect-proxy

@@ -1,3 +1,11 @@
+<h1>The post View!</h1>
+<ul>
+  <li ng-repeat="p in posts">
+    <a href="#/posts/{{p.id}}">{{p.title}}</a>&nbsp;&nbsp;&nbsp;<span ng-click="delPost(p.id)">del</span>
+  </li>
+</ul>
+<hr />
+<h1>{{ping}}</h1>
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
