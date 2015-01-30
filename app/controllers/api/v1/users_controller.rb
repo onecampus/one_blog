@@ -1,30 +1,19 @@
+# @author FuSheng Yang
 class Api::V1::UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :update_avatar,
                                   :update_pass, :destroy]
 
-  swagger_controller :users, 'User Management'
-
-  swagger_api :index do
-    summary 'Fetches all User items'
-    notes 'This lists all the active users'
-  end
-
   def index
-    @users = User.all
+		page = params[:page]
+		per_page = params[:per_page]
+		offset = params[:offset]
+    @users = User.page(page).per(per_page).padding(offset)
     render json: @users, status: :ok
-  end
-
-  swagger_api :show do
-    summary 'Show a User'
   end
 
   def show
     render json: @user, status: :ok
-  end
-
-  swagger_api :create do
-    summary 'Creates a new User'
   end
 
   def create
@@ -37,20 +26,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  swagger_api :update_avatar do
-    summary 'Upload avatar'
-  end
-
   def update_avatar
     if @user.update user_params
       render json: { status: :avatar_updated }, status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-  end
-
-  swagger_api :update_pass do
-    summary 'Updates password of an existing User'
   end
 
   def update_pass
@@ -60,10 +41,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-  end
-
-  swagger_api :destroy do
-    summary 'Deletes an existing User item'
   end
 
   def destroy

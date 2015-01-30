@@ -1,5 +1,5 @@
 # auth
-#
+# @author FuSheng Yang
 class Api::V1::AuthController < ApplicationController
 	skip_before_action :authenticate_request
 	def create
