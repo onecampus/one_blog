@@ -22,7 +22,8 @@ class Api::V1::PostsControllerTest < ActionController::TestCase
         publish_time: Time.now,
         is_recommend: 1,
         is_published: 1,
-        can_comment: 1
+        can_comment: 1,
+				tag_list: "tag1, hehe"
       }
     end
     assert_response :success

@@ -31,24 +31,13 @@ gem 'rails-assets-bootstrap'
 gem 'rails-assets-angular'
 gem 'rails-assets-angular-route'
 
-# gem 'rails-assets-angular-animate'
-# gem 'rails-assets-angular-bindonce'
-# gem 'rails-assets-angular-cookies'
-# gem 'rails-assets-angular-faye'
-# gem 'rails-assets-angular-i18n'
-# gem 'rails-assets-angular-loading-bar'
-# gem 'rails-assets-angular-mocks'
-# gem 'rails-assets-angular-mousewheel'
-# gem 'rails-assets-angular-resource'
-# gem 'rails-assets-angular-sanitize'
-# gem 'rails-assets-angular-touch'
+gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'angular-rails-templates'
 
-gem 'jwt'
-
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

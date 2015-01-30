@@ -26,6 +26,7 @@
 # install nodejs 0.11
 nvm install 0.11
 nvm use 0.11
+nvm alias default 0.11
 node -v
 npm -v
 # 全局安装yo bower grunt-cli glup(可不安装)
@@ -52,6 +53,7 @@ rake test test/models/post_test.rb
 rake test test/controllers/blog_controller_test.rb
 rake test test/controllers/api/v1/users_controller_test.rb
 rake test test/controllers/api/v1/posts_controller_test.rb
+rake test test/controllers/api/v1/auth_controller_test.rb
 ```
 
 ### CMD ###
@@ -68,8 +70,8 @@ rails g serializer post
 rails generate uploader PostImg
 
 
-rails g migration add_token_to_users token:string:index
-rails g migration AddExpirationTimeToUsers expiration_time:datetime
+rails g migration add_auth_token_to_users auth_token:string:index
+rails g migration AddExpirationTimeToUsers expiration_time:timestamp
 ```
 
 ### 部署 ###

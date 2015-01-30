@@ -4,5 +4,7 @@ class Post < ActiveRecord::Base
   validates :title, :can_comment, presence: true
   validates :title, uniqueness: true
 
+	acts_as_taggable_on :tags
+
   belongs_to :user
 end

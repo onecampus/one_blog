@@ -2,7 +2,10 @@ class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
+		page = params[:page]
+		per_page = params[:per_page]
+		offset = params[:offset]
+    @posts = Post.page(page).per(per_page).padding(offset)
     render json: @posts, status: :ok
   end
 
@@ -19,6 +22,7 @@ class Api::V1::PostsController < ApplicationController
     end
 		@post.publish_time = Time.now
     if @post.save
+			@post.reload
       render json: { status: :created }, status: :ok
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -57,7 +61,8 @@ class Api::V1::PostsController < ApplicationController
       :img,
       :is_recommend,
       :is_published,
-      :can_comment
+      :can_comment,
+			:tag_list
     )
   end
 end
