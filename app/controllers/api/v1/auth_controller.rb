@@ -1,8 +1,6 @@
 # auth
 #
 class Api::V1::AuthController < ApplicationController
-  # skip_before_action :authenticate_request
-  # skip_before_filter :verify_authenticity_token
   def create
     user = User.authentication(login_params[:email], login_params[:password])
     if user
