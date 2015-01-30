@@ -26,6 +26,7 @@
 # install nodejs 0.11
 nvm install 0.11
 nvm use 0.11
+nvm alias default 0.11
 node -v
 npm -v
 # 全局安装yo bower grunt-cli glup(可不安装)
