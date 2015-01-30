@@ -1,31 +1,65 @@
-<h1>The post View!</h1>
-<ul>
-  <li ng-repeat="p in posts">
-    <a href="#/posts/{{p.id}}">{{p.title}}</a>&nbsp;&nbsp;&nbsp;<span ng-click="delPost(p.id)">del</span>
-  </li>
-</ul>
-<hr />
-<h1>{{ping}}</h1>
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="header hidden-xs">
+  <div class="header-logo">
+    <img src="images/logo.png">
+  </div>
+  <div class="header-nav">
+    <div class="nav-blog">
+      <a>BLOG</a>
+    </div>
+    <div class="nav-picture">
+      <a>PHOTO</a>
+    </div>
+  </div>
+  <div class="nav-search">
+    <input type="text" placeholder="SEACH">
+    <a><img src="/images/search-ico.png"></a>
+  </div>
 </div>
+<div class="posts">
+  <div class="post">
+    <ul>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
+      <li>
+        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
+        <img src="/images/post-ico.png">
+        <span>(<span>500</span>)</span>
+      </li>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    </ul>
+  </div>
+  <div class="post-pic-box">
+    <a class="picture-left"><img></a>
+    <div class="post-pic-ba">
+      <div class="post-pic">
+        <img src="/images/head-ba.png">
+      </div>
+    </div>
+    <a class="picture-right"><img></a>
+  </div>
+  <div class="post-inf">
+  </div>
 </div>
