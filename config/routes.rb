@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'application#index'
 
   get '/api' => redirect('/swagger-ui/dist/index.html?url=/apidoc/v1/api-docs.json')
   namespace :api do

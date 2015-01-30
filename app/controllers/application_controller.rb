@@ -1,42 +1,52 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :null_session
-  include ApplicationHelper
+	# Prevent CSRF attacks by raising an exception.
+	# For APIs, you may want to use :null_session instead.
+	protect_from_forgery with: :null_session
+	include ApplicationHelper
 
-  before_action :set_locale
-  # before_action :set_current_user, :authenticate_request
-  after_filter :set_csrf_cookie_for_ng
+	before_action :set_locale
+	# before_action :set_current_user, :authenticate_request
+	after_filter :set_csrf_cookie_for_ng
 
-  rescue_from NotAuthenticatedError do
-    render json: { error: 'Not Authorized' }, status: :unauthorized
-  end
-  rescue_from AuthenticationTimeoutError do
-    render json: { error: 'Auth token is expired' }, status: 419
-  end
-  rescue_from NoAuthTokenError do
-    render json: { error: 'Auth token is not sent' }, status: 418
-  end
-  rescue_from ActiveRecord::RecordNotFound do
-    render json: { error: 'Record not found' }, status: :not_found
-  end
+	rescue_from NotAuthenticatedError do
+		render json: { error: 'Not Authorized' }, status: :unauthorized
+	end
+	rescue_from AuthenticationTimeoutError do
+		render json: { error: 'Auth token is expired' }, status: 419
+	end
+	rescue_from NoAuthTokenError do
+		render json: { error: 'Auth token is not sent' }, status: 418
+	end
+	rescue_from ActiveRecord::RecordNotFound do
+		render json: { error: 'Record not found' }, status: :not_found
+	end
 
-  protected
+	layout false
 
-  # In Rails 4.2 and above for angular X-XSRF-TOKEN
-  def verified_request?
-    super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
-  end
+	def index
+		render file: 'public/index.html'
+	end
 
-  private
+	def method_missing
+		render file: 'public/index.html'
+	end
 
-  # Based on the user_id inside the token payload, find the user.
-  def set_current_user
-    @auth_token = http_auth_content
-    unless @auth_token.blank?
-      @current_user ||= User.where(auth_token: @auth_token).first
-    end
-  end
+	protected
+
+	# In Rails 4.2 and above for angular X-XSRF-TOKEN
+	def verified_request?
+		super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+	end
+
+	private
+
+	# Based on the user_id inside the token payload, find the user.
+	def set_current_user
+		@auth_token = http_auth_content
+		unless @auth_token.blank?
+			@current_user ||= User.where(auth_token: @auth_token).first
+		end
+	end
 
 	def authenticate_request
 		if !@current_user
