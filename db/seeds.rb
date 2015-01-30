@@ -14,7 +14,7 @@ user = User.new(
   password: User.hash_password('123456'),
   avatar: '/test.png',
   auth_token: User.generate_auth_token,
-  expiration_time: (Time.now + 10.days).to_i
+  expiration_time: (DateTime.now + 10.days)
 )
 user.save!
 

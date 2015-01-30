@@ -38,20 +38,28 @@ class ApplicationController < ActionController::Base
 
   # Check to make sure the current user was set and the token is not expired
   def authenticate_request
-    if auth_token_expired?
-      fail AuthenticationTimeoutError
-    elsif !@current_user
+    if !@current_user
       fail NotAuthenticatedError
+    elsif auth_token_expired?
+      fail AuthenticationTimeoutError
     end
   end
 
   def auth_token_expired?
-    @current_user.expiration_time <= Time.now.to_i
+    unless @current_user.blank?
+      unless @current_user.expiration_time.blank?
+        @current_user.expiration_time.to_i <= Time.now.to_i
+      end
+    else
+      fail NotAuthenticatedError
+    end
   end
 
   def set_current_user
     @auth_token = get_auth_token
-    @current_user ||= User.where(auth_token: auth_token).first if auth_token
+    unless @auth_token.blank?
+      @current_user ||= User.where(auth_token: @auth_token).first
+    end
   end
 
   def get_auth_token
