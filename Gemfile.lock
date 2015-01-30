@@ -153,7 +153,6 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -169,6 +168,6 @@ DEPENDENCIES
   mini_magick
   mysql2
   rails (= 4.2.0)
+  rdoc
   sdoc (~> 0.4.0)
   spring
-  yard
