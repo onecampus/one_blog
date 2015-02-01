@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/radar/by_star
-  revision: 670451fbc66bbf1e149ac20173cbe0ecb95d4fba
-  specs:
-    by_star (2.2.1)
-      activesupport
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,7 +190,6 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   better_errors
   brakeman
-  by_star!
   byebug
   carrierwave
   jbuilder (~> 2.0)

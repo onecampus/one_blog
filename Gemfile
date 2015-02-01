@@ -16,15 +16,14 @@ gem 'mini_magick'
 gem 'active_model_serializers'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
-gem 'by_star', :git => 'git://github.com/radar/by_star'
 
 group :development, :test do
   gem 'byebug'
   gem 'spring'
-	gem 'better_errors'
+  gem 'better_errors'
   gem 'brakeman', require: false
   gem 'rails_best_practices', require: false
-	gem 'pry-rails'
+  gem 'pry-rails'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
