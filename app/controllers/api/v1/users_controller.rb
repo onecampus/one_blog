@@ -1,4 +1,8 @@
-# @author FuSheng Yang
+##
+# Author:: FuSheng Yang (mailto:sysuyangkang@gmail.com)
+# Copyright:: Copyright (c) 2015 thecampus.cc
+# License:: Distributes under the same terms as Ruby
+# Api of users
 class Api::V1::UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :update_avatar,

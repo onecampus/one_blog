@@ -1,4 +1,8 @@
-# @author FuSheng Yang
+##
+# Author:: FuSheng Yang (mailto:sysuyangkang@gmail.com)
+# Copyright:: Copyright (c) 2015 thecampus.cc
+# License:: Distributes under the same terms as Ruby
+# Base controller for all api controllers
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
 	# For APIs, you may want to use :null_session instead.

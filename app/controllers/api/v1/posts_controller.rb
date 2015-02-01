@@ -1,4 +1,8 @@
-# @author FuSheng Yang
+##
+# Author:: FuSheng Yang (mailto:sysuyangkang@gmail.com)
+# Copyright:: Copyright (c) 2015 thecampus.cc
+# License:: Distributes under the same terms as Ruby
+# Api of posts
 class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
