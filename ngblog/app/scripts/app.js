@@ -10,6 +10,7 @@
  */
 angular
   .module('ngblogApp', [
+    'angular-loading-bar',
     'ngAnimate',
     'ngCookies',
     'ngMessages',
