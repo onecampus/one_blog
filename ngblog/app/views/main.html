@@ -18,10 +18,12 @@
 <div class="posts">
   <div class="post">
     <ul>
-      <li ng-repeat="p in awesomeThings">
-        <div class="post-title"><a>{{p}}</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
+      <li ng-repeat="p in posts">
+        <div class="post-title"><a>{{p.title}}</a></div>
+        <div class="post-inf">
+          <img src="/images/post-ico.png">
+          <span>(<span>500</span>)</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -34,7 +36,7 @@
       <a class="picture-right"><img src="images/rightjiantou.png"></a>
     </div>
   </div>
-  <div class="post-inf hidden-xs">
+  <div class="company-box hidden-xs">
     <div class="two-code-pic">
       <img src="images/two-code.jpg">
     </div>
