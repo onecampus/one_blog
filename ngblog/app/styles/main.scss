@@ -101,24 +101,27 @@ body {
 
 .posts {
   width: 100%;
-  height: 550px;
+  height: 560px;
+  overflow: hidden;
 }
 
 
 .post {
-  margin: 15px 30%;
-  width: 40%;
+  margin: 15px auto;
+  width: 90%;
 }
 
 .post-title {
   float: left;
-  width: 75%;
+  width: 70%;
   height: 20px;
   overflow: hidden;
 }
 
-.post img {
-  margin-left: 5px;
+.post-inf {
+  float: left;
+  width: 30%;
+  padding-left: 5%;
 }
 
 .post span {
@@ -175,7 +178,7 @@ body {
   height: 100%;
 }
 
-.post-inf {
+.company-box {
   float: left;
   width: 30%;
   height: 100%;
@@ -236,12 +239,14 @@ a:hover,a:focus {
   .posts {
     width: 100%;
     height: 300px;
+    overflow: hidden;
   }
 
   .post {
     float: left;
     width: 40%;
     margin: 0;
+    padding: 0;
   }
 }
 
