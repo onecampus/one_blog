@@ -24,6 +24,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'rails_best_practices', require: false
   gem 'pry-rails'
+  gem 'did_you_mean'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
