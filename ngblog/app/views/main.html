@@ -29,11 +29,11 @@
   </div>
   <div class="post-pic-box hidden-xs">
     <div class="post-pic-ba">
-      <a class="picture-left"><img src="images/leftjiantou.png"></a>
+      <a class="picture-left" ng-click="swithLeftPic()"><img src="images/leftjiantou.png"></a>
       <div class="post-pic">
-        <img src="/images/head-ba.png">
+        <img src={{imageSrc[imageIndex]}}>
       </div>
-      <a class="picture-right"><img src="images/rightjiantou.png"></a>
+      <a class="picture-right" ng-click="swithRightPic()"><img src="images/rightjiantou.png"></a>
     </div>
   </div>
   <div class="company-box hidden-xs">
