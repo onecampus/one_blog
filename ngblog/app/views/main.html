@@ -18,48 +18,31 @@
 <div class="posts">
   <div class="post">
     <ul>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题博客标题博客标题博客标题博客标题</a></div>
+      <li ng-repeat="p in awesomeThings">
+        <div class="post-title"><a>{{p}}</a></div>
         <img src="/images/post-ico.png">
         <span>(<span>500</span>)</span>
       </li>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
-      </li>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
-      </li>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
-      </li>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
-      </li>
-      <li>
-        <div class="post-title"><a>博客标题博客标题博客标题博客标题</a></div>
-        <img src="/images/post-ico.png">
-        <span>(<span>500</span>)</span>
-      </li>
-
     </ul>
   </div>
-  <div class="post-pic-box">
-    <a class="picture-left"><img></a>
+  <div class="post-pic-box hidden-xs">
     <div class="post-pic-ba">
+      <a class="picture-left"><img src="images/leftjiantou.png"></a>
       <div class="post-pic">
         <img src="/images/head-ba.png">
       </div>
+      <a class="picture-right"><img src="images/rightjiantou.png"></a>
     </div>
-    <a class="picture-right"><img></a>
   </div>
-  <div class="post-inf">
+  <div class="post-inf hidden-xs">
+    <div class="two-code-pic">
+      <img src="images/two-code.jpg">
+    </div>
+    <div class="company-inf">
+      <p><a>学壹传媒有限公司</a></p>
+      <p><a>联系电话</a></p>
+      <p><a>微信</a></p>
+      <p><a>邮箱</a></p>
+    </div>
   </div>
 </div>
