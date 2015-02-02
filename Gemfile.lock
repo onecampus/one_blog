@@ -191,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   acts-as-taggable-on (~> 3.4)
+  awesome_print
   better_errors
   brakeman
   byebug

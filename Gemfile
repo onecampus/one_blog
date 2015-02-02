@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rails_best_practices', require: false
   gem 'pry-rails'
   gem 'did_you_mean'
+  gem 'awesome_print', require: false
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
