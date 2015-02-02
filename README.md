@@ -36,9 +36,9 @@ npm install  # 安装node包依赖
 bower install  # 安装前端库, 例如jquery, bootstrap, angularjs...
 # https://github.com/drewzboto/grunt-connect-proxy
 # 需要启动两个服务器
-rails s
+rails server -b 0.0.0.0
 grunt serve
-# auto visit localhost:9000
+# auto visit 0.0.0.0:9000
 ```
 
 ### TEST ###
