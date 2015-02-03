@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('ngblogApp',[]);
+var app = angular.module('dfdsf',[]);
 var UE;
 app.directive('ueditor', function() {
   return {
