@@ -37,6 +37,18 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/admin/posts', {
+        templateUrl: 'views/admin_posts.html',
+        controller: 'PostsCtrl'
+      })
+      .when('/admin/posts/new', {
+        templateUrl: 'views/admin_new_post.html',
+        controller: 'PostNewCtrl'
+      })
+      .when('/admin/posts/:postId', {
+        templateUrl: 'views/admin_edit_post.html',
+        controller: 'PostEditCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
