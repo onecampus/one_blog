@@ -1,4 +1,5 @@
 'use strict';
+
 angular.module('ngblogApp')
 	.directive('ueditor', function() {
 		return {
