@@ -1,0 +1,32 @@
+<form ng-submit="updatePost(post.id)">
+  <input required ng-minlength=3 ng-maxlength=512 type="text" ng-model="post.title" />
+  <div class="error" ng-show="post.title.$dirty && post.title.$invalid">
+    <small class="error" ng-show="post.title.$error.required">
+      Your name is required.
+    </small>
+    <small class="error" ng-show="post.title.$error.minlength">
+      Your name is required to be at least 3 characters
+    </small>
+    <small class="error" ng-show="post.title.$error.maxlength">
+      Your name cannot be longer than 20 characters
+    </small>
+  </div>
+  <textarea ng-model="post.summary"></textarea>
+  <textarea ng-model="post.content"></textarea>
+  <textarea ng-model="post.markdown"></textarea>
+  <input type="hidden" ng-model="post.img" />
+  <input type="text" ng-model="post.author" />
+  <select ng-model="post.is_recommend">
+    <option value="1" selected>推荐</option>
+    <option value="0">不推荐</option>
+  </select>
+  <select ng-model="post.is_published">
+    <option value="1" selected>是</option>
+    <option value="0">否</option>
+  </select>
+  <select ng-model="post.can_comment">
+    <option value="1" selected>可以</option>
+    <option value="0">不可以</option>
+  </select>
+  <button type="submit">update</button>
+</form>

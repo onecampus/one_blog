@@ -14,6 +14,16 @@ class Api::V1::PostsController < ApplicationController
     render json: { status: 'success', data: { posts: @posts, total_count: Post.all.count }, msg: '' }, status: :ok
   end
 
+  def post_tags
+    query = params[:query]
+    if query.blank?
+      @tags = ActsAsTaggableOn::Tagging.includes(:tag).where(context: 'tags').pluck(:name).uniq
+    else
+      @tags = ActsAsTaggableOn::Tagging.where(context: 'tags').joins(:tag).where("tags.name LIKE ?", "%#{query}%").pluck(:name)
+    end
+    render json: { status: 'success', data: { tags: @tags }, msg: '' }, status: :ok
+  end
+
   def show
     render json: @post, status: :ok
   end
