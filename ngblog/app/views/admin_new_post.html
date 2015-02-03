@@ -1,3 +1,78 @@
-<textarea ueditor></textarea>
+<form role="form" class="form-horizontal col-md-12" style="margin-top: 10px">
+  <div class="form-group">
+    <label for="title" class="col-md-2 control-label">标题</label>
+    <div class="col-md-10">
+      <input type="text" name="title" id="title" class="form-control" placeholder="please enter your title..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="author" class="col-md-2 control-label">作者</label>
+    <div class="col-md-10">
+      <input type="text" name="author" id="author" class="form-control" placeholder="please enter the author of the title..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="summary" class="col-md-2 control-label">摘要</label>
+    <div class="col-md-10">
+      <input type="text" name="summary" id="summary" class="form-control" placeholder="please enter the summary..." required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image" class="col-md-2 control-label">图片</label>
+    <div class="col-md-10">
+      <input type="file" name="image" id="image" placeholder="please upload a image matching the title...">
+      <p class="help-block">please upload a image matching the title...</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-md-2 control-label">内容</label>
+    <div class="col-md-10">
+      <tabset justified="true">
+        <tab heading="ueditor">
+          <textarea ueditor placeholder="ueditor..."></textarea>
+        </tab>
+        <tab heading="markdown">
+          <textarea class="form-control" placeholder="markdown..."></textarea>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+  <!--
+  <div class="form-group">
+    <label for="publish-time" class="col-md-2 control-label">发布时间</label>
+    <div class="col-md-10">
+      <p class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+  </div>
+  -->
+  <div class="form-group">
+    <div class="col-md-10 col-md-offset-2">
+      <label ng-click="isCollapsed = !isCollapsed"><span ng-class="{true: 'glyphicon glyphicon-chevron-down', false: 'glyphicon glyphicon-chevron-up'}[isCollapsed]"></span> more settings</label>
+      <div collapse="isCollapsed">
+        <div>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="recommend" id="recommend" value=""> allow recommend
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="recommend" id="notrecommend" value=""> allow comment
+          </label>
+        </div>
+        <div>
+          <p class="help-block">Tag标签</p>
+          <input type="text" name="label" class="form-control" placeholder="每个标签之间请用;隔开">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-group col-md-12 col-md-offset-6" >
+    <button type="submit" class="btn btn-lg btn-default">提交</button>
+    <button type="button" class="btn btn-lg btn-default">取消</button>
+  </div>
+</form>
 <script src="/vendor/ueditor/ueditor.config.js"></script>
 <script src="/vendor/ueditor/ueditor.all.js"></script>

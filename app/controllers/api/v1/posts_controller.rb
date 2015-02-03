@@ -11,7 +11,7 @@ class Api::V1::PostsController < ApplicationController
 		per_page = params[:per_page]
 		offset = params[:offset]
     @posts = Post.page(page).per(per_page).padding(offset)
-    render json: @posts, status: :ok
+    render json: { status: 'success', data: { posts: @posts, total_count: Post.all.count }, msg: '' }, status: :ok
   end
 
   def show
