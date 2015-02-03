@@ -31,24 +31,4 @@ angular.module('ngblogApp')
       for (var i=0; i<5; i++) {
         $scope.addSlide();
       }
-    /*
-    $scope.imageSrc=["/images/head-ba.png","/images/logo.png","images/two-code.jpg"];  // 图片src数组
-    $scope.imageIndex = 0;  // 图片下标
-    // 图片左切换
-    $scope.swithLeftPic = function(){
-      if($scope.imageIndex <= 0) {
-        return;
-      } else {
-        $scope.imageIndex -= 1;
-      }
-    };
-    // 图片右切换
-    $scope.swithRightPic = function(){
-      if($scope.imageIndex >= $scope.imageSrc.length - 1) {
-        return;
-      } else {
-        $scope.imageIndex += 1;
-      }
-    };
-    */
   }]);
