@@ -27,6 +27,7 @@
       </li>
     </ul>
   </div>
+<!--
   <div class="post-pic-box hidden-xs">
     <div class="post-pic-ba">
       <a class="picture-left" ng-click="swithLeftPic()"><img src="images/leftjiantou.png"></a>
@@ -36,6 +37,21 @@
       <a class="picture-right" ng-click="swithRightPic()"><img src="images/rightjiantou.png"></a>
     </div>
   </div>
+-->
+
+<div>
+  <div style="height: 305px">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>
   <div class="company-box hidden-xs">
     <div class="two-code-pic">
       <img src="images/two-code.jpg">
