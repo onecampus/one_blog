@@ -8,7 +8,7 @@ angular.module('ngblogApp')
 			transclued: true,
 			scope: {},
 			template: '',
-			require: '?ngModel',
+			require: 'ngModel',
 			link: function(scope, element, attrs, ngModel) {
 				var ueditor = UE.getEditor(element[0], {
 					initialFrameWidth: '100%',
