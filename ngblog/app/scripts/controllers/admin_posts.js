@@ -8,9 +8,9 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('AdminPostsCtrl', ['$scope', '$http',  function ($scope, $http) {
+  .controller('AdminPostsCtrl', ['$scope', 'postsService', function($scope, postsService) {
     $scope.posts = [];
-    $http.get('/api/v1/posts').
+    postsService.getPosts().
       success(function(data, status, headers, config) {
         $scope.posts = data.posts;
       }).
