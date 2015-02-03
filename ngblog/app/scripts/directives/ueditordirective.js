@@ -28,13 +28,13 @@ app.directive('ueditor', function() {
         });
       });
       // Model数据更新时，更新百度UEditor
-      ngModel.$render = function(value) {
+      ngModel.$render = function() {
         ueditor.setContent(ngModel.$viewValue);
       };
       ueditor.addListener('contentChange', function() {
         setTimeout(function() {
           scope.$apply(function() {
-            ngModel.$setViewValue(editor.getContent());
+            ngModel.$setViewValue(ueditor.getContent());
           });
         }, 0);
       });
