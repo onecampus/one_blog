@@ -33,10 +33,6 @@ angular
         templateUrl: (_isNotMobile )? 'views/main.html':'views/mobile/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/admin/posts', {
         templateUrl: 'views/admin_posts.html',
         controller: 'PostsCtrl'
