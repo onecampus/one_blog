@@ -11,8 +11,12 @@ angular.module('ngblogApp')
   .factory('postsService', ['$http', '$q', function($http, $q) {
     // $http.defaults.headers.common.Authorization = 'Basic qQ_MU5nDjhSPxFTM1TWhyg';
     return {
-      getPosts: function() {
-        return $http.get('/api/v1/posts');
+      getPosts: function(page, perPage, offset) {
+        page = typeof page !== 'undefined' ? page : 1;
+        perPage = typeof perPage !== 'undefined' ? perPage : 20;
+        offset = typeof offset !== 'undefined' ? offset : 0;
+        var _url = '?page=' + page + '&per_page=' + perPage + '&offset=' + offset;
+        return $http.get('/api/v1/posts' + _url);
       },
       getPostById: function(id) {
         return $http.get('/api/v1/posts/' + id);

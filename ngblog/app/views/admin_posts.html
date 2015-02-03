@@ -13,8 +13,15 @@
 				<td>{{p.id}}</td>
 				<td>{{p.title}}</td>
 				<td>{{p.author}}</td>
-				<td>action</td>
+				<td>
+          <button type="button" class="btn btn-primary">编辑</button>
+          <button type="button" class="btn btn-success">删除</button>
+        </td>
 			</tr>
 		</tbody>
   </table>
+</div>
+<hr />
+<div>
+  <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </div>
