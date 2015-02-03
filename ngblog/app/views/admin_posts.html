@@ -14,14 +14,13 @@
 				<td>{{p.title}}</td>
 				<td>{{p.author}}</td>
 				<td>
-          <button type="button" class="btn btn-primary">编辑</button>
-          <button type="button" class="btn btn-success">删除</button>
+          <a class="btn btn-primary" href="#/admin/posts/{{p.id}}">编辑</a>
+          <button type="button" class="btn btn-success" ng-click="delPost(p.id)">删除</button>
         </td>
 			</tr>
 		</tbody>
   </table>
 </div>
-<hr />
 <div>
   <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </div>
