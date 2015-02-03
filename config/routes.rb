@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       match 'auth', to: 'auth#create', via: :post
 
       resources :posts, only: [:index, :show, :create, :update, :destroy]
+
+      get 'ueditor/uploader/index' => 'ueditor_uploader#index'
+      match 'ueditor/uploader/index', to: 'ueditor_uploader#index', via: :post
     end
   end
 end
