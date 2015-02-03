@@ -8,11 +8,12 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('MainCtrl', ['$scope', '$http',  function ($scope, $http) {
+  .controller('MainCtrl', ['$scope', 'postsService',  function ($scope, postsService) {
     $scope.posts = [];
-    $http.get('/api/v1/posts').
+
+    postsService.getPosts(1, 10, 0).
       success(function(data, status, headers, config) {
-        $scope.posts = data.posts;
+        $scope.posts = data.data.posts;
       }).
       error(function(data, status, headers, config) {
         console.log(data);

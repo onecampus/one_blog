@@ -1,27 +1,68 @@
+<style>
+#markdown {
+  min-height: 500px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#editor {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 50%;
+}
+#editor-tool-bar {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  bottom: 0;
+  right: 51%;
+  height: 30px;
+}
+#result {
+  position: absolute;
+  top: 50px;
+  left: 51%;
+  bottom: 0;
+  right: 0;
+}
+
+.m-pill {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  color: #444;
+  font-size: 12px;
+  line-height: 30px;
+  margin-right: 6px;
+  padding: 0 5px;
+}
+</style>
+
 <h1>添加文章</h1>
 <form ng-submit="addPost()" class="form-horizontal col-md-12">
   <div class="form-group">
     <label for="title" class="col-md-2 control-label">标题</label>
     <div class="col-md-10">
-      <input type="text" ng-model="post.title" class="form-control" required>
+      <input type="text" ng-model="title" class="form-control" required>
     </div>
   </div>
   <div class="form-group">
     <label for="author" class="col-md-2 control-label">作者</label>
     <div class="col-md-10">
-      <input type="text" ng-model="post.author" class="form-control" required>
+      <input type="text" ng-model="author" class="form-control" required>
     </div>
   </div>
   <div class="form-group">
     <label for="summary" class="col-md-2 control-label">摘要</label>
     <div class="col-md-10">
-      <input type="text" ng-model="post.summary" class="form-control" required>
+      <textarea ng-model="summary" rows="10" class="form-control" required></textarea>
     </div>
   </div>
   <div class="form-group">
     <label for="image" class="col-md-2 control-label">图片</label>
     <div class="col-md-10">
-      <input type="file" ng-model="post.img">
+      <input type="file" ng-model="img">
       <p class="help-block">请上传图片</p>
     </div>
   </div>
@@ -29,13 +70,28 @@
     <label for="content" class="col-md-2 control-label">内容</label>
     <div class="col-md-10">
       <tabset justified="true">
-        <tab heading="ueditor">
-          <textarea ueditor ng-model="post.content"></textarea>
+        <tab heading="富文本编辑器">
+          <textarea ueditor ng-model="content"></textarea>
         </tab>
-        <tab heading="markdown">
-          <textarea class="form-control" ng-model="post.markdown"></textarea>
+        <tab heading="markdown语法">
+          <div nclass="form-control" id="markdown">
+            <div id="editor-tool-bar">
+              <span><a class="m-pill" href="http://wowubuntu.com/markdown/" target="_blank">语法参考</a></span>
+              <span><a class="m-pill" href="javascript:void(0);">上传图片</a></span>
+            </div>
+            <div id="editor" ng-model="markdown" ace></div>
+            <div id="result" ng-bind-html="markdown"></div>
+          </div>
         </tab>
       </tabset>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-md-2 control-label">标签</label>
+    <div class="col-md-10 tags">
+      <tags-input ng-model="tags">
+        <auto-complete source="loadTags($query)"></auto-complete>
+      </tags-input>
     </div>
   </div>
   <div class="form-group">
@@ -45,20 +101,14 @@
       <div collapse="isCollapsed">
         <div>
           <label class="checkbox-inline">
-            <input type="checkbox" ng-model="post.is_recommend" value=""> 推荐
+            <input type="checkbox" ng-model="is_recommend" value=""> 推荐
           </label>
           <label class="checkbox-inline">
-            <input type="checkbox" ng-model="post.can_comment" value=""> 允许评论
+            <input type="checkbox" ng-model="can_comment" value=""> 允许评论
           </label>
           <label class="checkbox-inline">
-            <input type="checkbox" ng-model="post.is_published" value=""> 推荐
+            <input type="checkbox" ng-model="is_published" value=""> 推荐
           </label>
-        </div>
-        <div>
-          <p class="help-block">Tag标签</p>
-          <tags-input ng-model="tags">
-            <auto-complete source="loadTags($query)"></auto-complete>
-          </tags-input>
         </div>
       </div>
     </div>
@@ -67,5 +117,11 @@
     <button type="submit" class="btn btn-lg btn-default">提交</button>
   </div>
 </form>
+
 <script src="/vendor/ueditor/ueditor.config.js"></script>
 <script src="/vendor/ueditor/ueditor.all.js"></script>
+
+<script src="/vendor/ace/src/ace.js"></script>
+<link rel="stylesheet" href="/vendor/highlight/styles/default.css">
+<script src="/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

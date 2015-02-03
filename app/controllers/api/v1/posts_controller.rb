@@ -77,7 +77,7 @@ class Api::V1::PostsController < ApplicationController
       :is_recommend,
       :is_published,
       :can_comment,
-			:tag_list
+      :tag_list => []
     )
   end
 end

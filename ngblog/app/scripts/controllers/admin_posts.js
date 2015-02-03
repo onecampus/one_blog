@@ -16,13 +16,13 @@ angular.module('ngblogApp')
     $scope.itemsPerPage = 20;
     $scope.maxSize = 5;
     postsService.getPosts(1, 20, 0).
-    success(function(data, status, headers, config) {
-      $scope.posts = data.data.posts;
-      $scope.totalItems = data.data.total_count;
-    }).
-    error(function(data, status, headers, config) {
-      console.log(data);
-    });
+      success(function(data, status, headers, config) {
+        $scope.posts = data.data.posts;
+        $scope.totalItems = data.data.total_count;
+      }).
+      error(function(data, status, headers, config) {
+        console.log(data);
+      });
 
     $scope.pageChanged = function() {
       postsService.getPosts($scope.currentPage, 20, 0).
