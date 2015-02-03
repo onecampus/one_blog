@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('ngueditor', []);
+var app = angular.module('ngblogApp',[]);
 var UE;
 app.directive('ueditor', function() {
   return {
