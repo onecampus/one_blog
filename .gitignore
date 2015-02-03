@@ -17,3 +17,5 @@
 /doc/*
 /.yardoc/*
 *.log
+
+/public/uploads/*
