@@ -33,9 +33,17 @@ angular
         templateUrl: (_isNotMobile )? 'views/main.html':'views/mobile/main.html',
         controller: 'MainCtrl'
       })
+      .when('/posts', {
+        templateUrl: 'views/posts.html',
+        controller: 'PostsCtrl'
+      })
+      .when('/posts/:postId', {
+        templateUrl: 'views/show_post.html',
+        controller: 'PostShowCtrl'
+      })
       .when('/admin/posts', {
         templateUrl: 'views/admin_posts.html',
-        controller: 'PostsCtrl'
+        controller: 'AdminPostsCtrl'
       })
       .when('/admin/posts/new', {
         templateUrl: 'views/admin_new_post.html',
