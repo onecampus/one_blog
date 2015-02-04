@@ -22,7 +22,7 @@ angular.module('ngblogApp')
         $scope.post.is_recommend = $scope.post.is_recommend == 1 ? true : false;
         $scope.post.is_published = $scope.post.is_published == 1 ? true : false;
         $scope.post.can_comment = $scope.post.can_comment == 1 ? true : false;
-
+        /*
         $scope.markdown = function(ngModel) {
           marked.setOptions({
             highlight: function (code) {
@@ -31,7 +31,7 @@ angular.module('ngblogApp')
           });
           return marked(ngModel);
         }
-
+        */
         var _tags = [];
         var _tagList = $scope.post.tags;
         for(var i = 0, len = _tagList.length; i < len; i++) {

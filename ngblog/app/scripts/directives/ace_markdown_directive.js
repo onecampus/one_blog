@@ -18,9 +18,9 @@ angular.module('ngblogApp')
         };
         editor.on('change', function() {
           $timeout(function() {
-						scope.$apply(function() {
+  					scope.$apply(function() {
               ngModel.$setViewValue(editor.getValue());
-						});
+  					});
           }, 0);
         });
       }
