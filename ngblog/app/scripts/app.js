@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'ngTagsInput',
-    'angularFileUpload'
+    'angularFileUpload',
+    'cgBusy'
   ])
   .config(['$routeProvider', 'cfpLoadingBarProvider', function ($routeProvider, cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;

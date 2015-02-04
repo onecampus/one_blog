@@ -33,6 +33,6 @@ angular.module('ngblogApp')
         return $http.patch('/api/v1/posts/' + post.id, {
           post: post
         });
-      }
+      },
     };
   }]);
