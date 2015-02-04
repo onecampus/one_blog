@@ -15,11 +15,14 @@
     <a><img src="/images/search-ico.png"></a>
   </div>
 </div>
+
+<div cg-busy="{promise:refresh,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}"></div>
+
 <div class="main-posts">
   <div class="main-post">
     <ul>
       <li ng-repeat="p in posts">
-        <div class="main-post-title"><a>{{p.title}}</a></div>
+        <div class="main-post-title"><a href="#/posts/{{p.id}}">{{p.title}}</a></div>
         <div class="main-post-inf">
           <img src="/images/post-ico.png">
           <span>(<span>500</span>)</span>
