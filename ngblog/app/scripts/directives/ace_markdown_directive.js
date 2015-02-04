@@ -17,14 +17,6 @@ angular.module('ngblogApp')
             ngModel.$setViewValue(editor.getValue());
           });
         });
-        ngModel.$parsers.push(function(value) {
-          marked.setOptions({
-            highlight: function (code) {
-              return hljs.highlightAuto(code).value;
-            }
-          });
-          return marked(value);
-        });
       }
     };
   });

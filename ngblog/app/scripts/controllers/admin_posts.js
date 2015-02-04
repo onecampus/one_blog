@@ -36,6 +36,7 @@ angular.module('ngblogApp')
     };
 
     $scope.delPost = function(id) {
+			console.log(this);
 			if(confirm('确定删除吗')) {
 				postsService.delPost(id).
 					success(function(data, status, headers, config) {

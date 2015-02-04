@@ -81,7 +81,7 @@
               <span><a class="m-pill" href="javascript:void(0);">上传图片</a></span>
             </div>
             <div id="editor" ng-model="post.markdown" ace></div>
-            <div id="result" ng-bind-html="markdown"></div>
+            <div id="result" ng-bind-html="markdown(post.markdown)"></div>
           </div>
         </tab>
       </tabset>
@@ -115,7 +115,7 @@
     </div>
   </div>
   <div class="btn-group col-md-12 col-md-offset-6">
-    <button type="submit" class="btn btn-lg btn-default">提交</button>
+    <button type="submit" class="btn btn-lg btn-default">更新</button>
   </div>
 </form>
 
