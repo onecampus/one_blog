@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngblogApp')
-  .directive('ace', function() {
+  .directive('ace', ['$timeout', function($timeout) {
     return {
       require: 'ngModel',
       link: function(scope, elem, attrs, ngModel) {
@@ -16,11 +16,13 @@ angular.module('ngblogApp')
         ngModel.$render = function () {
           editor.setValue(ngModel.$viewValue);
         };
-        editor.on('change', function(e) {
-          scope.$apply(function() {
-            ngModel.$setViewValue(editor.getValue());
-          });
+        editor.on('change', function() {
+          $timeout(function() {
+  					scope.$apply(function() {
+              ngModel.$setViewValue(editor.getValue());
+  					});
+          }, 0);
         });
       }
     };
-  });
+  }]);

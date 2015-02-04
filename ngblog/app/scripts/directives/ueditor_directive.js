@@ -1,15 +1,16 @@
 'use strict';
 
 angular.module('ngblogApp')
-	.directive('ueditor', function() {
-		return {
-			restrict: 'AE',
-			replace: true,
-			transclued: true,
-			scope: {},
-			template: '',
-			require: 'ngModel',
-			link: function(scope, element, attrs, ngModel) {
+  .directive('ueditor', ['$timeout', function($timeout) {
+    return {
+      restrict: 'AE',
+      replace: true,
+      transclued: true,
+      scope: {},
+      template: '',
+      require: 'ngModel',
+      link: function(scope, element, attrs, ngModel) {
+
 				var ueditor = UE.getEditor(element[0], {
 					initialFrameWidth: '100%',
 					initialFrameHeight: '300',
@@ -19,19 +20,18 @@ angular.module('ngblogApp')
 					return;
 				}
 				ueditor.addListener('ready', function() {
-					ueditor.setContent(ngModel.$viewValue);
+					ngModel.$render = function() {
+						ueditor.setContent(ngModel.$viewValue);
+					};
 				});
 				// Model数据更新时，更新百度UEditor
-				ngModel.$render = function() {
-					ueditor.setContent(ngModel.$viewValue);
-				};
 				ueditor.addListener('contentChange', function() {
-					setTimeout(function() {
-						scope.$apply(function() {
-							ngModel.$setViewValue(ueditor.getContent());
-						});
+					$timeout(function() {
+  					scope.$apply(function() {
+  						ngModel.$setViewValue(ueditor.getContent());
+  					});
 					}, 0);
 				});
-			}
-		};
-	});
+      }
+    };
+  }]);
