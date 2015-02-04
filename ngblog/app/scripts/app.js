@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'ngTagsInput'
+    'ngTagsInput',
+    'angularFileUpload'
   ])
   .config(function ($routeProvider) {
     // Magic sauce, imediate so the value is stored and we don't need to lookup every check

@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('PostEditCtrl', ['$scope', 'postsService', '$routeParams', '$location', function($scope, postsService, $routeParams, $location) {
+  .controller('PostEditCtrl', ['$scope', 'postsService', '$routeParams', '$location', 'FileUploader', function($scope, postsService, $routeParams, $location, FileUploader) {
     $scope.isCollapsed = true;
     $scope.open = function($event) {
       $event.preventDefault();
@@ -22,7 +22,6 @@ angular.module('ngblogApp')
         $scope.post.is_recommend = $scope.post.is_recommend == 1 ? true : false;
         $scope.post.is_published = $scope.post.is_published == 1 ? true : false;
         $scope.post.can_comment = $scope.post.can_comment == 1 ? true : false;
-
 
         $scope.markdown = function(ngModel) {
           marked.setOptions({
@@ -42,7 +41,6 @@ angular.module('ngblogApp')
           _tags.push(_tagObj);
         }
         $scope.post.tags = _tags;
-        $scope.post.content = 'segegeghreh5e5h5h5h5j5j';
       }).
       error(function(data, status, headers, config) {
         console.log(data);
@@ -82,5 +80,18 @@ angular.module('ngblogApp')
           console.log(data);
         });
     };
+
+    $scope.uploader = new FileUploader({
+      url: '/api/v1/posts/image/uploader',
+      autoUpload: true,
+      onSuccessItem: function(item, response, status, headers) {
+        console.log(response);
+        if(response.state === 'success') {
+          $scope.post.img = response.url;
+        } else {
+          alert('上传错误');
+        }
+      }
+    });
 
   }]);
