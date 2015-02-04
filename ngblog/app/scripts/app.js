@@ -22,7 +22,8 @@ angular
     'ngTagsInput',
     'angularFileUpload'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', 'cfpLoadingBarProvider', function ($routeProvider, cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
     // Magic sauce, imediate so the value is stored and we don't need to lookup every check
     var _isNotMobile = (function() {
       var check = false;
@@ -58,4 +59,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
