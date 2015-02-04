@@ -63,8 +63,11 @@
   <div class="form-group">
     <label for="image" class="col-md-2 control-label">图片</label>
     <div class="col-md-10">
-      <input type="file" ng-model="post.img">
-      <p class="help-block">请上传图片</p>
+      <input type="file" nv-file-select uploader="uploader"/><br/>
+      <div>
+        <p>预览</p>
+        <p><img src="{{post.img}}" alt="请上传图片" /></p>
+      </div>
     </div>
   </div>
   <div class="form-group">
@@ -81,7 +84,7 @@
               <span><a class="m-pill" href="javascript:void(0);">上传图片</a></span>
             </div>
             <div id="editor" ng-model="post.markdown" ace></div>
-            <div id="result" ng-bind-html="markdown"></div>
+            <div id="result" ng-bind-html="markdown(post.markdown)"></div>
           </div>
         </tab>
       </tabset>
@@ -115,7 +118,7 @@
     </div>
   </div>
   <div class="btn-group col-md-12 col-md-offset-6">
-    <button type="submit" class="btn btn-lg btn-default">提交</button>
+    <button type="submit" class="btn btn-lg btn-default">更新</button>
   </div>
 </form>
 

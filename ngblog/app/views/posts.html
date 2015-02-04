@@ -17,61 +17,19 @@
 </div>
 <div class="posts-box">
   <div class="posts">
-    <div class="post-item">
+    <div class="post-item" ng-repeat="p in posts">
       <div class="post-title">
-        <span>标题标题标题标题标题标题标题标题</span>
+        <span>{{p.title}}</span>
       </div>
       <div class="post-text">
         <div class="post-inf">
-          <p>
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文v
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-          </P>
+          <p>{{p.content}}</P>
         </div>
         <div class="post-picture">
-          <img class="image"src="/images/logo.png">
-          <span>2016/1/34</span>
-          <img src="/images/post-ico.png">
-          <span>(<span>500</span>)</span>
-        </div>
-      </div>
-    </div>
-    <div class="post-item">
-      <div class="post-title">
-        <span>标题标题标题标题标题标题标题标题</span>
-      </div>
-      <div class="post-text">
-        <div class="post-inf">
-          <p>
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文v
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-          </P>
-        </div>
-        <div class="post-picture">
-          <img class="image"src="/images/logo.png">
-          <span>2016/1/34</span>
-          <img src="/images/post-ico.png">
-          <span>(<span>500</span>)</span>
-        </div>
-      </div>
-    </div>
-    <div class="post-item">
-      <div class="post-title">
-        <span>标题标题标题标题标题标题标题标题</span>
-      </div>
-      <div class="post-text">
-        <div class="post-inf">
-          <p>
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文v
-            正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
-          </P>
-        </div>
-        <div class="post-picture">
-          <img class="image"src="/images/logo.png">
-          <span>2016/1/34</span>
+          <div class="post-picture-box">
+            <img class="image" ng-src="{{p.img.url}}">
+          </div>
+          <span>{{p.publish_time.substr(0,10)}}</span>
           <img src="/images/post-ico.png">
           <span>(<span>500</span>)</span>
         </div>
@@ -88,6 +46,9 @@
     </div>
   </div>
 </div>
+<div class="posts-pagination">
+  <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+</div>
 <div class="scorll-box">
-  <a><img src="/images/scroll-top.png"></a>
+  <a ng-click="scrollTop()"><img src="/images/scroll-top.png"></a>
 </div>

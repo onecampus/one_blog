@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngblogApp')
-  .directive('ace', function() {
+  .directive('ace', ['$timeout', function($timeout) {
     return {
       require: 'ngModel',
       link: function(scope, elem, attrs, ngModel) {
@@ -12,19 +12,17 @@ angular.module('ngblogApp')
         editor.setOptions({
           fontSize: '10pt'
         });
-        editor.on('change', function(e) {
-          scope.$apply(function() {
-            ngModel.$setViewValue(editor.getValue());
-          });
-        });
-        ngModel.$parsers.push(function(value) {
-          marked.setOptions({
-            highlight: function (code) {
-              return hljs.highlightAuto(code).value;
-            }
-          });
-          return marked(value);
+        // data binding to ngModel
+        ngModel.$render = function () {
+          editor.setValue(ngModel.$viewValue);
+        };
+        editor.on('change', function() {
+          $timeout(function() {
+						scope.$apply(function() {
+              ngModel.$setViewValue(editor.getValue());
+						});
+          }, 0);
         });
       }
     };
-  });
+  }]);

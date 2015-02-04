@@ -60,6 +60,17 @@ class Api::V1::PostsController < ApplicationController
     end
   end
 
+  def ajax_img_upload
+    image = PostImgUploader.new
+    image.store!(params[:file])
+    return_hash = {
+      state: 'success',
+      url: image.url,
+      title: image.filename
+    }
+    render json: return_hash, status: :ok
+  end
+
   private
 
   def set_post
