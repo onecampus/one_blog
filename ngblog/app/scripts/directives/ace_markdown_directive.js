@@ -12,6 +12,10 @@ angular.module('ngblogApp')
         editor.setOptions({
           fontSize: '10pt'
         });
+        // data binding to ngModel
+        ngModel.$render = function () {
+          editor.setValue(ngModel.$viewValue);
+        };
         editor.on('change', function(e) {
           scope.$apply(function() {
             ngModel.$setViewValue(editor.getValue());

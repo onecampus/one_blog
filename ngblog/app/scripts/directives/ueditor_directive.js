@@ -18,13 +18,8 @@ angular.module('ngblogApp')
 				if (!ngModel) {
 					return;
 				}
-				ueditor.on('instanceReady', function() {
+				ueditor.addListener('ready', function() {
 					ueditor.setContent(ngModel.$viewValue);
-				});
-				ueditor.on('pasteState', function() {
-					scope.$apply(function() {
-						ngModel.$setViewValue(ueditor.getContent());
-					});
 				});
 				// Model数据更新时，更新百度UEditor
 				ngModel.$render = function() {
