@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
 		page = params[:page]
 		per_page = params[:per_page]
 		offset = params[:offset]
-    @users = User.page(page).per(per_page).padding(offset)
+    @users = User.page(page).per(per_page).padding(offset).order('id DESC')
     render json: { status: 'success', data: { users: @users, total_count: User.all.count }, msg: '' }, status: :ok
   end
 

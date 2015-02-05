@@ -10,7 +10,7 @@ class Api::V1::PostsController < ApplicationController
 		page = params[:page]
 		per_page = params[:per_page]
 		offset = params[:offset]
-    @posts = Post.page(page).per(per_page).padding(offset)
+    @posts = Post.page(page).per(per_page).padding(offset).order('id DESC')
     render json: { status: 'success', data: { posts: @posts, total_count: Post.all.count }, msg: '' }, status: :ok
   end
 
