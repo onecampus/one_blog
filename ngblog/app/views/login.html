@@ -1,2 +1,33 @@
-login page
-{{username}}
+<div class="posts-head hidden-xs">
+  <div class="posts-logo">
+    <img src="images/logo.png">
+  </div>
+  <div class="posts-blog">
+    <a ng-href="/#/posts">BLOG</a>
+  </div>
+  <div class="posts-photo">
+    <a>PHOTO</a>
+  </div>
+  <div class="posts-search">
+    <div>
+      <input type="text" placeholder="SEACH" ng-model="keyword">
+      <a ng-href="/#/search/posts?keyword={{keyword}}">
+        <img src="/images/search-ico.png">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="login-box">
+  <div class="body"></div>
+  <div class="grad"></div>
+  <div class="login-header">
+    <div>Site<span>Random</span></div>
+  </div>
+  <br>
+  <div class="login">
+      <input type="text" placeholder="email" name="user"><br>
+      <input type="password" placeholder="password" name="password"><br>
+      <input type="button" value="Login">
+  </div>
+</div>
+<ng-include src="'views/footer.html'"></ng-include>
