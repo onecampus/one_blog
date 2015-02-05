@@ -4,6 +4,7 @@
 # License:: Distributes under the same terms as Ruby
 # Api of ueditor
 class Api::V1::UeditorUploaderController < ApplicationController
+  skip_before_action :authenticate_request
   skip_before_filter :verify_authenticity_token, only: [:index]
   def index
     action = request.query_parameters[:action]

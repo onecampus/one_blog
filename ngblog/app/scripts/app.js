@@ -20,10 +20,18 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'ngTagsInput',
-    'angularFileUpload'
+    'angularFileUpload',
+    'LocalStorageModule'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
+  })
+  .config(function (localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('ngblogApp')
+      .setStorageType('localStorage')
+      .setStorageCookie(10, '/')
+      .setNotify(true, true);
   })
   .run(function($rootScope, $location, SessionService) {
     $rootScope.$on('$routeChangeStart', function(event, next, absOldUrl) {
@@ -34,6 +42,7 @@ angular
         'views/admin_posts.html'
       ];
       if(_.include(_needAdmin, next.templateUrl)) {
+        console.log(SessionService.authToken);
         if(SessionService.authToken === null) {
           if(next.templateUrl === 'views/login.html') {
             // now is in the login page.

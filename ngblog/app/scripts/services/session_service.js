@@ -8,10 +8,13 @@
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')
-  .factory('SessionService', function() {
+  .factory('SessionService', ['localStorageService', function(localStorageService) {
+    if(!localStorageService.isSupported) {
+      alert('不支持localStorage');
+    }
     var sessionService = {
-      currentUser: null,
-      authToken: null,
+      currentUser: localStorageService.get('currentUser'),
+      authToken: localStorageService.get('authToken'),
       backUrl: null,
 
       // 是否登陆
@@ -20,6 +23,7 @@ angular.module('ngblogApp')
       },
 
       setCurrentUser: function(currentUser) {
+        localStorageService.set('currentUser', currentUser);
         sessionService.currentUser = currentUser;
       },
       getCurrentUser: function() {
@@ -27,6 +31,7 @@ angular.module('ngblogApp')
       },
 
       setAuthToken: function(authToken) {
+        localStorageService.set('authToken', authToken);
         sessionService.authToken = authToken;
       },
       getAuthToken: function() {
@@ -43,4 +48,4 @@ angular.module('ngblogApp')
     };
 
     return sessionService;
-  });
+  }]);
