@@ -74,7 +74,7 @@ class Api::V1::PostsController < ApplicationController
   def search
     keyword = params[:keyword]
     @posts = Post.where('title LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%")
-    render json: @posts, status: :ok
+    render json: { keyword: keyword, posts: @posts }, status: :ok
   end
 
   private
