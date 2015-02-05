@@ -34,5 +34,8 @@ angular.module('ngblogApp')
           post: post
         });
       },
+      searchPost: function(keyword) {
+        return $http.get('/api/v1/posts/search?keyword=' + keyword);
+      }
     };
   }]);

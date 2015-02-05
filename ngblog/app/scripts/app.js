@@ -57,6 +57,10 @@ angular
         templateUrl: 'views/admin_edit_post.html',
         controller: 'PostEditCtrl'
       })
+      .when('/search/posts', {
+        templateUrl: 'views/search_posts.html',
+        controller: 'SearchPostsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
