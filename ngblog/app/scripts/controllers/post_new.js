@@ -16,14 +16,25 @@ angular.module('ngblogApp')
       $scope.opened = true;
     };
 
-    $scope.img = '';
+    $scope.post = {};
+    $scope.post.markdown = '';
+    $scope.markdown = function(ngModel) {
+      marked.setOptions({
+        highlight: function (code) {
+          return hljs.highlightAuto(code).value;
+        }
+      });
+      return marked(ngModel);
+    };
+
+    $scope.post.img = '';
     $scope.uploader = new FileUploader({
       url: '/api/v1/posts/image/uploader',
       autoUpload: true,
       onSuccessItem: function(item, response, status, headers) {
         console.log(response);
         if(response.state === 'success') {
-          $scope.img = response.url;
+          $scope.post.img = response.url;
         } else {
           alert('上传错误');
         }
@@ -32,28 +43,27 @@ angular.module('ngblogApp')
 
     $scope.tags = [];
     $scope.loadTags = function(query) {
-      return $http.get('/api/v1/post/tags?query=' + query);
+      // return $http.get('/api/v1/post/tags?query=' + query);
     };
 
     $scope.addPost = function() {
-      var tagsObj = $scope.tags;
+      var tagsObj = $scope.post.tags;
       var tagList = [];
       for(var i = 0,len = tagsObj.length; i < len; i++) {
         tagList.push(tagsObj[i].text);
       }
       var _post = {
-        title: $scope.title,
-        summary: $scope.summary,
-        content: $scope.content,
-        markdown: $scope.markdown,
-        author: $scope.author,
-        img: $scope.img,
-        is_recommend: $scope.is_recommend,
-        is_published: $scope.is_published,
-        can_comment: $scope.can_comment,
+        title: $scope.post.title,
+        summary: $scope.post.summary,
+        content: $scope.post.content,
+        markdown: $scope.post.markdown,
+        author: $scope.post.author,
+        img: $scope.post.img,
+        is_recommend: $scope.post.is_recommend,
+        is_published: $scope.post.is_published,
+        can_comment: $scope.post.can_comment,
         tag_list: tagList
       };
-      alert(_post.content);
       postsService.createPost(_post).
         success(function(data, status, headers, config) {
           console.log(data);
@@ -66,15 +76,5 @@ angular.module('ngblogApp')
         error(function(data, status, headers, config) {
           console.log(data);
         });
-      /*
-      $scope.markdownIt = function(ngModel) {
-        marked.setOptions({
-          highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-          }
-        });
-        return marked(ngModel);
-      };
-      */
     };
   }]);
