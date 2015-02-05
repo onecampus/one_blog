@@ -4,7 +4,7 @@
 # License:: Distributes under the same terms as Ruby
 # Api of auth
 class Api::V1::AuthController < ApplicationController
-	skip_before_action :authenticate_request
+	skip_before_action :authenticate_request, only: [:create]
 	def create
 		user = User.authentication(login_params[:email], login_params[:password])
 		if user
@@ -14,6 +14,10 @@ class Api::V1::AuthController < ApplicationController
 		else
 			render json: { error: 'Invalid email or password' }, status: :unauthorized
 		end
+	end
+
+	def destroy
+		current_user = @current_user
 	end
 
 	private
