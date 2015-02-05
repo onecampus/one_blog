@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('PostsCtrl', ['$scope', '$log', 'postsService', '$location', '$anchorScroll', function($scope, $log, postsService,$location,$anchorScroll) {
+  .controller('PostsCtrl', ['$scope', '$log', 'postsService', '$location', '$anchorScroll', '$controller', function($scope, $log, postsService, $location, $anchorScroll, $controller) {
     $scope.posts = [];
     $scope.itemsPerPage = 5;
     $scope.bigTotalItems = null;
@@ -34,5 +34,7 @@ angular.module('ngblogApp')
       };
     $scope.scrollTop = function() {
       $anchorScroll();
-    }
+    };
+
+    $controller('BaseCtrl', {$scope: $scope});
   }]);
