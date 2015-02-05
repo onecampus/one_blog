@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
       match 'auth', to: 'auth#create', via: :post
 
-      resources :posts, only: [:index, :show, :create, :update, :destroy]
       get 'post/tags' => 'posts#post_tags'
       match 'posts/image/uploader', to: 'posts#ajax_img_upload', via: :post
+      get 'posts/search' => 'posts#search'
+      resources :posts, only: [:index, :show, :create, :update, :destroy]
 
       get 'ueditor/uploader/index' => 'ueditor_uploader#index'
       match 'ueditor/uploader/index', to: 'ueditor_uploader#index', via: :post
