@@ -10,7 +10,8 @@ class Api::V1::AuthController < ApplicationController
 		if user
 			touch_exp_time user
 			render json: { auth_token: user.auth_token,
-			expiration_time: user.expiration_time }
+			               expiration_time: user.expiration_time,
+										 current_user: user }
 		else
 			render json: { error: 'Invalid email or password' }, status: :unauthorized
 		end

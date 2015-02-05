@@ -8,30 +8,18 @@
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')
-  .factory('AuthService', ['$http', function ($http) {
+  .factory('AuthService', ['$http', 'SessionService', function ($http, SessionService) {
     var authService = {};
+
     // 登陆, 返回authToken, expirationTime
-    authService.login = function (credentials) {
+    authService.login = function(credentials) {
       return $http.post('/api/v1/users/auth', credentials);
     };
 
-    // 是否登陆
-    authService.isLoggedIn = function(currentUser) {
-      return (currentUser) ? currentUser : false;
-    };
-
-    authService.setCurrentUser = function(scope, currentUser){
-      scope.currentUser = currentUser;
-    };
-
-    // 认证
-    authService.isAuthenticated = function (currentUser) {
-      return !!currentUser;
-    };
-
-    // 授权
-    authService.isAuthorized = function() {
-      return authService.isAuthenticated();
+    // 退出
+    authService.logout = function() {
+      SessionService.setCurrentUser = null;
+      SessionService.setAuthToken = null;
     };
 
     return authService;

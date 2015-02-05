@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 	include ApplicationHelper
 
 	before_action :set_locale
-	# before_action :set_current_user, :authenticate_request
+	before_action :set_current_user, :authenticate_request
 	after_filter :set_csrf_cookie_for_ng
 
 	rescue_from NotAuthenticatedError do

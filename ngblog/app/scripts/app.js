@@ -22,6 +22,9 @@ angular
     'ngTagsInput',
     'angularFileUpload'
   ])
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('SessionInjector');
+  })
   .config(['$routeProvider', 'cfpLoadingBarProvider', function ($routeProvider, cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 

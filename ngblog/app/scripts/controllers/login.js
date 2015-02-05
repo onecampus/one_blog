@@ -21,8 +21,11 @@ angular.module('ngblogApp')
       AuthService.login(_loginUser).
         success(function(data, status, headers, config) {
           console.log(data);
-          if(data.auth_token) {
+          if(data.auth_token && data.current_user) {
             alert('登陆成功');
+            AuthService.setCurrentUser(data.current_user);
+            AuthService.setAuthToken(data.auth_token);
+            alert(AuthService.authToken);
           } else if(data.error) {
             alert('用户名或者密码错误, 请重新输入');
           }
