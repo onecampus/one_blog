@@ -22,5 +22,5 @@
   </table>
 </div>
 <div>
-  <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+  <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-xm" ng-change="pageChanged()" boundary-links="true"></pagination>
 </div>
