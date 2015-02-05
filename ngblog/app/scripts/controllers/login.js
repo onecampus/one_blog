@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('LoginCtrl', ['$scope', 'AuthService', function ($scope, AuthService) {
+  .controller('LoginCtrl', ['$scope', 'AuthService', 'SessionService', '$location', function ($scope, AuthService, SessionService, $location) {
     $scope.user = {
       email: '',
       password: '',
@@ -23,9 +23,10 @@ angular.module('ngblogApp')
           console.log(data);
           if(data.auth_token && data.current_user) {
             alert('登陆成功');
-            AuthService.setCurrentUser(data.current_user);
-            AuthService.setAuthToken(data.auth_token);
-            alert(AuthService.authToken);
+            SessionService.setCurrentUser(data.current_user);
+            SessionService.setAuthToken(data.auth_token);
+            $location.path(SessionService.backUrl || '/');
+            SessionService.setBackUrl(null);
           } else if(data.error) {
             alert('用户名或者密码错误, 请重新输入');
           }

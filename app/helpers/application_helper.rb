@@ -39,7 +39,8 @@ module ApplicationHelper
       elsif request.headers['Authorization'].present?
         request.headers['Authorization'].split(' ').last
       else
-        fail NoAuthTokenError
+        # fail NoAuthTokenError
+        nil
       end
     end
   end

@@ -4,7 +4,7 @@
 # License:: Distributes under the same terms as Ruby
 # Api of posts
 class Api::V1::PostsController < ApplicationController
-  skip_before_action :authenticate_request, only: [:create, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index, :post_tags, :show, :ajax_img_upload, :search]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index

@@ -12,6 +12,7 @@ angular.module('ngblogApp')
     var sessionService = {
       currentUser: null,
       authToken: null,
+      backUrl: null,
 
       // 是否登陆
       isLoggedIn: function() {
@@ -31,6 +32,14 @@ angular.module('ngblogApp')
       getAuthToken: function() {
         return sessionService.authToken;
       },
+
+      setBackUrl: function(url) {
+        sessionService.backUrl = url;
+      },
+
+      getBackUrl: function() {
+        return sessionService.backUrl;
+      }
     };
 
     return sessionService;
