@@ -49,7 +49,7 @@
   </div>
 </div>
 <div class="posts-pagination">
-  <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+  <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-xm" ng-change="pageChanged()" boundary-links="true"></pagination>
 </div>
 <div class="scorll-box">
   <a ng-click="scrollTop()"><img src="/images/scroll-top.png"></a>
