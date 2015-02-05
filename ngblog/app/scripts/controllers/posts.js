@@ -27,7 +27,6 @@ angular.module('ngblogApp')
       postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
       success(function(data, status, headers, config) {
         $scope.posts = data.data.posts;
-        $scope.bigTotalItems = data.data.total_count;
       }).
       error(function(data, status, headers, config) {
       });
