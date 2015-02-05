@@ -77,27 +77,54 @@
 .right-side .well ul li {
   display: inline-block;
 }
+
+.left-box {
+  position: fixed;
+}
+
+.left-box .nav-item {
+  margin-top: 20px;
+}
+
+.left-box .user-out {
+  margin-top: 280px;
+}
+
+.right-box {
+  float: right;
+}
+
+.right-title {
+  font-size: 26px;
+  color: #fd4e3e;
+  padding: 0 0 0 50px;
+}
+
+.form-horizontal  {
+  margin-top: 50px;
+}
+
+.pull-left {
+  width: auto;
+}
 </style>
-<div class="col-md-1 left-side">
-  <ul>
-    <li><a href="#" style="position: relative;"><img src="/images/yeoman.png" class="img-circle img-responsive"><span class="badge" style="position: absolute; top: 15px; left: 3px; background-color: #fd4e3e; color: #fff;border-radius: 50%;">30</span></a></li>
-    <span>...</span>
-    <li class="nav-acitves"><a href="#"><span class="glyphicon glyphicon-dashboard" style="color: #fd4e3e;"></span>dashboard</a></li>
-    <span>...</span>
-    <li><a href="#"><span class="glyphicon glyphicon-align-justify"></span>articles</a></li>
-    <span>...</span>
-    <li><a href="#"><span class="glyphicon glyphicon-th"></span>settings</a></li>
-  </ul>
-</div>
-<div class="col-md-11 right-side">
-  <div class="well well-sm">
+  <div class="col-md-1 left-side left-box">
     <ul>
-      <li><span class="glyphicon glyphicon-refresh" style="border-radius: 50%;background-color: #fd4e3e; padding: 8px; color: #fff;"></span><button class="btn btn-default" style="border-radius: 15px; background-color: #f0f0f0;margin: 5px;">dashboard</button></li>
-      <li><input type="text" class="form-control pull-right"></li>
+      <li><a href="#" style="position: relative;"><img src="/images/yeoman.png" class="img-circle img-responsive"><span class="badge" style="position: absolute; top: 15px; left: 3px; background-color: #fd4e3e; color: #fff;border-radius: 50%;">30</span></a></li>
+      <li class="nav-acitves nav-item"><a href="#"><span class="glyphicon glyphicon-dashboard" style="color: #fd4e3e;"></span>所有文章</a></li>
+      <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-align-justify"></span>添加文章</a></li>
+      <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-th"></span>添加用户</a></li>
+      <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-th"></span>用户管理</a></li>
+      <li class="user-out"><a href="#"><span class="glyphicon glyphicon-th"></span>退出</a></li>
     </ul>
   </div>
-  <div class="page-header" style="clear: both;">
-    <h1>添加文章</h1>
+<div class="col-md-11 right-side right-box">
+  <div class="well well-sm">
+    <ol class="breadcrumb">
+      <li class="pull-left"><a href="#">Home</a></li>
+      <li class="pull-left"><a href="#">Library</a></li>
+      <li class="active pull-left">添加文章</li>
+    </ol>
   </div>
   <form ng-submit="addPost()" class="form-horizontal col-md-12 add-article">
     <div class="form-group">
