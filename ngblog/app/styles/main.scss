@@ -769,8 +769,8 @@ search_posts.html
   margin-top: 10px;
 }
 
-.login input[type=button]{
-  width: 260px;
+.login button{
+  width: 250px;
   height: 35px;
   background: #fff;
   border: 1px solid #fff;
@@ -784,11 +784,11 @@ search_posts.html
   margin-top: 10px;
 }
 
-.login input[type=button]:hover{
+.login button:hover{
   opacity: 0.8;
 }
 
-.login input[type=button]:active{
+.login button:active{
   opacity: 0.6;
 }
 
@@ -802,7 +802,7 @@ search_posts.html
   border: 1px solid rgba(255,255,255,0.9);
 }
 
-.login input[type=button]:focus{
+.login button:focus{
   outline: none;
 }
 
