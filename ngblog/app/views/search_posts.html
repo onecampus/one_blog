@@ -10,12 +10,15 @@
   </div>
   <div class="posts-search">
     <div>
-      <input type="text" placeholder="SEACH" ng-model="keyword">
+      <input type="text" placeholder="SEACH" ng-model="keyword" ng-enter="search()">
       <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
     </div>
   </div>
 </div>
-<div class="posts-box">
+<div class="search-message" ng-hide="messageMark">
+  <span>没有搜到相关文章</span>
+</div>
+<div class="search-posts-box">
   <div class="posts">
     <div class="post-item" ng-repeat="p in posts">
       <a ng-href="#/posts/{{p.id}}">
@@ -38,19 +41,4 @@
       </a>
     </div>
   </div>
-  <div class="company-box">
-    <div class="company">
-      <img src="images/two-code.jpg">
-      <p><a>学壹传媒有限公司</a></p>
-      <p><a>联系电话</a></p>
-      <p><a>微信</a></p>
-      <p><a>邮箱</a></p>
-    </div>
-  </div>
-</div>
-<div class="posts-pagination">
-  <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-xm" ng-change="pageChanged()" boundary-links="true"></pagination>
-</div>
-<div class="scorll-box">
-  <a ng-click="scrollTop()"><img src="/images/scroll-top.png"></a>
 </div>

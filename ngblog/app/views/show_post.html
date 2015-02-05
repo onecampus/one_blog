@@ -10,8 +10,8 @@
   </div>
   <div class="posts-search">
     <div>
-      <input type="text" placeholder="SEACH">
-      <a>
+      <input type="text" placeholder="SEACH" ng-model="keyword">
+      <a ng-href="/#/search/posts?keyword={{keyword}}">
         <img src="/images/search-ico.png">
       </a>
     </div>

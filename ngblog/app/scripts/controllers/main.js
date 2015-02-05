@@ -18,7 +18,9 @@ angular.module('ngblogApp')
       error(function(data, status, headers, config) {
         console.log(data);
       });
-
+    /*
+    图片轮转
+    */
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function() {

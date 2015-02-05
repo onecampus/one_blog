@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="nav-search">
-    <input type="text" placeholder="SEACH">
-    <a><img src="/images/search-ico.png"></a>
+    <input type="text" placeholder="SEACH" ng-model="keyword">
+    <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
   </div>
 </div>
 
