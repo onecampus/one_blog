@@ -39,7 +39,8 @@ angular
       var _needAdmin = [
         'views/admin_new_post.html',
         'views/admin_edit_post.html',
-        'views/admin_posts.html'
+        'views/admin_posts.html',
+        'views/admin_index.html'
       ];
       if(_.include(_needAdmin, next.templateUrl)) {
         console.log(SessionService.authToken);
@@ -80,17 +81,15 @@ angular
         templateUrl: 'views/show_post.html',
         controller: 'PostShowCtrl'
       })
-      .when('/admin/index', {
-        templateUrl: 'views/admin_index.html',
-        controller: 'AdminIndexCtrl'
-      })
       .when('/admin/posts', {
         templateUrl: 'views/admin_posts.html',
-        controller: 'AdminPostsCtrl'
+        controller: 'AdminPostsCtrl',
+        reloadOnSearch: false
       })
       .when('/admin/posts/new', {
         templateUrl: 'views/admin_new_post.html',
-        controller: 'PostNewCtrl'
+        controller: 'PostNewCtrl',
+        reloadOnSearch: false
       })
       .when('/admin/posts/:postId', {
         templateUrl: 'views/admin_edit_post.html',

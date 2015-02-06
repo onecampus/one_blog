@@ -18,8 +18,8 @@ angular.module('ngblogApp')
 
     // 退出
     authService.logout = function() {
-      SessionService.setCurrentUser = null;
-      SessionService.setAuthToken = null;
+      SessionService.setCurrentUser(null);
+      SessionService.setAuthToken(null);
       localStorageService.remove("currentUser");
       localStorageService.remove("authToken");
     };

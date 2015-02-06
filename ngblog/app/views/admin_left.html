@@ -50,8 +50,8 @@
 <div class="col-md-1 left-side left-box">
   <ul>
     <li><a href="#" style="position: relative;"><img src="/images/yeoman.png" class="img-circle img-responsive"><span class="badge" style="position: absolute; top: 15px; left: 3px; background-color: #fd4e3e; color: #fff;border-radius: 50%;">30</span></a></li>
-    <li class="nav-acitves nav-item"><a href="#"><span class="glyphicon glyphicon-book" style="color: #fd4e3e;"></span>所有文章</a></li>
-    <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-file"></span>添加文章</a></li>
+    <li class="nav-item ng-class: {true: 'nav-acitves nav-item', false: 'nav-item'}[postsActive];"><a href="/#/admin/posts"><span class="glyphicon glyphicon-book" style="color: #fd4e3e;"></span>所有文章</a></li>
+    <li class="nav-item ng-class: {true: 'nav-acitves nav-item', false: 'nav-item'}[newpostActive];"><a href="/#/admin/posts/new"><span class="glyphicon glyphicon-file"></span>添加文章</a></li>
     <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-user"></span>添加用户</a></li>
     <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-th"></span>用户管理</a></li>
     <li class="user-out"><a ng-click="userOut()" href="javascript:void(0)"><span class="glyphicon glyphicon-share-alt"></span>退出</a></li>
