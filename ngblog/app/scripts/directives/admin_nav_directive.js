@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('ngblogApp')
-.directive('myDialog', function() {
+.directive('navMenu', function() {
   return {
     restrict: 'E',
-    transclude: true,
     scope: {
       'close': '&onClose'
     },
