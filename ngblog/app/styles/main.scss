@@ -827,3 +827,23 @@ ul, li {
   list-style: none;
 }
 /* admin new post css end */
+
+/* admin breadcrumbs css start */
+
+.right-box {
+  float: right;
+  background-color: #fff;
+
+  .well {
+    margin: 0 -15px;
+    border-radius: 0;
+
+    ul li {
+      display: inline-block;
+    }
+    .pull-left {
+      width: auto;
+    }
+  }
+}
+/* admin breadcrumbs css end */

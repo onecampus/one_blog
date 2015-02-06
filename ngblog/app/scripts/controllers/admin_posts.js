@@ -9,6 +9,17 @@
  */
 angular.module('ngblogApp')
   .controller('AdminPostsCtrl', ['$scope', '$log', 'postsService', function($scope, $log, postsService) {
+    $scope.crumbs = [
+      {
+        anchor: '/#admin/posts/new',
+        menu: '添加文章'
+      },
+      {
+        anchor: '/#admin/posts/23/edit',
+        menu: '编辑文章'
+      }
+    ];
+
     $scope.posts = [];
 
     $scope.itemsPerPage = 20;
