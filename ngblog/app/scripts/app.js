@@ -14,7 +14,6 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngMessages',
-    'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
