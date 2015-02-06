@@ -32,28 +32,28 @@ angular.module('ngblogApp')
       error(function(data, status, headers, config) {
         console.log(data);
       });
-      $log.log('Page changed to: ' + $scope.currentPage);
+      $log.log('Page changed to: ' + $scope.bigCurrentPage);
     };
 
     $scope.delPost = function(id) {
-			console.log(this);
-			if(confirm('确定删除吗')) {
-				postsService.delPost(id).
-					success(function(data, status, headers, config) {
-						if (data.status === 'destroied') {
-							for (var i = $scope.posts.length - 1; i >= 0; i--) {
-								if ($scope.posts[i].id == id) {
-									$scope.posts.splice(i, 1);
-								}
-							}
-							alert('删除成功');
-						} else {
-							alert('删除失败');
-						}
-					}).
-					error(function(data, status, headers, config) {
-						console.log(data);
-					});
-			}
+      console.log(this);
+      if(confirm('确定删除吗')) {
+        postsService.delPost(id).
+          success(function(data, status, headers, config) {
+            if (data.status === 'destroied') {
+              for (var i = $scope.posts.length - 1; i >= 0; i--) {
+                if ($scope.posts[i].id == id) {
+                  $scope.posts.splice(i, 1);
+                }
+              }
+              alert('删除成功');
+            } else {
+              alert('删除失败');
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log(data);
+          });
+      }
     };
   }]);

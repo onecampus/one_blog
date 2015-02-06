@@ -11,7 +11,7 @@ angular.module('ngblogApp')
   .factory('SessionInjector', ['SessionService', '$injector', '$window', function(SessionService, $injector, $window) {
     var sessionInjector = {
       request: function(config) {
-        if (SessionService.currentUser !== null) {
+        if (SessionService.authToken !== null && SessionService.authToken !== undefined) {
           $injector.get('$http').defaults.headers.common.Authorization = SessionService.authToken;
         }
         return config;
