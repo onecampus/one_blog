@@ -8,7 +8,7 @@
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')
-  .factory('AuthService', ['$http', 'SessionService', function ($http, SessionService) {
+  .factory('AuthService', ['$http', 'SessionService', 'localStorageService', function ($http, SessionService, localStorageService) {
     var authService = {};
 
     // 登陆, 返回authToken, expirationTime
@@ -20,6 +20,8 @@ angular.module('ngblogApp')
     authService.logout = function() {
       SessionService.setCurrentUser = null;
       SessionService.setAuthToken = null;
+      localStorageService.remove("currentUser");
+      localStorageService.remove("authToken");
     };
 
     return authService;

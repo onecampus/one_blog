@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('PostNewCtrl', ['$scope', '$http', 'postsService', '$location', 'FileUploader', function($scope, $http, postsService, $location, FileUploader) {
+  .controller('PostNewCtrl', ['$scope', '$http', 'postsService', '$location', 'FileUploader', 'AuthService', '$window', function($scope, $http, postsService, $location, FileUploader, AuthService, $window) {
     $scope.isCollapsed = true;
     $scope.open = function($event) {
       $event.preventDefault();
@@ -77,4 +77,9 @@ angular.module('ngblogApp')
           console.log(data);
         });
     };
+
+    $scope.userOut = function() {
+      AuthService.logout();
+      $window.location.href = '/';
+    }
   }]);
