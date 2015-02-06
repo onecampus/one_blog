@@ -4,9 +4,10 @@ angular.module('ngblogApp')
 .directive('navMenu', function() {
   return {
     restrict: 'E',
+    replace: true,
     scope: {
       'close': '&onClose'
     },
-    templateUrl: 'views/admin_left.html'
+    templateUrl: 'views/directives/nav.html'
   };
 });
