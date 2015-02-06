@@ -9,6 +9,16 @@
  */
 angular.module('ngblogApp')
   .controller('PostNewCtrl', ['$scope', '$http', 'postsService', '$location', 'FileUploader', 'AuthService', '$window', function($scope, $http, postsService, $location, FileUploader, AuthService, $window) {
+    $scope.crumbs = [
+      {
+        anchor: '/#admin/posts',
+        menu: '所有文章'
+      },
+      {
+        anchor: '/#admin/posts/new',
+        menu: '添加文章'
+      }
+    ];
     $scope.isCollapsed = true;
     $scope.open = function($event) {
       $event.preventDefault();
