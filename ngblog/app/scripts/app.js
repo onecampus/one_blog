@@ -80,6 +80,10 @@ angular
         templateUrl: 'views/show_post.html',
         controller: 'PostShowCtrl'
       })
+      .when('/admin/index', {
+        templateUrl: 'views/admin_index.html',
+        controller: 'AdminIndexCtrl'
+      })
       .when('/admin/posts', {
         templateUrl: 'views/admin_posts.html',
         controller: 'AdminPostsCtrl'
