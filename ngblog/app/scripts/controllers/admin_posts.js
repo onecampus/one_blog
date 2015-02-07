@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('AdminPostsCtrl', ['$scope', '$log', 'postsService', 'AuthService', '$window', function($scope, $log, postsService, AuthService, $window) {
+  .controller('AdminPostsCtrl', ['$scope', '$log', 'postsService', 'AuthService', '$window', 'adminNavService', function($scope, $log, postsService, AuthService, $window, adminNavService) {
     $scope.crumbs = [
       {
         anchor: '/#admin/posts/new',
@@ -77,7 +77,6 @@ angular.module('ngblogApp')
       }
     };
     $scope.logout = function(){
-      AuthService.logout();
-      $window.location.href = '/';
+      adminNavService.logout();
     };
   }]);
