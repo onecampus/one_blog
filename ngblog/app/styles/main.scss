@@ -359,6 +359,10 @@ a:hover,a:focus {
   z-index: 2;
   padding: 10px 5%;
   color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+
 }
 
 
@@ -374,7 +378,7 @@ a:hover,a:focus {
 
 .posts-box .post-inf {
   float: left;
-  height: 100%;
+  height: 98%;
   padding: 70px 0 0 10px;
   overflow: hidden;
   width: 60%;
@@ -460,7 +464,6 @@ show_post.html
 .show-posts-box .post-title {
   position: absolute;
   width: 100%;
-  height: 55px;
   background-image: url('/images/post-title.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
