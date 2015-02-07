@@ -10,6 +10,6 @@
 angular.module('ngblogApp')
   .controller('BaseCtrl', ['$scope', '$window', function ($scope, $window) {
     $scope.search = function() {
-      $window.location.href = '/#/search/posts?keyword=' + $scope.keyword;
+      $window.location.href = '/search/posts?keyword=' + $scope.keyword;
     };
   }]);
