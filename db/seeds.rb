@@ -17,7 +17,7 @@ user = User.new(
   expiration_time: (DateTime.now + 10.days)
 )
 user.save!
-
+=begin
 1.upto(50).each do |i|
   post = Post.new(
     title: "title#{i}",
@@ -35,7 +35,7 @@ user.save!
 	)
 	post.save!
 end
-
+=end
 time_end = Time.now
 time = time_end - time_start
 puts time.to_s

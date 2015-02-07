@@ -2,14 +2,16 @@
 
 /**
  * @ngdoc function
- * @name ngblogApp.controller:BaseController
+ * @name ngblogApp.controller:BaseCtrl
  * @description
- * # MainCtrl
+ * # BaseCtrl
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('BaseCtrl', ['$scope', '$window', function ($scope, $window) {
+  .controller('BaseCtrl', ['$scope', '$location', function($scope, $location) {
     $scope.search = function() {
-      $window.location.href = '/search/posts?keyword=' + $scope.keyword;
+      $location.path('/search/posts');
+      $location.search('keyword=' + $scope.keyword);
+      $location.replace();
     };
   }]);

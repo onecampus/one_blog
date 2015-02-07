@@ -2,30 +2,26 @@
 
 /**
  * @ngdoc function
- * @name ngblogApp.controller:MainCtrl
+ * @name ngblogApp.controller:PostNewCtrl
  * @description
- * # MainCtrl
+ * # PostNewCtrl
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
   .controller('PostNewCtrl', ['$scope', '$http', 'postsService', '$location', 'FileUploader', 'AuthService', '$window', 'adminNavService', function($scope, $http, postsService, $location, FileUploader, AuthService, $window, adminNavService) {
-    $scope.crumbs = [
-      {
-        anchor: '/#admin/posts',
-        menu: '所有文章'
-      },
-      {
-        anchor: '/#admin/posts/new',
-        menu: '添加文章'
-      }
-    ];
-    $scope.navacitves =
-      {
-        postsActive: false,
-        newpostActive: true,
-        adduserActive: false,
-        usersActive: false
-      };
+    $scope.crumbs = [{
+      anchor: '/#admin/posts',
+      menu: '所有文章'
+    }, {
+      anchor: '/#admin/posts/new',
+      menu: '添加文章'
+    }];
+    $scope.navacitves = {
+      postsActive: false,
+      newpostActive: true,
+      adduserActive: false,
+      usersActive: false
+    };
     $scope.isCollapsed = true;
     $scope.open = function($event) {
       $event.preventDefault();
@@ -37,7 +33,7 @@ angular.module('ngblogApp')
     $scope.post.markdown = '';
     $scope.markdown = function(ngModel) {
       marked.setOptions({
-        highlight: function (code) {
+        highlight: function(code) {
           return hljs.highlightAuto(code).value;
         }
       });
@@ -49,8 +45,7 @@ angular.module('ngblogApp')
       url: '/api/v1/posts/image/uploader',
       autoUpload: true,
       onSuccessItem: function(item, response) {
-        console.log(response);
-        if(response.state === 'success') {
+        if (response.state === 'success') {
           $scope.post.img = response.url;
         } else {
           alert('上传错误');
@@ -66,7 +61,7 @@ angular.module('ngblogApp')
     $scope.addPost = function() {
       var tagsObj = $scope.post.tags;
       var tagList = [];
-      for(var i = 0,len = tagsObj.length; i < len; i++) {
+      for (var i = 0, len = tagsObj.length; i < len; i++) {
         tagList.push(tagsObj[i].text);
       }
       /* jshint camelcase: false */
@@ -83,19 +78,15 @@ angular.module('ngblogApp')
         tag_list: tagList
       };
       postsService.createPost(_post).
-        success(function(data) {
-          console.log(data);
-          if (data.status === 'created') {
-            $location.path('/admin/posts').replace();
-          } else {
-            alert('创建失败');
-          }
-        }).
-        error(function(data) {
-          console.log(data);
-        });
+      success(function(data) {
+        if (data.status === 'created') {
+          $location.path('/admin/posts').replace();
+        } else {
+          alert('创建失败');
+        }
+      });
     };
-    $scope.logout = function(){
+    $scope.logout = function() {
       adminNavService.logout();
     };
   }]);

@@ -20,8 +20,7 @@ angular
     'ui.bootstrap',
     'ngTagsInput',
     'angularFileUpload',
-    'LocalStorageModule',
-    'angularUtils.directives.dirDisqus'
+    'LocalStorageModule'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
@@ -35,20 +34,16 @@ angular
   })
   .run(function($rootScope, $location, SessionService) {
     $rootScope.$on('$routeChangeStart', function(event, next) {
-      console.log(next);
       var _needAdmin = [
         'views/admin_new_post.html',
         'views/admin_edit_post.html',
-        'views/admin_posts.html',
-        'views/admin_index.html'
+        'views/admin_posts.html'
       ];
       if(_.include(_needAdmin, next.templateUrl)) {
-        console.log(SessionService.authToken);
         if(SessionService.authToken === null) {
           if(next.templateUrl === 'views/login.html') {
             // now is in the login page.
           } else {
-            console.log($location.$$path);
             SessionService.setBackUrl($location.$$path);
             $location.path('/login');
           }
@@ -100,6 +95,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-    // $locationProvider.html5Mode(true);
     $locationProvider.html5Mode(true);
   }]);

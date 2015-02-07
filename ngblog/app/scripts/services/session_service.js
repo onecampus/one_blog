@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc service
- * @name ngblogApp.AuthService
+ * @name ngblogApp.SessionService
  * @description
- * # postService
+ * # SessionService
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')
   .factory('SessionService', ['localStorageService', function(localStorageService) {
-    if(!localStorageService.isSupported) {
+    if (!localStorageService.isSupported) {
       alert('不支持localStorage');
     }
     var sessionService = {

@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name ngblogApp.controller:MainCtrl
+ * @name ngblogApp.controller:PostsCtrl
  * @description
- * # MainCtrl
+ * # PostsCtrl
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
@@ -16,26 +16,22 @@ angular.module('ngblogApp')
     $scope.maxSize = 8;
     postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
       /* jshint camelcase: false */
-      success(function(data) {
-        $scope.posts = data.data.posts;
-        $scope.bigTotalItems = data.data.total_count;
-      }).
-      error(function(data) {
-        console.log( data );
-      });
+    success(function(data) {
+      $scope.posts = data.data.posts;
+      $scope.bigTotalItems = data.data.total_count;
+    });
 
     $scope.pageChanged = function() {
       postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
       success(function(data) {
         $scope.posts = data.data.posts;
-      }).
-      error(function(data) {
-        console.log( data );
       });
-      };
+    };
     $scope.scrollTop = function() {
       $anchorScroll();
     };
 
-    $controller('BaseCtrl', {$scope: $scope});
+    $controller('BaseCtrl', {
+      $scope: $scope
+    });
   }]);
