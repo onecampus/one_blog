@@ -26,6 +26,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'did_you_mean'
   gem 'awesome_print', require: false
+
+  gem 'capistrano', '~> 3.3.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails-collection'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
