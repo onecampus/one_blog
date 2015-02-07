@@ -19,8 +19,9 @@ angular.module('ngblogApp')
       };
       console.log(_loginUser);
       AuthService.login(_loginUser).
-        success(function(data, status, headers, config) {
+        success(function(data) {
           console.log(data);
+          /*jshint camelcase: false */
           if(data.auth_token && data.current_user) {
             alert('登陆成功');
             SessionService.setCurrentUser(data.current_user);
@@ -31,7 +32,7 @@ angular.module('ngblogApp')
             alert('用户名或者密码错误, 请重新输入');
           }
         }).
-        error(function(data, status, headers, config) {
+        error(function(data) {
           console.log(data);
         });
     };
