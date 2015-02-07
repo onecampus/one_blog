@@ -4,7 +4,7 @@
   </div>
   <div class="header-nav">
     <div class="nav-blog">
-      <a ng-href="/#/posts">BLOG</a>
+      <a ng-href="/posts">BLOG</a>
     </div>
     <div class="nav-picture">
       <a>PHOTO</a>
@@ -12,7 +12,7 @@
   </div>
   <div class="nav-search">
     <input type="text" placeholder="SEACH" ng-model="keyword" ng-enter="search()">
-    <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
+    <a ng-href="/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
   </div>
 </div>
 
@@ -20,7 +20,7 @@
   <div class="main-post">
     <ul>
       <li ng-repeat="p in posts">
-        <div class="main-post-title"><a href="posts/{{p.id}}">{{p.title}}</a></div>
+        <div class="main-post-title"><a href="/posts/{{p.id}}">{{p.title}}</a></div>
         <div class="main-post-inf">
           <img src="/images/post-ico.png">
           <span>(<span>500</span>)</span>

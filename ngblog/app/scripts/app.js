@@ -62,7 +62,6 @@ angular
     var _isNotMobile = (function() {
       return !SmartPhone.isAny();
     })();
-    //$locationProvider.hashPrefix('!');
     $routeProvider
       .when('/', {
         templateUrl: (_isNotMobile) ? 'views/main.html' : 'views/mobile/main.html',
@@ -101,5 +100,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    // $locationProvider.html5Mode(true);
     $locationProvider.html5Mode(true);
   }]);
