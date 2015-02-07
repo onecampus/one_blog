@@ -186,7 +186,7 @@ module.exports = function (grunt) {
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*',
-            '!<%= yeoman.dist %>/uploads/{,*/}*'  // Unclean public/uploads
+            '!<%= yeoman.dist %>/uploads/**'  // Unclean public/uploads
           ]
         }]
       },
@@ -390,7 +390,7 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*',
-            'vendor/{,*/}*.*'  // Add vendor copy
+            'vendor/**'  // Add vendor copy
           ]
         }, {
           expand: true,
