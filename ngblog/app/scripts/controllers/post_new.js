@@ -48,7 +48,7 @@ angular.module('ngblogApp')
     $scope.uploader = new FileUploader({
       url: '/api/v1/posts/image/uploader',
       autoUpload: true,
-      onSuccessItem: function(item, response, status, headers) {
+      onSuccessItem: function(item, response) {
         console.log(response);
         if(response.state === 'success') {
           $scope.post.img = response.url;
@@ -59,7 +59,7 @@ angular.module('ngblogApp')
     });
 
     $scope.tags = [];
-    $scope.loadTags = function(query) {
+    $scope.loadTags = function() {
       // return $http.get('/api/v1/post/tags?query=' + query);
     };
 
@@ -69,6 +69,7 @@ angular.module('ngblogApp')
       for(var i = 0,len = tagsObj.length; i < len; i++) {
         tagList.push(tagsObj[i].text);
       }
+      /* jshint camelcase: false */
       var _post = {
         title: $scope.post.title,
         summary: $scope.post.summary,
@@ -82,7 +83,7 @@ angular.module('ngblogApp')
         tag_list: tagList
       };
       postsService.createPost(_post).
-        success(function(data, status, headers, config) {
+        success(function(data) {
           console.log(data);
           if (data.status === 'created') {
             $location.path('/admin/posts').replace();
@@ -90,12 +91,12 @@ angular.module('ngblogApp')
             alert('创建失败');
           }
         }).
-        error(function(data, status, headers, config) {
+        error(function(data) {
           console.log(data);
         });
     };
     $scope.logout = function(){
       AuthService.logout();
       $window.location.href = '/';
-    }
+    };
   }]);

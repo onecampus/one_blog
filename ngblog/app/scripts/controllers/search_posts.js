@@ -12,7 +12,7 @@ angular.module('ngblogApp')
     $scope.keyword = $routeParams.keyword;
     $scope.messageMark = true;
     postsService.searchPost($scope.keyword).
-      success(function(data, status, headers, config) {
+      success(function(data) {
         $scope.posts = data.posts;
         if($scope.posts === null || $scope.posts === '' || $scope.posts.length === 0) {
           $scope.messageMark = false;
@@ -21,7 +21,7 @@ angular.module('ngblogApp')
           $scope.messageMark = true;
         }
       }).
-      error(function(data, status, headers, config) {
+      error(function(data) {
         console.log(data);
       });
     $controller('BaseCtrl', {$scope: $scope});

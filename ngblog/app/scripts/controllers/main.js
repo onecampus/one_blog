@@ -12,10 +12,10 @@ angular.module('ngblogApp')
     $scope.posts = [];
 
     postsService.getPosts(1, 10, 0).
-      success(function(data, status, headers, config) {
+      success(function(data) {
         $scope.posts = data.data.posts;
       }).
-      error(function(data, status, headers, config) {
+      error(function(data) {
         console.log(data);
       });
     /*

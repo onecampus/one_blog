@@ -35,20 +35,21 @@ angular.module('ngblogApp')
     $scope.bigCurrentPage = 1;
     $scope.maxSize = 8;
     postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
-      success(function(data, status, headers, config) {
+      /* jshint camelcase: false */
+      success(function(data) {
         $scope.posts = data.data.posts;
         $scope.bigTotalItems = data.data.total_count;
       }).
-      error(function(data, status, headers, config) {
+      error(function(data) {
         console.log(data);
       });
 
     $scope.pageChanged = function() {
       postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
-      success(function(data, status, headers, config) {
+      success(function(data) {
         $scope.posts = data.data.posts;
       }).
-      error(function(data, status, headers, config) {
+      error(function(data) {
         console.log(data);
       });
       $log.log('Page changed to: ' + $scope.bigCurrentPage);
@@ -58,7 +59,7 @@ angular.module('ngblogApp')
       console.log(this);
       if(confirm('确定删除吗')) {
         postsService.delPost(id).
-          success(function(data, status, headers, config) {
+          success(function(data) {
             if (data.status === 'destroied') {
               for (var i = $scope.posts.length - 1; i >= 0; i--) {
                 if ($scope.posts[i].id == id) {
@@ -70,7 +71,7 @@ angular.module('ngblogApp')
               alert('删除失败');
             }
           }).
-          error(function(data, status, headers, config) {
+          error(function(data) {
             console.log(data);
           });
       }
@@ -78,5 +79,5 @@ angular.module('ngblogApp')
     $scope.logout = function(){
       AuthService.logout();
       $window.location.href = '/';
-    }
+    };
   }]);

@@ -27,12 +27,13 @@ angular.module('ngblogApp')
       $scope.opened = true;
     };
     postsService.getPostById($routeParams.postId).
-      success(function(data, status, headers, config) {
+    /* jshint camelcase: false */
+      success(function(data) {
         $scope.post = data.post;
 
-        $scope.post.is_recommend = $scope.post.is_recommend == 1 ? true : false;
-        $scope.post.is_published = $scope.post.is_published == 1 ? true : false;
-        $scope.post.can_comment = $scope.post.can_comment == 1 ? true : false;
+        $scope.post.is_recommend = $scope.post.is_recommend === 1 ? true : false;
+        $scope.post.is_published = $scope.post.is_published === 1 ? true : false;
+        $scope.post.can_comment = $scope.post.can_comment === 1 ? true : false;
 
         $scope.markdown = function(ngModel) {
           marked.setOptions({
@@ -48,12 +49,12 @@ angular.module('ngblogApp')
         for(var i = 0, len = _tagList.length; i < len; i++) {
           var _tagObj = {
             text: _tagList[i].name
-          }
+          };
           _tags.push(_tagObj);
         }
         $scope.post.tags = _tags;
       }).
-      error(function(data, status, headers, config) {
+      error(function(datag) {
         console.log(data);
       });
 
@@ -65,6 +66,7 @@ angular.module('ngblogApp')
         console.log(tagsObj[i]);
         tagList.push(tagsObj[i].text);
       }
+      /* jshint camelcase: false */
       var post = {
         id: id,
         title: $scope.post.title,
@@ -79,7 +81,7 @@ angular.module('ngblogApp')
         tag_list: tagList
       };
       postsService.updatePost(post).
-        success(function(data, status, headers, config) {
+        success(function(data) {
           console.log(data);
           if (data.status === 'updated') {
             $location.path('/admin/posts').replace();
@@ -87,7 +89,7 @@ angular.module('ngblogApp')
             alert('更新失败');
           }
         }).
-        error(function(data, status, headers, config) {
+        error(function(data) {
           console.log(data);
         });
     };
