@@ -56,13 +56,13 @@ angular
       }
     });
   })
-  .config(['$routeProvider', 'cfpLoadingBarProvider', function($routeProvider, cfpLoadingBarProvider) {
+  .config(['$routeProvider', 'cfpLoadingBarProvider', '$locationProvider', function($routeProvider, cfpLoadingBarProvider, $locationProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 
     var _isNotMobile = (function() {
       return !SmartPhone.isAny();
     })();
-
+    //$locationProvider.hashPrefix('!');
     $routeProvider
       .when('/', {
         templateUrl: (_isNotMobile) ? 'views/main.html' : 'views/mobile/main.html',
@@ -101,4 +101,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    $locationProvider.html5Mode(true);
   }]);

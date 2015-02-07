@@ -12,9 +12,8 @@
         <div class="post-content">
           <p ng-bind-html="post.content"></p>
         </div>
-        <dir-disqus disqus-shortname="thecampusblog"
-                 disqus-identifier="{{ identifier }}"
-                 disqus-url="{{ url }}">
+        <dir-disqus disqus-shortname="thecampusblog" disqus-identifier="{{ identifier }}"
+          disqus-url="{{ url }}">
         </dir-disqus>
       </div>
       </div>
@@ -42,7 +41,7 @@
       <div class="history-posts-list">
         <ul>
           <li ng-repeat="ps in posts">
-            <a ng-href="/#/posts/{{ps.id}}">{{ps.title}}</a>
+            <a ng-href="/posts/{{ps.id}}">{{ps.title}}</a>
           </li>
         </ul>
       </div>
