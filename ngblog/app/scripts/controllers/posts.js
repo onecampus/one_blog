@@ -14,7 +14,6 @@ angular.module('ngblogApp')
     $scope.bigTotalItems = null;
     $scope.bigCurrentPage = 1;
     $scope.maxSize = 8;
-    $location.hash('top');
     postsService.getPosts($scope.bigCurrentPage, $scope.itemsPerPage, 0).
       /* jshint camelcase: false */
       success(function(data) {
@@ -33,7 +32,6 @@ angular.module('ngblogApp')
       error(function(data) {
         console.log( data );
       });
-      $log.log('Page changed to: ' + $scope.currentPage);
       };
     $scope.scrollTop = function() {
       $anchorScroll();
