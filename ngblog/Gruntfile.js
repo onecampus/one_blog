@@ -102,7 +102,7 @@ module.exports = function (grunt) {
             ];
           }*/
           // https://github.com/yeoman/generator-angular/issues/823
-          middleware: function (connect, options) {
+          middleware: function (connect) {
             var middlewares = [];
 
             //if (!Array.isArray(options.base)) {

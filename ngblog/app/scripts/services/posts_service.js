@@ -8,7 +8,7 @@
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')
-  .factory('postsService', ['$http', '$q', function($http, $q) {
+  .factory('postsService', ['$http', function($http) {
     // $http.defaults.headers.common.Authorization = 'Basic qQ_MU5nDjhSPxFTM1TWhyg';
     return {
       getPosts: function(page, perPage, offset) {
