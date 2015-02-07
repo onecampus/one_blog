@@ -62,7 +62,7 @@ angular.module('ngblogApp')
           success(function(data) {
             if (data.status === 'destroied') {
               for (var i = $scope.posts.length - 1; i >= 0; i--) {
-                if ($scope.posts[i].id == id) {
+                if ($scope.posts[i].id === id) {
                   $scope.posts.splice(i, 1);
                 }
               }

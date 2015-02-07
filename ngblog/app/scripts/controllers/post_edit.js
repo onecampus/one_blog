@@ -54,7 +54,7 @@ angular.module('ngblogApp')
         }
         $scope.post.tags = _tags;
       }).
-      error(function(datag) {
+      error(function(data) {
         console.log(data);
       });
 
@@ -97,7 +97,7 @@ angular.module('ngblogApp')
     $scope.uploader = new FileUploader({
       url: '/api/v1/posts/image/uploader',
       autoUpload: true,
-      onSuccessItem: function(item, response, status, headers) {
+      onSuccessItem: function(item, response) {
         console.log(response);
         if(response.state === 'success') {
           $scope.post.img = response.url;

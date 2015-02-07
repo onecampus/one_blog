@@ -22,6 +22,7 @@ angular.module('ngblogApp')
         $scope.bigTotalItems = data.data.total_count;
       }).
       error(function(data) {
+        console.log( data );
       });
 
     $scope.pageChanged = function() {
@@ -30,6 +31,7 @@ angular.module('ngblogApp')
         $scope.posts = data.data.posts;
       }).
       error(function(data) {
+        console.log( data );
       });
       $log.log('Page changed to: ' + $scope.currentPage);
       };
