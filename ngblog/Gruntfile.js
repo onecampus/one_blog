@@ -377,6 +377,12 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      nondigestimages: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/images',
+        src: '{,*/}*',
+        dest: '<%= yeoman.dist %>/images/'
+      },
       dist: {
         files: [{
           expand: true,
@@ -480,7 +486,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'copy:nondigestimages'
   ]);
 
   grunt.registerTask('default', [

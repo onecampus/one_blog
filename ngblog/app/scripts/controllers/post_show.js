@@ -9,6 +9,7 @@
  */
 angular.module('ngblogApp')
   .controller('PostShowCtrl', ['$scope', '$log', 'postsService', '$routeParams', '$controller', function($scope, $log, postsService, $routeParams, $controller) {
+
     $scope.post = null;
     $scope.postimg = null;
     $scope.imageMark = false;
