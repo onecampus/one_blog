@@ -907,11 +907,17 @@ ul, li {
 
 .left-box {
   position: fixed;
+  ul {
+    position: relative;
+    height: 100%;
+  }
   .nav-item {
     margin-top: 20px;
   }
   .user-out {
-    margin-top: 280px;
+    position: absolute;
+    left: 0;
+    bottom: 30px;
   }
 }
 
