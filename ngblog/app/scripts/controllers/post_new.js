@@ -19,6 +19,13 @@ angular.module('ngblogApp')
         menu: '添加文章'
       }
     ];
+    $scope.navacitves =
+      {
+        postsActive: false,
+        newpostActive: true,
+        adduserActive: false,
+        usersActive: false
+      };
     $scope.isCollapsed = true;
     $scope.open = function($event) {
       $event.preventDefault();
@@ -87,4 +94,8 @@ angular.module('ngblogApp')
           console.log(data);
         });
     };
+    $scope.logout = function(){
+      AuthService.logout();
+      $window.location.href = '/';
+    }
   }]);
