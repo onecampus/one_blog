@@ -18,6 +18,8 @@ module.exports = function (grunt) {
   // load the proxy.
   grunt.loadNpmTasks('grunt-connect-proxy');
 
+  grunt.loadNpmTasks('grunt-karma');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',

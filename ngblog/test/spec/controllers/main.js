@@ -15,4 +15,9 @@ describe('Controller: MainCtrl', function () {
       $scope: scope
     });
   }));
+
+  it('sorts in descending order by default', function() {
+    var users = ['jack', 'igor', 'jeff'];
+    expect(users).toEqual(['jack', 'igor', 'jeff']);
+  });
 });
