@@ -16,7 +16,7 @@ angular.module('ngblogApp')
       success(function(data) {
         $scope.post = data.post;
         $scope.postimg = data.post.img;
-        if($scope.postimg === null || $scope.postimg === "") {
+        if($scope.postimg === null || $scope.postimg === '') {
           $scope.imageMark = false;
         }
         else {
