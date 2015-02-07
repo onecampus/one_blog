@@ -1,13 +1,9 @@
 'use strict';
 
-angular.module('ngblogApp')
-.directive('navMenu', function() {
+angular.module('ngblogApp').directive('navmenu', function() {
   return {
     restrict: 'E',
     replace: true,
-    scope: {
-      'close': '&onClose'
-    },
     templateUrl: 'views/directives/nav.html'
   };
 });
