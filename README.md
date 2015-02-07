@@ -18,6 +18,29 @@
 5. http://codelife.me/blog/2014/05/17/rails-app-authenticate-by-jwt-between-master-and-agent/
 6. https://ask.auth0.com/c/jwt
 
+### Frontend ###
+
+```ruby
+# install nvm
+
+# install nodejs 0.11
+nvm install 0.11
+nvm use 0.11
+nvm alias default 0.11
+node -v
+npm -v
+# 全局安装yo bower grunt-cli glup(可不安装)
+npm install -g yo bower grunt-cli gulp
+cd ngblog
+npm install  # 安装node包依赖
+bower install  # 安装前端库, 例如jquery, bootstrap, angularjs...
+# https://github.com/drewzboto/grunt-connect-proxy
+# 需要启动两个服务器
+rails server -b 0.0.0.0
+grunt serve
+# auto visit 0.0.0.0:9000
+```
+
 ### TEST ###
 
 ```ruby
@@ -30,6 +53,7 @@ rake test test/models/post_test.rb
 rake test test/controllers/blog_controller_test.rb
 rake test test/controllers/api/v1/users_controller_test.rb
 rake test test/controllers/api/v1/posts_controller_test.rb
+rake test test/controllers/api/v1/auth_controller_test.rb
 ```
 
 ### CMD ###
@@ -46,8 +70,8 @@ rails g serializer post
 rails generate uploader PostImg
 
 
-rails g migration add_token_to_users token:string:index
-rails g migration AddExpirationTimeToUsers expiration_time:datetime
+rails g migration add_auth_token_to_users auth_token:string:index
+rails g migration AddExpirationTimeToUsers expiration_time:timestamp
 ```
 
 ### 部署 ###

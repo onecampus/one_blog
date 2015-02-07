@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
-  root 'blog#index'
-
-  get 'users' => 'blog#index_user', as: :index_user
-
-  get '/api' => redirect('/swagger-ui/dist/index.html?url=/apidoc/v1/api-docs.json')
+  root 'application#index'
   namespace :api do
     namespace :v1 do
+
+      match 'users/auth', to: 'auth#create', via: :post
+      match 'users/destroy', to: 'auth#destroy', via: :delete
+
       get 'users' => 'users#index', as: :index_user_api
       match 'users/create', to: 'users#create', via: :post
       match 'users/:id/avatar/update', to: 'users#update_avatar', via: :post
       match 'users/:id/password/update', to: 'users#update_pass', via: :put
       match 'users/:id/destroy', to: 'users#destroy', via: :delete
 
-      post 'login' => 'users#login'
-      delete 'logout' => 'users#logout'
-      get 'login' => 'users#login_page', as: :login_page
-
-      post 'auth' => 'auth#authenticate'
-
+      get 'post/tags' => 'posts#post_tags'
+      match 'posts/image/uploader', to: 'posts#ajax_img_upload', via: :post
+      get 'posts/search' => 'posts#search'
       resources :posts, only: [:index, :show, :create, :update, :destroy]
+
+      get 'ueditor/uploader/index' => 'ueditor_uploader#index'
+      match 'ueditor/uploader/index', to: 'ueditor_uploader#index', via: :post
     end
   end
 end

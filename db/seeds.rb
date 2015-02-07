@@ -12,10 +12,12 @@ user = User.new(
   name: 'yang',
   email: 'yang@gmail.com',
   password: User.hash_password('123456'),
-  avatar: '/test.png'
+  avatar: '/test.png',
+  auth_token: User.generate_auth_token,
+  expiration_time: (DateTime.now + 10.days)
 )
 user.save!
-
+=begin
 1.upto(50).each do |i|
   post = Post.new(
     title: "title#{i}",
@@ -28,11 +30,12 @@ user.save!
 		publish_time: Time.now,
 		is_published: 1,
 		can_comment: 1,
-		is_recommend: 1
+		is_recommend: 1,
+		tag_list: "tag#{i}, post_tag_#{i}, hehe"
 	)
 	post.save!
 end
-
+=end
 time_end = Time.now
 time = time_end - time_start
 puts time.to_s

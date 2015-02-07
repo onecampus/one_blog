@@ -1,0 +1,21 @@
+<ng-include src="'views/header.html'"></ng-include>
+<div class="login-box">
+  <div class="body"></div>
+  <div class="grad"></div>
+  <div class="login-header">
+    <div>学壹
+      <span>有文化</span>
+    </div>
+  </div>
+  <br>
+  <div class="login">
+    <form ng-submit="login()">
+      <input type="text" placeholder="邮箱" ng-model="user.email">
+      <br>
+      <input type="password" placeholder="密码" ng-model="user.password">
+      <br>
+      <button type="submit">登陆</button>
+    </form>
+  </div>
+</div>
+<ng-include src="'views/footer.html'"></ng-include>

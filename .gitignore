@@ -13,3 +13,9 @@
 /tmp
 
 /config/database.yml
+
+/doc/*
+/.yardoc/*
+*.log
+
+/public/uploads/*

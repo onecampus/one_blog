@@ -1,9 +1,28 @@
+##
+# Author:: FuSheng Yang (mailto:sysuyangkang@gmail.com)
+# Copyright:: Copyright (c) 2015 thecampus.cc
+# License:: Distributes under the same terms as Ruby
+# Api of posts
 class Api::V1::PostsController < ApplicationController
+  skip_before_action :authenticate_request, only: [:index, :post_tags, :show, :ajax_img_upload, :search]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
-    render json: @posts, status: :ok
+		page = params[:page]
+		per_page = params[:per_page]
+		offset = params[:offset]
+    @posts = Post.page(page).per(per_page).padding(offset).order('id DESC')
+    render json: { status: 'success', data: { posts: @posts, total_count: Post.all.count }, msg: '' }, status: :ok
+  end
+
+  def post_tags
+    query = params[:query]
+    if query.blank?
+      @tags = ActsAsTaggableOn::Tagging.includes(:tag).where(context: 'tags').pluck(:name).uniq
+    else
+      @tags = ActsAsTaggableOn::Tagging.where(context: 'tags').joins(:tag).where("tags.name LIKE ?", "%#{query}%").pluck(:name)
+    end
+    render json: { status: 'success', data: { tags: @tags }, msg: '' }, status: :ok
   end
 
   def show
@@ -19,6 +38,7 @@ class Api::V1::PostsController < ApplicationController
     end
 		@post.publish_time = Time.now
     if @post.save
+			@post.reload
       render json: { status: :created }, status: :ok
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -41,6 +61,23 @@ class Api::V1::PostsController < ApplicationController
     end
   end
 
+  def ajax_img_upload
+    image = PostImgUploader.new
+    image.store!(params[:file])
+    return_hash = {
+      state: 'success',
+      url: image.url,
+      title: image.filename
+    }
+    render json: return_hash, status: :ok
+  end
+
+  def search
+    keyword = params[:keyword]
+    @posts = Post.where('title LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%")
+    render json: { keyword: keyword, posts: @posts }, status: :ok
+  end
+
   private
 
   def set_post
@@ -57,7 +94,8 @@ class Api::V1::PostsController < ApplicationController
       :img,
       :is_recommend,
       :is_published,
-      :can_comment
+      :can_comment,
+      :tag_list => []
     )
   end
 end

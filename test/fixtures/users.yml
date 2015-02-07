@@ -32,3 +32,10 @@ invide_email:
   email: invide_email
   password: 123456
   avatar: avatar
+
+yangfusheng:
+  name: yangfusheng
+  email: yangfusheng@gmail.com
+  password: 269c74e5601e036cbb6d221e624cbd73858de8616ea3f17167363c0cfe8ba0ed
+  auth_token: 848dpYnHGcw9xon8Q3K_Eg
+  expiration_time: <%= DateTime.now + 10.days %>
