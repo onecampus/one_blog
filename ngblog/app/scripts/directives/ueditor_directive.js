@@ -18,10 +18,10 @@ angular.module('ngblogApp')
 
         var setModelData = function() {
           var data = ueditor.getContent();
-          if(data === '') {
+          if (data === '') {
             return null;
           }
-          if(data !== ngModel.$viewValue) {
+          if (data !== ngModel.$viewValue) {
             if (!scope.$root.$$phase) {
               $timeout(function() {
                 scope.$apply(function() {
@@ -31,7 +31,7 @@ angular.module('ngblogApp')
             }
           }
         };
-        if(ueditor !== undefined && ueditor !== null) {
+        if (ueditor !== undefined && ueditor !== null) {
           ueditor.addListener('ready', function() {
             ngModel.$render = function() {
               ueditor.setContent(ngModel.$viewValue || '');

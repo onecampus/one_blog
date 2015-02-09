@@ -4,7 +4,7 @@
  * @ngdoc service
  * @name ngblogApp.AuthService
  * @description
- * # postService
+ * # AuthService
  * Service in the ngblogApp.
  */
 angular.module('ngblogApp')

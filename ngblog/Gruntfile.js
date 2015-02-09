@@ -185,7 +185,8 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            '!<%= yeoman.dist %>/.git{,*/}*',
+            '!<%= yeoman.dist %>/uploads/**'  // Unclean public/uploads
           ]
         }]
       },
@@ -376,6 +377,12 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      nondigestimages: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/images',
+        src: '{,*/}*',
+        dest: '<%= yeoman.dist %>/images/'
+      },
       dist: {
         files: [{
           expand: true,
@@ -388,7 +395,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/{,*/}*.*'
+            'fonts/{,*/}*.*',
+            'vendor/**'  // Add vendor copy
           ]
         }, {
           expand: true,
@@ -478,7 +486,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'copy:nondigestimages'
   ]);
 
   grunt.registerTask('default', [

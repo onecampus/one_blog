@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * @ngdoc service
+ * @ngdoc injector
  * @name ngblogApp.SessionInjector
  * @description
- * # postService
- * Service in the ngblogApp.
+ * # SessionInjector
+ * Injector in the ngblogApp.
  */
 angular.module('ngblogApp')
   .factory('SessionInjector', ['SessionService', '$injector', '$window', function(SessionService, $injector, $window) {
