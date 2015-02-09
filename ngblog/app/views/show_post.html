@@ -10,7 +10,8 @@
           <img class="image" ng-src="{{post.img}}">
         </div>
         <div class="post-content">
-          <p ng-bind-html="post.content"></p>
+          <p ng-bind-html="post.content" ng-if="post.markdown == null || post.markdown == ''"></p>
+          <p ng-bind-html="post.markdown" ng-if="post.content == null || post.content == ''"></p>
         </div>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -25,7 +26,7 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        
+
       </div>
       </div>
     </div>
