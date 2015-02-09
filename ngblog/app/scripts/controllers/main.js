@@ -23,7 +23,7 @@ angular.module('ngblogApp')
     $scope.addSlide = function() {
       var newWidth = slides.length + 1;
       slides.push({
-        image: '/images/slide' + newWidth + '.jpg',
+        image: '/images/' + newWidth + '.jpg',
         text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' + ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
       });
     };

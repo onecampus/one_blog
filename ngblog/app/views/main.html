@@ -1,3 +1,4 @@
+
 <div class="header hidden-xs">
   <div class="header-logo">
     <img src="/images/logo.png">
@@ -30,12 +31,10 @@
   </div>
   <div class="main-post-pic-box hidden-xs">
     <div>
-      <carousel interval="myInterval">
+      <carousel interval="myInterval" disable-animation="true">
         <slide ng-repeat="slide in slides" active="slide.active">
           <img ng-src="{{slide.image}}" style="margin:auto;">
           <div class="carousel-caption">
-            <h4>Slide {{$index}}</h4>
-            <p>{{slide.text}}</p>
           </div>
         </slide>
       </carousel>
@@ -53,4 +52,5 @@
     </div>
   </div>
 </div>
+
 <ng-include src="'views/footer.html'"></ng-include>
