@@ -17,6 +17,11 @@
 4. http://blog.yanted.com/2014/02/13/jwt-based-authentication-with-ember-js-and-rails/
 5. http://codelife.me/blog/2014/05/17/rails-app-authenticate-by-jwt-between-master-and-agent/
 6. https://ask.auth0.com/c/jwt
+7. http://blog.benmorgan.io/post/77446075979/setting-up-an-angularjs-app-with-a-rails-api
+8. http://rockyj.in/2013/10/24/angular_rails.html
+9. http://www.angularonrails.com/ruby-on-rails-angularjs-single-page-application/
+10. http://www.angularonrails.com/deploy-angular-rails-single-page-application-heroku/
+11. http://blog.pedago.com/2014/01/21/goodbye-sprockets-a-grunt-based-rails-asset-pipeline/pipeline
 
 ### Frontend ###
 
