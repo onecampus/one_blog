@@ -20,7 +20,8 @@ angular
     'ui.bootstrap',
     'ngTagsInput',
     'angularFileUpload',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angular-carousel'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
