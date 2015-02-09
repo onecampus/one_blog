@@ -93,6 +93,18 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/admin/users', {
+        templateUrl: 'views/admin_users.html',
+        controller: 'AdminUsersCtrl'
+      })
+      .when('/admin/users/new', {
+        templateUrl: 'views/admin_new_users.html',
+        controller: 'UsersNewCtrl'
+      })
+      .when('/users/:userId', {
+        templateUrl: 'views/admin_edit_user.html',
+        controller: 'UserEditCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
