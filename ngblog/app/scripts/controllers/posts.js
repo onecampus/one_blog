@@ -19,6 +19,7 @@ angular.module('ngblogApp')
     success(function(data) {
       $scope.posts = data.data.posts;
       $scope.bigTotalItems = data.data.total_count;
+      console.log($scope.posts);
     });
 
     $scope.pageChanged = function() {
