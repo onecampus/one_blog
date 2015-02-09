@@ -39,6 +39,6 @@ angular.module('ngblogApp')
       $timeout(function(){
         $location.path('/posts');
         $location.replace();
-      },2900);
+      },930);
     }
   }]);
