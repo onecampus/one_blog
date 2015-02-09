@@ -1,17 +1,190 @@
+<style>
+  .logoanimate {
+    position:relative;
+    animation:logo 3s;
+    -moz-animation:logo 3s; /* Firefox */
+    -webkit-animation:logo 3s; /* Safari and Chrome */
+    -o-animation:logo 3s; /* Opera */
+    z-index: 9999;
+  }
 
-<div class="header hidden-xs">
+  @keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-moz-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-webkit-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-o-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  .backgroundanimate {
+    position:relative;
+    animation:background 3s;
+    moz-animation:background 3s; /* Firefox */
+    -webkit-animation:background 3s; /* Safari and Chrome */
+    -o-animation:background 3s; /* Opera */
+  }
+
+  @keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-moz-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-webkit-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-o-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  .navanimate {
+    position:absolute;
+    animation:navanimate 3s;
+    moz-animation:navanimate 3s; /* Firefox */
+    -webkit-animation:navanimate 3s; /* Safari and Chrome */
+    -o-animation:navanimate 3s; /* Opera */
+  }
+
+  @keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-moz-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-webkit-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-o-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+
+  .bloganimate {
+    animation:bloganimate 3s;
+    moz-animation:bloganimate 3s; /* Firefox */
+    -webkit-animation:bloganimate 3s; /* Safari and Chrome */
+    -o-animation:bloganimate 3s; /* Opera */
+  }
+
+  @keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-moz-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-webkit-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-o-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+    .photoanimate {
+      animation:photoanimate 3s;
+      moz-animation:photoanimate 3s; /* Firefox */
+      -webkit-animation:photoanimate 3s; /* Safari and Chrome */
+      -o-animation:photoanimate 3s; /* Opera */
+    }
+
+    @keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-moz-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-webkit-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-o-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+
+  .searchanimate {
+    position:absolute;
+    animation:searchanimate 3s;
+    moz-animation:searchanimate 3s; /* Firefox */
+    -webkit-animation:searchanimate 3s; /* Safari and Chrome */
+    -o-animation:searchanimate 3s; /* Opera */
+  }
+
+  @keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px; }
+    }
+  @-moz-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  @-webkit-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  @-o-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  .header-nav a {
+    color: #62a696;
+  }
+</style>
+<div class="header hidden-xs ng-class: {true: 'backgroundanimate', false: ''}[animateMark];">
   <div class="header-logo">
-    <img src="/images/logo.png">
+    <img class="ng-class: {true: 'logoanimate', false: ''}[animateMark];" src="/images/logo.png">
   </div>
-  <div class="header-nav">
-    <div class="nav-blog">
-      <a ng-href="/#/posts">BLOG</a>
+  <div class="header-nav ng-class: {true: 'navanimate', false: ''}[animateMark];">
+    <div class="nav-blog ng-class: {true: 'bloganimate', false: ''}[animateMark];">
+      <a ng-click="navAnimate()" interval="myInterval">BLOG</a>
     </div>
-    <div class="nav-picture">
+    <div class="nav-picture ng-class: {true: 'photoanimate', false: ''}[animateMark];">
       <a>PHOTO</a>
     </div>
   </div>
-  <div class="nav-search">
+  <div class="nav-search ng-class: {true: 'searchanimate', false: ''}[animateMark];">
     <input type="text" placeholder="SEACH" ng-model="keyword" ng-enter="search()">
     <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
   </div>
