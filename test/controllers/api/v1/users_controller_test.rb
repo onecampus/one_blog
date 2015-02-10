@@ -24,7 +24,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     end
     assert_response :success
     json = JSON.parse(response.body)
-    assert_not_empty(json, 'No user')
+    assert_equal(json['status'], 'created')
     assert_not_nil User.where(name: 'yang').first
   end
 
@@ -42,9 +42,11 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     assert_equal(json['status'], 'password_updated')
   end
 
-  test 'should delete a user by the first user' do
-    delete :destroy, id: @yangkang.to_param
+  test 'should delete a user not by the first user' do
+    delete :destroy, id: @yangfusheng.to_param
     assert_response :success
-    assert_nil User.where(name: 'yangkang').first
+    json = JSON.parse(response.body)
+    assert_equal(json['error'], 'Not admin user')
+    assert_not_nil User.where(name: 'yangfusheng').first
   end
 end

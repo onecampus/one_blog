@@ -9,7 +9,6 @@ class Api::V1::PostsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:posts)
   end
 
-  # http://matthewlehner.net/rails-api-testing-guidelines/
   test 'should create a post via post' do
     @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     assert_difference('Post.count') do
@@ -24,7 +23,7 @@ class Api::V1::PostsControllerTest < ActionController::TestCase
         is_recommend: 1,
         is_published: 1,
         can_comment: 1,
-				tag_list: "tag1, hehe"
+        tag_list: 'tag1, hehe'
       }
     end
     assert_response :success

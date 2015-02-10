@@ -68,7 +68,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    if @current_user.id == 1
+    if @current_user.id != 1
       render json: { error: 'Not admin user' }
     else
       if @user.destroy
