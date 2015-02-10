@@ -30,6 +30,17 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def ajax_img_upload
+    image = AvatarUploader.new
+    image.store!(params[:file])
+    return_hash = {
+      state: 'success',
+      url: image.url,
+      title: image.filename
+    }
+    render json: return_hash, status: :ok
+  end
+
   def update_avatar
     if @user.update user_params
       render json: { status: :avatar_updated }, status: :ok
