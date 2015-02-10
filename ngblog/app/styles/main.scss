@@ -934,3 +934,138 @@ ul, li {
 }
 
 /* admin nav menu css end */
+
+
+/* mobile phone css */
+.mobile-main-head {
+  width: 100%;
+  height: 50px;
+  background: #dedede;
+  box-shadow: 0px 6px 6px #ddd;
+}
+
+.mobile-logo {
+  width: 20%;
+  height: 40px;
+  margin-top: 5px;
+}
+
+.mobile-drop {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.mobile-drop span{
+  font-size: 26px;
+}
+
+.dropdown-menu {
+  left: -120px;
+  top: 50px;
+  padding: 5px 0;
+  background: #ddd;
+  border: 0;
+  width: 30%;
+  height: 100px;
+}
+.dropdown-menu li {
+  margin-top: 5px;
+  padding: 0 10%;
+}
+.dropdown-menu > li > a {
+  padding: 3px 5px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.btn {
+  background: #dedede;
+  border-color: #dedede;
+  color: #fff;
+}
+.btn:hover, .btn:focus {
+  color: #fff;
+  background: #dedede;
+  border-color: #dedede;
+}
+
+.btn-group.open .dropdown-toggle {
+  box-shadow: inset 0 0 0;
+}
+
+.mobile-search {
+  float: right;
+  margin-right: 15px;
+}
+
+.mobile-search div {
+  margin-top: 10px;
+  color: #2e5b4d;
+  height:30px;
+}
+
+.mobile-search img {
+  width: 28px;
+  height: 28px;
+}
+
+.mobile-search input {
+  width: 80%;
+  height: 30px;
+  border: 0;
+  background: #dedede;
+  padding-left: 5px;
+}
+
+.mobile-search input:focus {
+  background: #fff;
+}
+
+.mobile-main-posts {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.mobile-main-post {
+  margin-top: 30px;
+}
+
+.mobile-post-title {
+  font-size: 16px;
+  color: #2e5b4d;
+  width: 91%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mobile-post-content {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.mobile-post-time {
+  margin-top: 5px;
+  margin-right: 20px;
+  float: right;
+  color: #2e5b4d;
+}
+
+.mobile-post-time img{
+  margin-top: -2px;
+}
+hr {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.load-pic {
+  position: fixed;
+  bottom: 5px;
+  left: 40%;
+}
+
+.load-pic img {
+  width: 70px;
+}

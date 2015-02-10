@@ -10,7 +10,6 @@
 angular.module('ngblogApp')
   .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', '$location', '$timeout', function($scope, postsService, $http, $controller, $location, $timeout) {
     $scope.posts = [];
-
     postsService.getPosts(1, 10, 0).
     success(function(data) {
       $scope.posts = data.data.posts;
@@ -40,5 +39,35 @@ angular.module('ngblogApp')
         $location.path('/posts');
         $location.replace();
       },930);
+    }
+    /*
+    mobile
+    */
+    $scope.mobileposts = [];
+    $scope.postsitem = 10;
+    $scope.load = true;
+    $scope.busy = false;
+    postsService.getPosts(1, $scope.postsitem, 0).
+    success(function(data) {
+      $scope.mobileposts = data.data.posts;
+    });
+    $scope.loadMore = function() {
+      if($scope.load === false) {
+        $scope.loadMark = true;
+      }
+      if($scope.load === true) {
+        $scope.loadMark = false;
+        $scope.load = false;
+      }
+      postsService.getPosts(1, $scope.postsitem, 0).
+      success(function(data) {
+        $scope.busy = true;
+        $timeout(function(){
+          $scope.mobileposts = data.data.posts;
+          $scope.loadMark = false;
+          $scope.busy = false;
+        },1000);
+      });
+    $scope.postsitem += 10;
     };
   }]);

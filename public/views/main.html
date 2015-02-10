@@ -1,1 +1,207 @@
-<div class="header hidden-xs"> <div class="header-logo"> <img src="images/logo.c0dc83c6.png"> </div> <div class="header-nav"> <div class="nav-blog"> <a ng-href="/posts">BLOG</a> </div> <div class="nav-picture"> <a>PHOTO</a> </div> </div> <div class="nav-search"> <input type="text" placeholder="SEACH" ng-model="keyword" ng-enter="search()"> <a ng-href="/search/posts?keyword={{keyword}}"><img src="/images/search-ico.a4973c43.png"></a> </div> </div> <div class="main-posts"> <div class="main-post"> <ul> <li ng-repeat="p in posts"> <div class="main-post-title"><a href="/posts/{{p.id}}">{{p.title}}</a></div> <div class="main-post-inf"> <img src="/images/post-ico.bd7b2b1a.png"> <span>(<span>500</span>)</span> </div> </li> </ul> </div> <div class="main-post-pic-box hidden-xs"> <div> <carousel interval="myInterval"> <slide ng-repeat="slide in slides" active="slide.active"> <img ng-src="{{slide.image}}" style="margin:auto"> <div class="carousel-caption"> <h4>Slide {{$index}}</h4> <p>{{slide.text}}</p> </div> </slide> </carousel> </div> </div> <div class="main-company-box hidden-xs"> <div class="main-two-code-pic"> <img src="images/two-code.5c6128b8.jpg"> </div> <div class="main-company-inf"> <p><a>学壹传媒有限公司</a></p> <p><a>联系电话</a></p> <p><a>微信</a></p> <p><a>邮箱</a></p> </div> </div> </div> <ng-include src="'views/footer.html'"></ng-include>
+<style>.logoanimate {
+    position:relative;
+    animation:logo 1s;
+    -moz-animation:logo 1s; /* Firefox */
+    -webkit-animation:logo 1s; /* Safari and Chrome */
+    -o-animation:logo 1s; /* Opera */
+    z-index: 9999;
+  }
+
+  @keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-moz-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-webkit-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  @-o-keyframes logo
+    {
+      from {left: 0; top: 0; width: 100%;}
+      to {left: -300px; top: -40px; width: 30%;}
+    }
+  .backgroundanimate {
+    position:relative;
+    animation:background 1s;
+    moz-animation:background 1s; /* Firefox */
+    -webkit-animation:background 1s; /* Safari and Chrome */
+    -o-animation:background 1s; /* Opera */
+  }
+
+  @keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-moz-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-webkit-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  @-o-keyframes background
+    {
+      from {height: 350px; width: 100%;}
+      to {height: 80px; width: 100%;}
+    }
+  .navanimate {
+    position:absolute;
+    animation:navanimate 1s;
+    moz-animation:navanimate 1s; /* Firefox */
+    -webkit-animation:navanimate 1s; /* Safari and Chrome */
+    -o-animation:navanimate 1s; /* Opera */
+  }
+
+  @keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-moz-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-webkit-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+  @-o-keyframes navanimate
+    {
+      from {top: 300px; height: 50px;}
+      to {top: 0px; height: 80px; opacity: 1; background: #ddd;}
+    }
+
+  .bloganimate {
+    animation:bloganimate 1s;
+    moz-animation:bloganimate 1s; /* Firefox */
+    -webkit-animation:bloganimate 1s; /* Safari and Chrome */
+    -o-animation:bloganimate 1s; /* Opera */
+  }
+
+  @keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-moz-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-webkit-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+  @-o-keyframes bloganimate
+    {
+      from {height: 40px;}
+      to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 0 15px 30%; width: 40%; border-right: 2px solid #d2d2d2;}
+    }
+    .photoanimate {
+      animation:photoanimate 1s;
+      moz-animation:photoanimate 1s; /* Firefox */
+      -webkit-animation:photoanimate 1s; /* Safari and Chrome */
+      -o-animation:photoanimate 1s; /* Opera */
+    }
+
+    @keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-moz-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-webkit-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+    @-o-keyframes photoanimate
+      {
+        from {height: 40px;}
+        to {height: 70px; font-size: 26px; color: #62a696; padding: 15px 7%; width: 20%; border-right: 2px solid #d2d2d2;}
+      }
+
+  .searchanimate {
+    position:absolute;
+    animation:searchanimate 1s;
+    moz-animation:searchanimate 1s; /* Firefox */
+    -webkit-animation:searchanimate 1s; /* Safari and Chrome */
+    -o-animation:searchanimate 1s; /* Opera */
+  }
+
+  @keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px; }
+    }
+  @-moz-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  @-webkit-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  @-o-keyframes searchanimate
+    {
+      from {top: 305px;}
+      to {top: 20px;}
+    }
+  .bodyanimate {
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation:bodyanimate 1s;
+    moz-animation:bodyanimate 1s; /* Firefox */
+    -webkit-animation:bodyanimate 1s; /* Safari and Chrome */
+    -o-animation:bodyanimate 1s; /* Opera */
+  }
+
+  @keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-moz-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-webkit-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-o-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  .header-nav a {
+    color: #62a696;
+  }
+
+  .main-posts-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }</style> <div class="header hidden-xs ng-class: {true: 'backgroundanimate', false: ''}[animateMark];"> <div class="header-logo"> <img class="ng-class: {true: 'logoanimate', false: ''}[animateMark];" src="/images/logo.c0dc83c6.png"> </div> <div class="header-nav ng-class: {true: 'navanimate', false: ''}[animateMark];"> <div class="nav-blog ng-class: {true: 'bloganimate', false: ''}[animateMark];"> <a ng-click="navAnimate()" interval="myInterval">BLOG</a> </div> <div class="nav-picture ng-class: {true: 'photoanimate', false: ''}[animateMark];"> <a>PHOTO</a> </div> </div> <div class="nav-search ng-class: {true: 'searchanimate', false: ''}[animateMark];"> <input type="text" placeholder="SEACH" ng-model="keyword" ng-enter="search()"> <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.a4973c43.png"></a> </div> </div> <div class="main-posts-box ng-class: {true: 'bodyanimate', false: ''}[animateMark];"> <div class="main-posts"> <div class="main-post"> <ul> <li ng-repeat="p in posts"> <div class="main-post-title"><a href="/#/posts/{{p.id}}">{{p.title}}</a></div> <div class="main-post-inf"> <img src="/images/post-ico.bd7b2b1a.png"> </div> </li> </ul> </div> <div class="main-post-pic-box hidden-xs"> <div> <carousel interval="myInterval" disable-animation="true"> <slide ng-repeat="slide in slides" active="slide.active"> <img ng-src="{{slide.image}}" style="margin:auto"> <div class="carousel-caption"> </div> </slide> </carousel> </div> </div> <div class="main-company-box hidden-xs"> <div class="main-two-code-pic"> <img src="/images/two-code.5c6128b8.jpg"> </div> <div class="main-company-inf"> <p><a>学壹传媒有限公司</a></p> <p><a>联系电话</a></p> <p><a>微信</a></p> <p><a>邮箱</a></p> </div> </div> </div> </div> <ng-include src="'views/footer.html'"></ng-include>

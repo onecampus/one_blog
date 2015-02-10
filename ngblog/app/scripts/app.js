@@ -21,7 +21,8 @@ angular
     'ngTagsInput',
     'angularFileUpload',
     'LocalStorageModule',
-    'angular-carousel'
+    'angular-carousel',
+    'infinite-scroll'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
