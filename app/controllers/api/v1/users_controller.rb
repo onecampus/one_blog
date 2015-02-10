@@ -68,10 +68,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    if @user.destroy
-      render json: { status: :destroied }
+    if @current_user.id == 1
+      render json: { error: 'Not admin user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.destroy
+        render json: { status: :destroied }
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
