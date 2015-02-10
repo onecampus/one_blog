@@ -169,13 +169,42 @@
       to {top: 20px;}
     }
   .bodyanimate {
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
     animation:bodyanimate 1s;
     moz-animation:bodyanimate 1s; /* Firefox */
     -webkit-animation:bodyanimate 1s; /* Safari and Chrome */
     -o-animation:bodyanimate 1s; /* Opera */
   }
+
+  @keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-moz-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-webkit-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
+  @-o-keyframes bodyanimate
+    {
+      from {height: 300px;}
+      to {height: 530px;}
+    }
   .header-nav a {
     color: #62a696;
+  }
+
+  .main-posts-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
   }
 </style>
 <div class="header hidden-xs ng-class: {true: 'backgroundanimate', false: ''}[animateMark];">
@@ -195,38 +224,39 @@
     <a ng-href="/#/search/posts?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
   </div>
 </div>
-
-<div class="main-posts">
-  <div class="main-post">
-    <ul>
-      <li ng-repeat="p in posts">
-        <div class="main-post-title"><a href="/#/posts/{{p.id}}">{{p.title}}</a></div>
-        <div class="main-post-inf">
-          <img src="/images/post-ico.png">
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="main-post-pic-box hidden-xs">
-    <div>
-      <carousel interval="myInterval" disable-animation="true">
-        <slide ng-repeat="slide in slides" active="slide.active">
-          <img ng-src="{{slide.image}}" style="margin:auto;">
-          <div class="carousel-caption">
+<div class="main-posts-box ng-class: {true: 'bodyanimate', false: ''}[animateMark];">
+  <div class="main-posts">
+    <div class="main-post">
+      <ul>
+        <li ng-repeat="p in posts">
+          <div class="main-post-title"><a href="/#/posts/{{p.id}}">{{p.title}}</a></div>
+          <div class="main-post-inf">
+            <img src="/images/post-ico.png">
           </div>
-        </slide>
-      </carousel>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="main-company-box hidden-xs">
-    <div class="main-two-code-pic">
-      <img src="/images/two-code.jpg">
+    <div class="main-post-pic-box hidden-xs">
+      <div>
+        <carousel interval="myInterval" disable-animation="true">
+          <slide ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+            </div>
+          </slide>
+        </carousel>
+      </div>
     </div>
-    <div class="main-company-inf">
-      <p><a>学壹传媒有限公司</a></p>
-      <p><a>联系电话</a></p>
-      <p><a>微信</a></p>
-      <p><a>邮箱</a></p>
+    <div class="main-company-box hidden-xs">
+      <div class="main-two-code-pic">
+        <img src="/images/two-code.jpg">
+      </div>
+      <div class="main-company-inf">
+        <p><a>学壹传媒有限公司</a></p>
+        <p><a>联系电话</a></p>
+        <p><a>微信</a></p>
+        <p><a>邮箱</a></p>
+      </div>
     </div>
   </div>
 </div>
