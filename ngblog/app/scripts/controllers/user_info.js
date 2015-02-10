@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UserInfoCtrl', ['$scope', '$log', 'usersService', '$routeParams', '$controller', function($scope, $log, usersService, $routeParams, $controller) {
+  .controller('UserInfoCtrl', ['adminNavService', '$scope', '$log', 'usersService', '$routeParams', '$controller', function(adminNavService, $scope, $log, usersService, $routeParams, $controller) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'

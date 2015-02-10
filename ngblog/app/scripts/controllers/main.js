@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', "$location", "$timeout", function($scope, postsService, $http, $controller, $location, $timeout) {
+  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', '$location', '$timeout', function($scope, postsService, $http, $controller, $location, $timeout) {
     $scope.posts = [];
 
     postsService.getPosts(1, 10, 0).
@@ -40,5 +40,5 @@ angular.module('ngblogApp')
         $location.path('/posts');
         $location.replace();
       },930);
-    }
+    };
   }]);

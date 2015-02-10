@@ -39,6 +39,7 @@ angular.module('ngblogApp')
       usersService.updateAvatar(user).
       success(function(data) {
         if (data.status === 'avatar_updated') {
+          $scope.currentUser.avatar = $scope.user.avatar;
           $location.path('/admin/users').replace();
         } else {
           alert('更新失败');
