@@ -18,7 +18,9 @@ angular.module('ngblogApp')
       postsActive: false,
       newpostActive: false,
       adduserActive: false,
-      usersActive: true
+      usersActive: true,
+      passwordActive: false,
+      avatarActive: false
     };
 
     $scope.itemsPerPage = 20;

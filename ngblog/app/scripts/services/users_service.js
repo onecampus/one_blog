@@ -24,8 +24,13 @@ angular.module('ngblogApp')
       delUser: function(id) {
         return $http.delete('/api/v1/users/' + id + '/destroy');
       },
-      updateUser: function(user) {
-        return $http.patch('/api/v1/users/' + user.id, {
+      updatePassword: function(user) {
+        return $http.put('/api/v1/users/' + user.id + '/password/update', {
+          user: user
+        });
+      },
+      updateAvatar: function(user) {
+        return $http.post('/api/v1/users/' + user.id + '/avatar/update', {
           user: user
         });
       },

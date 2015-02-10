@@ -20,7 +20,9 @@ angular.module('ngblogApp')
       postsActive: false,
       newpostActive: true,
       adduserActive: false,
-      usersActive: false
+      usersActive: false,
+      passwordActive: false,
+      avatarActive: false
     };
     $scope.isCollapsed = true;
     $scope.open = function($event) {

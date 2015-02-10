@@ -105,6 +105,14 @@ angular
         templateUrl: 'views/admin_info_user.html',
         controller: 'UserInfoCtrl'
       })
+      .when('/users/password/update', {
+        templateUrl: 'views/updatePassword.html',
+        controller: 'UpdatePasswordCtrl'
+      })
+      .when('/users/avatar/update', {
+        templateUrl: 'views/updateAvatar.html',
+        controller: 'UpdateAvatarCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
