@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       match 'users/destroy', to: 'auth#destroy', via: :delete
 
       get 'users' => 'users#index', as: :index_user_api
+      get 'users/:id' => 'users#show'
       match 'users/create', to: 'users#create', via: :post
       match 'users/:id/avatar/update', to: 'users#update_avatar', via: :post
       match 'users/:id/password/update', to: 'users#update_pass', via: :put

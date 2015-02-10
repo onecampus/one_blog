@@ -101,9 +101,9 @@ angular
         templateUrl: 'views/admin_new_users.html',
         controller: 'UsersNewCtrl'
       })
-      .when('/users/:userId', {
-        templateUrl: 'views/admin_edit_user.html',
-        controller: 'UserEditCtrl'
+      .when('/admin/users/:userId', {
+        templateUrl: 'views/admin_info_user.html',
+        controller: 'UserInfoCtrl'
       })
       .otherwise({
         redirectTo: '/'

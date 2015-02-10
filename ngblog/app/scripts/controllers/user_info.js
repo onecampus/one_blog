@@ -2,21 +2,26 @@
 
 /**
  * @ngdoc function
- * @name ngblogApp.controller:UserEditCtrl
+ * @name ngblogApp.controller:UserInfoCtrl
  * @description
- * # UserEditCtrl
+ * # UserInfoCtrl
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UserEditCtrl', ['$scope', '$log', 'usersService', '$routeParams', '$controller', function($scope, $log, usersService, $routeParams, $controller) {
+  .controller('UserInfoCtrl', ['$scope', '$log', 'usersService', '$routeParams', '$controller', function($scope, $log, usersService, $routeParams, $controller) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'
     }, {
       anchor: '/#admin/users/' + $routeParams.userId,
-      menu: '编辑用户'
+      menu: '用户详情'
     }];
-
+    $scope.isCollapsed = true;
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      $scope.opened = true;
+    };
     usersService.getUserById($routeParams.userId).
       /* jshint camelcase: false */
     success(function(data) {
