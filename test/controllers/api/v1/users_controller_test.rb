@@ -4,6 +4,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   self.use_instantiated_fixtures = true
 
   test 'should get user index' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
@@ -11,6 +12,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
 
   # http://matthewlehner.net/rails-api-testing-guidelines/
   test 'should create a user via post' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     assert_difference('User.count') do
       post :create, user: { name: 'yang', email: 'yang@gmail.com',
                             password: '123456', avatar: '/test.png' }
@@ -22,6 +24,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   end
 
   test 'should update a user pass' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     # status 200
     # failure of validations => status 422
     # failure when saving => status 500
@@ -31,6 +34,7 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
   end
 
   test 'should delete a user' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     delete :destroy, id: @yangkang.to_param
     assert_response :success
     assert_nil User.where(name: 'yangkang').first

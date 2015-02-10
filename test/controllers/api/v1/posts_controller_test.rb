@@ -11,6 +11,7 @@ class Api::V1::PostsControllerTest < ActionController::TestCase
 
   # http://matthewlehner.net/rails-api-testing-guidelines/
   test 'should create a post via post' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     assert_difference('Post.count') do
       post :create, post: {
         title: 'title1',
@@ -33,11 +34,13 @@ class Api::V1::PostsControllerTest < ActionController::TestCase
   end
 
   test 'should update a post' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     put :update, id: @one.to_param, post: { title: 'title_of_one' }
     assert_response :success
   end
 
   test 'should delete a post' do
+    @request.headers['Authorization'] = 'Basic 848dpYnHGcw9xon8Q3K_Eg'
     delete :destroy, id: @two.to_param
     assert_response :success
     assert_nil Post.where(title: 'title_two').first

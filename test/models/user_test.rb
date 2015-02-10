@@ -15,7 +15,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should user count' do
-    assert_equal 6, User.count
+    assert_equal 7, User.count
   end
 
   test 'should user one name yangkang' do
