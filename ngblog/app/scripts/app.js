@@ -98,7 +98,7 @@ angular
         controller: 'AdminUsersCtrl'
       })
       .when('/admin/users/new', {
-        templateUrl: 'views/admin_new_users.html',
+        templateUrl: 'views/admin_new_user.html',
         controller: 'UsersNewCtrl'
       })
       .when('/admin/users/:userId', {
@@ -106,11 +106,11 @@ angular
         controller: 'UserInfoCtrl'
       })
       .when('/users/password/update', {
-        templateUrl: 'views/updatePassword.html',
+        templateUrl: 'views/update_password.html',
         controller: 'UpdatePasswordCtrl'
       })
       .when('/users/avatar/update', {
-        templateUrl: 'views/updateAvatar.html',
+        templateUrl: 'views/update_avatar.html',
         controller: 'UpdateAvatarCtrl'
       })
       .otherwise({

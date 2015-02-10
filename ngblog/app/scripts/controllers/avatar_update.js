@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UpdateAvatarCtrl', ['$controller', '$scope', '$http', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($controller, $scope, $http, usersService, $location, AuthService, $window, adminNavService) {
+  .controller('UpdateAvatarCtrl', ['FileUploader', '$controller', '$scope', '$http', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function(FileUploader, $controller, $scope, $http, usersService, $location, AuthService, $window, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#users/avatar/update',
       menu: '修改头像'
@@ -34,17 +34,29 @@ angular.module('ngblogApp')
     $scope.updateAvatar = function(id) {
       var user = {
         id: id,
-        password: $scope.user.password
+        avatar: $scope.user.avatar
       };
-      usersService.updatePassword(user).
+      usersService.updateAvatar(user).
       success(function(data) {
-        if (data.status === 'password_updated') {
+        if (data.status === 'avatar_updated') {
           $location.path('/admin/users').replace();
         } else {
           alert('更新失败');
         }
       });
     };
+
+    $scope.uploader = new FileUploader({
+      url: '/api/v1/users/image/uploader',
+      autoUpload: true,
+      onSuccessItem: function(item, response) {
+        if (response.state === 'success') {
+          $scope.user.avatar = response.url;
+        } else {
+          alert('上传错误');
+        }
+      }
+    });
 
     $scope.logout = function() {
       adminNavService.logout();
