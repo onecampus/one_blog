@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:onecampus/one_blog.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/ubuntu/www/one_blog'
+set :deploy_to, '/home/flowerwrong/www/one_blog'
 
 # Default value for :scm is :git
 set :scm, :git
