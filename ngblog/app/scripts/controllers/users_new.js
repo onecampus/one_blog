@@ -27,7 +27,8 @@ angular.module('ngblogApp')
       var _user = {
         name: $scope.user.name,
         email: $scope.user.email,
-        password: $scope.user.password
+        password: $scope.user.password,
+        avatar: $scope.user.avatar
       };
       console.log(_user);
       usersService.createUsers(_user).
