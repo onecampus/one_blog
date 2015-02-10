@@ -1,1 +1,39 @@
-this is mobile view.
+<div class="mobile-main-head">
+  <img class="mobile-logo" src="/images/logo.png"></img>
+  <div class="mobile-drop">
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <button type="button" class="btn dropdown-toggle" dropdown-toggle >
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a ng-href="/">BLOG</a></li>
+        <li><a href="#">PHOTO</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="mobile-search">
+    <div>
+      <input type="text" placeholder="SEACH" ng-model="$parent.keyword" ng-enter="search()">
+      <a ng-href="/?keyword={{keyword}}"><img src="/images/search-ico.png"></a>
+    </div>
+  </div>
+</div>
+<div class="mobile-main-posts"  infinite-scroll='loadMore()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+  <div class="mobile-main-post" ng-repeat="p in mobileposts">
+    <div class="mobile-post-title">
+      <span>{{p.title}}</span>
+    </div>
+    <div class="mobile-post-content">
+      <p ng-bind-html="p.content" ng-if="p.markdown == null || p.markdown == ''"></p>
+      <p ng-bind-html="p.markdown" ng-if="p.content == null || p.content == ''"></p>
+    </div>
+    <div class="mobile-post-time">
+      <span>2015-10-11</span>
+      <img src="/images/post-ico.png">
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="load-pic ng-hide" ng-show="loadMark">
+  <img src="/images/loading.gif">
+</div>
