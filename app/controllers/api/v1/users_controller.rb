@@ -4,7 +4,7 @@
 # License:: Distributes under the same terms as Ruby
 # Api of users
 class Api::V1::UsersController < ApplicationController
-
+  skip_before_action :authenticate_request, only: [:ajax_img_upload]
   before_action :set_user, only: [:show, :update_avatar,
                                   :update_pass, :destroy]
 
@@ -23,6 +23,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.password = User.hash_password @user.password
+    @user.auth_token = User.generate_auth_token
     if @user.save
       render json: { status: :created }, status: :ok
     else

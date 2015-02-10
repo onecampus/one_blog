@@ -8,10 +8,11 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('BaseCtrl', ['$scope', '$location', function($scope, $location) {
+  .controller('BaseCtrl', ['$scope', '$location', 'SessionService', function($scope, $location, SessionService) {
     $scope.search = function() {
       $location.path('/search/posts');
       $location.search('keyword=' + $scope.keyword);
       $location.replace();
     };
+    $scope.currentUser = SessionService.currentUser;
   }]);

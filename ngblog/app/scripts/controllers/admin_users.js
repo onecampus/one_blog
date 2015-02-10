@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('AdminUsersCtrl', ['$scope', '$log', 'usersService', 'AuthService', '$window', 'adminNavService', function($scope, $log, usersService, AuthService, $window, adminNavService) {
+  .controller('AdminUsersCtrl', ['$controller', '$scope', '$log', 'usersService', 'AuthService', '$window', 'adminNavService', function($controller, $scope, $log, usersService, AuthService, $window, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#admin/posts',
       menu: '所有用户'
@@ -56,6 +56,9 @@ angular.module('ngblogApp')
         });
       }
     };
+    $controller('BaseCtrl', {
+      $scope: $scope
+    });
     $scope.logout = function() {
       adminNavService.logout();
     };

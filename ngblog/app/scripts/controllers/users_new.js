@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UsersNewCtrl', ['$scope', '$http', 'FileUploader', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($scope, $http, FileUploader, usersService, $location, AuthService, $window, adminNavService) {
+  .controller('UsersNewCtrl', ['$controller', '$scope', '$http', 'FileUploader', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($controller, $scope, $http, FileUploader, usersService, $location, AuthService, $window, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'
@@ -53,6 +53,9 @@ angular.module('ngblogApp')
           }
         });
     };
+    $controller('BaseCtrl', {
+      $scope: $scope
+    });
     $scope.logout = function() {
       adminNavService.logout();
     };
