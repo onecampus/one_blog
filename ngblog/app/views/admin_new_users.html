@@ -2,6 +2,14 @@
   .form-horizontal  {
     margin-top: 50px;
   }
+  .pre-image {
+    width: 50%;
+  }
+
+  .pre-image img {
+    width: 100%;
+    heigth: 100%;
+  }
   .btn-group {
     width: 100%;
     margin: 20px 0 50px 0;
@@ -43,10 +51,14 @@
         <input type="text" class="form-control" ng-model="user.password" id="password" required>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group upload-image">
       <label for="avatar" class="col-md-1 control-label">头像：</label>
       <div class="col-md-11">
-        <input type="file" id="avatar" ng-model="user.avatar">
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <div class="pre-image">
+          <p>预览</p>
+          <p><img ng-src="{{user.avatar}}" alt="请上传图片" /></p>
+        </div>
       </div>
     </div>
     <div class="btn-group">

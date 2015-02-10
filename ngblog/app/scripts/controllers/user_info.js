@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UserInfoCtrl', ['$scope', '$log', 'usersService', '$routeParams', '$controller', function($scope, $log, usersService, $routeParams, $controller) {
+  .controller('UserInfoCtrl', ['$scope', '$log', 'usersService', 'FileUploader', '$routeParams', '$controller', function($scope, $log, usersService, FileUploader, $routeParams, $controller) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'
@@ -24,8 +24,20 @@ angular.module('ngblogApp')
     };
     usersService.getUserById($routeParams.userId).
       /* jshint camelcase: false */
-    success(function(data) {
-      $scope.user = data.user;
+      success(function(data) {
+        console.log(data);
+        $scope.user = data.user;
+      });
+    $scope.uploader = new FileUploader({
+      url: '/api/v1/users/image/uploader',
+      autoUpload: true,
+      onSuccessItem: function(item, response) {
+        if (response.state === 'success') {
+          $scope.user.avatar = response.url;
+        } else {
+          alert('上传错误');
+        }
+      }
     });
 
 
