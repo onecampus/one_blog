@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', function($scope, postsService, $http, $controller) {
+  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', "$location", "$timeout", function($scope, postsService, $http, $controller, $location, $timeout) {
     $scope.posts = [];
 
     postsService.getPosts(1, 10, 0).
@@ -23,7 +23,7 @@ angular.module('ngblogApp')
     $scope.addSlide = function() {
       var newWidth = slides.length + 1;
       slides.push({
-        image: '/images/' + newWidth + '.jpg',
+        image: '/images/slide' + newWidth + '.jpg',
         text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' + ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
       });
     };
@@ -34,4 +34,11 @@ angular.module('ngblogApp')
     $controller('BaseCtrl', {
       $scope: $scope
     });
+    $scope.navAnimate = function() {
+      $scope.animateMark = true;
+      $timeout(function(){
+        $location.path('/posts');
+        $location.replace();
+      },930);
+    }
   }]);

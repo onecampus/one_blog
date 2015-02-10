@@ -20,7 +20,8 @@ angular
     'ui.bootstrap',
     'ngTagsInput',
     'angularFileUpload',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angular-carousel'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
@@ -91,6 +92,18 @@ angular
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
+      })
+      .when('/admin/users', {
+        templateUrl: 'views/admin_users.html',
+        controller: 'AdminUsersCtrl'
+      })
+      .when('/admin/users/new', {
+        templateUrl: 'views/admin_new_users.html',
+        controller: 'UsersNewCtrl'
+      })
+      .when('/admin/users/:userId', {
+        templateUrl: 'views/admin_info_user.html',
+        controller: 'UserInfoCtrl'
       })
       .otherwise({
         redirectTo: '/'
