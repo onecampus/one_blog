@@ -17,7 +17,6 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
-  # http://matthewlehner.net/rails-api-testing-guidelines/
   test 'should create a user via post' do
     assert_difference('User.count') do
       post :create, user: { name: 'yang', email: 'yang@gmail.com',
@@ -29,16 +28,21 @@ class Api::V1::UsersControllerTest < ActionController::TestCase
     assert_not_nil User.where(name: 'yang').first
   end
 
-  test 'should update a user pass' do
-    # status 200
-    # failure of validations => status 422
-    # failure when saving => status 500
+  test 'should update a user pass failed with not current user' do
     put :update_pass, id: @yangkang.to_param, user: { password: '12345678' }
     assert_response :success
-    assert_not_equal '269c74e5601e036cbb6d221e624cbd73858de8616ea3f17167363c0cfe8ba0ed', @yangkang.password
+    json = JSON.parse(response.body)
+    assert_equal(json['error'], 'Not current user')
   end
 
-  test 'should delete a user' do
+  test 'should update a user pass by current user' do
+    put :update_pass, id: @yangfusheng.to_param, user: { password: '123456789' }
+    assert_response :success
+    json = JSON.parse(response.body)
+    assert_equal(json['status'], 'password_updated')
+  end
+
+  test 'should delete a user by the first user' do
     delete :destroy, id: @yangkang.to_param
     assert_response :success
     assert_nil User.where(name: 'yangkang').first

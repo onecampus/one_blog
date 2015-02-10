@@ -43,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update_avatar
-    if @current_user.blank?
+    if @current_user.id != @user.id
       render json: { error: 'Not current user' }
     else
       if @user.update user_params
@@ -55,7 +55,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update_pass
-    if @current_user.blank?
+    if @current_user.id != @user.id
       render json: { error: 'Not current user' }
     else
       @user.password = User.hash_password user_params[:password]
