@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UsersNewCtrl', ['$scope', '$http', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($scope, $http, usersService, $location, AuthService, $window, adminNavService) {
+  .controller('UsersNewCtrl', ['$scope', '$http', 'FileUploader', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($scope, $http, FileUploader, usersService, $location, AuthService, $window, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'
@@ -23,11 +23,25 @@ angular.module('ngblogApp')
       usersActive: false
     };
 
+    $scope.user = {};
+    $scope.user.avatar = '';
+    $scope.uploader = new FileUploader({
+      url: '/api/v1/users/image/uploader',
+      autoUpload: true,
+      onSuccessItem: function(item, response) {
+        if (response.state === 'success') {
+          $scope.user.avatar = response.url;
+        } else {
+          alert('上传错误');
+        }
+      }
+    });
     $scope.addUser = function() {
       var _user = {
         name: $scope.user.name,
         email: $scope.user.email,
-        password: $scope.user.password
+        password: $scope.user.password,
+        avatar: $scope.user.avatar
       };
       console.log(_user);
       usersService.createUsers(_user).
