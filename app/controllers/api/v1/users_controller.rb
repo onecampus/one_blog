@@ -43,19 +43,27 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update_avatar
-    if @user.update user_params
-      render json: { status: :avatar_updated }, status: :ok
+    if @current_user.blank?
+      render json: { error: 'Not current user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.update user_params
+        render json: { status: :avatar_updated }, status: :ok
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
   def update_pass
-    @user.password = User.hash_password user_params[:password]
-    if @user.save
-      render json: { status: :password_updated }, status: :ok
+    if @current_user.blank?
+      render json: { error: 'Not current user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      @user.password = User.hash_password user_params[:password]
+      if @user.save
+        render json: { status: :password_updated }, status: :ok
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
