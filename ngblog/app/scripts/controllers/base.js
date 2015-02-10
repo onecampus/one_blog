@@ -14,5 +14,10 @@ angular.module('ngblogApp')
       $location.search('keyword=' + $scope.keyword);
       $location.replace();
     };
+    $scope.mobilesearch = function() {
+      $location.path('/');
+      $location.search('keyword=' + $scope.keyword);
+      $location.replace();
+    };
     $scope.currentUser = SessionService.currentUser;
   }]);

@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', '$location', '$timeout', function($scope, postsService, $http, $controller, $location, $timeout) {
+  .controller('MainCtrl', ['$scope', 'postsService', '$http', '$controller', '$location', '$timeout', '$routeParams', function($scope, postsService, $http, $controller, $location, $timeout, $routeParams) {
     $scope.posts = [];
     postsService.getPosts(1, 10, 0).
     success(function(data) {
@@ -47,27 +47,37 @@ angular.module('ngblogApp')
     $scope.postsitem = 10;
     $scope.load = true;
     $scope.busy = false;
-    postsService.getPosts(1, $scope.postsitem, 0).
-    success(function(data) {
-      $scope.mobileposts = data.data.posts;
-    });
-    $scope.loadMore = function() {
-      if($scope.load === false) {
-        $scope.loadMark = true;
-      }
-      if($scope.load === true) {
-        $scope.loadMark = false;
-        $scope.load = false;
-      }
+    $scope.keyword = $routeParams.keyword;
+    console.log($scope.keyword);
+    if($scope.keyword === null || $scope.keyword === "" || typeof $scope.keyword === 'undefined') {
       postsService.getPosts(1, $scope.postsitem, 0).
       success(function(data) {
-        $scope.busy = true;
-        $timeout(function(){
-          $scope.mobileposts = data.data.posts;
-          $scope.loadMark = false;
-          $scope.busy = false;
-        },1000);
+        $scope.mobileposts = data.data.posts;
       });
-    $scope.postsitem += 10;
-    };
+      $scope.loadMore = function() {
+        if($scope.load === false) {
+          $scope.loadMark = true;
+        }
+        if($scope.load === true) {
+          $scope.loadMark = false;
+          $scope.load = false;
+        }
+        postsService.getPosts(1, $scope.postsitem, 0).
+        success(function(data) {
+          $scope.busy = true;
+          $timeout(function(){
+            $scope.mobileposts = data.data.posts;
+            $scope.loadMark = false;
+            $scope.busy = false;
+          },1000);
+        });
+      $scope.postsitem += 10;
+      };
+    }
+    else {
+      postsService.searchPost($scope.keyword).
+      success(function(data) {
+        $scope.mobileposts = data.posts;
+      });
+    }
   }]);
