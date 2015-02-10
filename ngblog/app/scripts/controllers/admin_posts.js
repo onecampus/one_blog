@@ -18,7 +18,9 @@ angular.module('ngblogApp')
       postsActive: true,
       newpostActive: false,
       adduserActive: false,
-      usersActive: false
+      usersActive: false,
+      passwordActive: false,
+      avatarActive: false
     };
 
     $scope.posts = [];

@@ -20,7 +20,9 @@ angular.module('ngblogApp')
       postsActive: false,
       newpostActive: false,
       adduserActive: true,
-      usersActive: false
+      usersActive: false,
+      passwordActive: false,
+      avatarActive: false
     };
 
     $scope.user = {};
