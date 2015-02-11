@@ -39,7 +39,7 @@ angular.module('ngblogApp')
         $location.path('/posts');
         $location.replace();
       },930);
-    }
+    };
     /*
     mobile
     */
@@ -49,7 +49,7 @@ angular.module('ngblogApp')
     $scope.load = true;
     $scope.busy = false;
     $scope.keyword = $routeParams.keyword;
-    if($scope.keyword === null || $scope.keyword === "" || typeof $scope.keyword === 'undefined') {
+    if($scope.keyword === null || $scope.keyword === '' || typeof $scope.keyword === 'undefined') {
       $scope.messageMark = true;
       postsService.getPosts(1, $scope.postsitem, 0).
       success(function(data) {
