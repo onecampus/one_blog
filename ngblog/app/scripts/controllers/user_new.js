@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('UsersNewCtrl', ['$scope', '$http', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($scope, $http, usersService, $location, AuthService, $window, adminNavService) {
+  .controller('UsersNewCtrl', ['$controller', '$scope', '$http', 'FileUploader', 'usersService', '$location', 'AuthService', '$window', 'adminNavService', function($controller, $scope, $http, FileUploader, usersService, $location, AuthService, $window, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#admin/users',
       menu: '所有用户'
@@ -20,14 +20,30 @@ angular.module('ngblogApp')
       postsActive: false,
       newpostActive: false,
       adduserActive: true,
-      usersActive: false
+      usersActive: false,
+      passwordActive: false,
+      avatarActive: false
     };
 
+    $scope.user = {};
+    $scope.user.avatar = '';
+    $scope.uploader = new FileUploader({
+      url: '/api/v1/users/image/uploader',
+      autoUpload: true,
+      onSuccessItem: function(item, response) {
+        if (response.state === 'success') {
+          $scope.user.avatar = response.url;
+        } else {
+          alert('上传错误');
+        }
+      }
+    });
     $scope.addUser = function() {
       var _user = {
         name: $scope.user.name,
         email: $scope.user.email,
-        password: $scope.user.password
+        password: $scope.user.password,
+        avatar: $scope.user.avatar
       };
       console.log(_user);
       usersService.createUsers(_user).
@@ -39,6 +55,9 @@ angular.module('ngblogApp')
           }
         });
     };
+    $controller('BaseCtrl', {
+      $scope: $scope
+    });
     $scope.logout = function() {
       adminNavService.logout();
     };

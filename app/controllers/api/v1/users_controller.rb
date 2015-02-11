@@ -4,7 +4,7 @@
 # License:: Distributes under the same terms as Ruby
 # Api of users
 class Api::V1::UsersController < ApplicationController
-
+  skip_before_action :authenticate_request, only: [:ajax_img_upload]
   before_action :set_user, only: [:show, :update_avatar,
                                   :update_pass, :destroy]
 
@@ -23,6 +23,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.password = User.hash_password @user.password
+    @user.auth_token = User.generate_auth_token
     if @user.save
       render json: { status: :created }, status: :ok
     else
@@ -30,28 +31,51 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def ajax_img_upload
+    image = AvatarUploader.new
+    image.store!(params[:file])
+    return_hash = {
+      state: 'success',
+      url: image.url,
+      title: image.filename
+    }
+    render json: return_hash, status: :ok
+  end
+
   def update_avatar
-    if @user.update user_params
-      render json: { status: :avatar_updated }, status: :ok
+    if @current_user.id != @user.id
+      render json: { error: 'Not current user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.update user_params
+        render json: { status: :avatar_updated }, status: :ok
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
   def update_pass
-    @user.password = User.hash_password user_params[:password]
-    if @user.save
-      render json: { status: :password_updated }, status: :ok
+    if @current_user.id != @user.id
+      render json: { error: 'Not current user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      @user.password = User.hash_password user_params[:password]
+      if @user.save
+        render json: { status: :password_updated }, status: :ok
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
   def destroy
-    if @user.destroy
-      render json: { status: :destroied }
+    if @current_user.id != 1
+      render json: { error: 'Not admin user' }
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.destroy
+        render json: { status: :destroied }
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 

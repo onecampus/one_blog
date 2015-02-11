@@ -21,7 +21,8 @@ angular
     'ngTagsInput',
     'angularFileUpload',
     'LocalStorageModule',
-    'angular-carousel'
+    'angular-carousel',
+    'infinite-scroll'
   ])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('SessionInjector');
@@ -68,7 +69,7 @@ angular
         controller: 'PostsCtrl'
       })
       .when('/posts/:postId', {
-        templateUrl: 'views/show_post.html',
+        templateUrl: (_isNotMobile) ? 'views/show_post.html' : 'views/mobile/show_post.html',
         controller: 'PostShowCtrl'
       })
       .when('/admin/posts', {
@@ -98,12 +99,20 @@ angular
         controller: 'AdminUsersCtrl'
       })
       .when('/admin/users/new', {
-        templateUrl: 'views/admin_new_users.html',
+        templateUrl: 'views/admin_new_user.html',
         controller: 'UsersNewCtrl'
       })
       .when('/admin/users/:userId', {
         templateUrl: 'views/admin_info_user.html',
         controller: 'UserInfoCtrl'
+      })
+      .when('/users/password/update', {
+        templateUrl: 'views/update_password.html',
+        controller: 'UpdatePasswordCtrl'
+      })
+      .when('/users/avatar/update', {
+        templateUrl: 'views/update_avatar.html',
+        controller: 'UpdateAvatarCtrl'
       })
       .otherwise({
         redirectTo: '/'

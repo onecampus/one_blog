@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('PostEditCtrl', ['$scope', 'postsService', '$routeParams', '$location', 'FileUploader', 'adminNavService', function($scope, postsService, $routeParams, $location, FileUploader, adminNavService) {
+  .controller('PostEditCtrl', ['$controller', '$scope', 'postsService', '$routeParams', '$location', 'FileUploader', 'adminNavService', function($controller, $scope, postsService, $routeParams, $location, FileUploader, adminNavService) {
     $scope.crumbs = [{
       anchor: '/#admin/posts',
       menu: '所有文章'
@@ -94,7 +94,9 @@ angular.module('ngblogApp')
         }
       }
     });
-
+    $controller('BaseCtrl', {
+      $scope: $scope
+    });
     $scope.logout = function() {
       adminNavService.logout();
     };

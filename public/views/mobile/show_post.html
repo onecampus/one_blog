@@ -1,0 +1,9 @@
+<ng-include src="'views/mobile/mobile-head.html'"></ng-include> <div class="show-mobile-postitem"> <div class="show-mobile-post-title"> <span>{{post.title}}</span> </div> <div class="show-mobile-post-time"> <span>{{post.publish_time.substr(0,10)}}</span> <img src="/images/post-ico.png"> </div> <div class="show-mobile-post-pic" ng-show="imageMark"> <img ng-src="{{post.img}}"> </div> <div class="show-mobile-post-content"> <p ng-bind-html="post.content" ng-if="post.markdown == null || post.markdown == ''"></p> <p ng-bind-html="post.markdown" ng-if="post.content == null || post.content == ''"></p> </div> <div id="disqus_thread"></div> <script type="text/javascript">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'thecampusblog'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();</script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div>

@@ -8,5 +8,5 @@ angular.module('ngblogApp').directive('disableAnimation', function($animate){
                 $animate.enabled(!value, $element);
             });
         }
-    }
+    };
 });
