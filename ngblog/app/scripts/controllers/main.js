@@ -49,7 +49,6 @@ angular.module('ngblogApp')
     $scope.load = true;
     $scope.busy = false;
     $scope.keyword = $routeParams.keyword;
-    console.log($scope.keyword);
     if($scope.keyword === null || $scope.keyword === "" || typeof $scope.keyword === 'undefined') {
       $scope.messageMark = true;
       postsService.getPosts(1, $scope.postsitem, 0).
