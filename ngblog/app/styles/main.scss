@@ -947,7 +947,8 @@ ul, li {
 .mobile-logo {
   width: 20%;
   height: 40px;
-  margin-top: 5px;
+  margin-top: 6px;
+  margin-left: 5px;
 }
 
 .mobile-drop {
@@ -1031,6 +1032,10 @@ ul, li {
   margin-top: 30px;
 }
 
+.mobile-main-post a {
+  color: #000000;
+}
+
 .mobile-post-title {
   font-size: 16px;
   color: #2e5b4d;
@@ -1075,4 +1080,37 @@ hr {
   margin-left: 10px;
   font-size: 20px;
   color: #2e5b4d;
+}
+/*mobile show_post.html*/
+
+.show-mobile-postitem {
+  width: 90%;
+  margin: 50px auto 0 auto;
+  font-size: 20px;
+  color: #2e5b4d;
+}
+
+.show-mobile-post-time {
+  float: right;
+  margin: 5px 5px 10px 0;
+  font-size: 14px;
+}
+
+.show-mobile-post-time img {
+  margin-top: -2px;
+}
+
+.show-mobile-post-pic {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.show-mobile-post-pic img {
+  width: 100%;
+}
+
+.show-mobile-post-content {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #000000;
 }

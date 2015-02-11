@@ -43,6 +43,7 @@ angular.module('ngblogApp')
     /*
     mobile
     */
+    $scope.messageMark = true;
     $scope.mobileposts = [];
     $scope.postsitem = 10;
     $scope.load = true;
@@ -50,6 +51,7 @@ angular.module('ngblogApp')
     $scope.keyword = $routeParams.keyword;
     console.log($scope.keyword);
     if($scope.keyword === null || $scope.keyword === "" || typeof $scope.keyword === 'undefined') {
+      $scope.messageMark = true;
       postsService.getPosts(1, $scope.postsitem, 0).
       success(function(data) {
         $scope.mobileposts = data.data.posts;
@@ -78,6 +80,11 @@ angular.module('ngblogApp')
       postsService.searchPost($scope.keyword).
       success(function(data) {
         $scope.mobileposts = data.posts;
+        if ($scope.mobileposts === null || $scope.mobileposts === '' || $scope.mobileposts.length === 0) {
+          $scope.messageMark = false;
+        } else {
+          $scope.messageMark = true;
+        }
       });
     }
   }]);
