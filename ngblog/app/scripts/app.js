@@ -69,7 +69,7 @@ angular
         controller: 'PostsCtrl'
       })
       .when('/posts/:postId', {
-        templateUrl: 'views/show_post.html',
+        templateUrl: (_isNotMobile) ? 'views/show_post.html' : 'views/mobile/show_post.html',
         controller: 'PostShowCtrl'
       })
       .when('/admin/posts', {
