@@ -7,7 +7,7 @@
       </div>
       <div class="mobile-post-content">
         <p ng-bind-html="p.content" ng-if="p.markdown == null || p.markdown == ''"></p>
-        <p ng-bind-html="p.markdown" ng-if="p.content == null || p.content == ''"></p>
+        <p ng-bind-html="markdown(p.markdown)" ng-if="p.content == null || p.content == ''"></p>
       </div>
       <div class="mobile-post-time">
         <span>{{p.publish_time.substr(0,10)}}</span>
