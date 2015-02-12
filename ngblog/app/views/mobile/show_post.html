@@ -12,7 +12,7 @@
   </div>
   <div class="show-mobile-post-content">
     <p ng-bind-html="post.content" ng-if="post.markdown == null || post.markdown == ''"></p>
-    <p ng-bind-html="post.markdown" ng-if="post.content == null || post.content == ''"></p>
+    <p ng-bind-html="markdown(post.markdown)" ng-if="post.content == null || post.content == ''"></p>
   </div>
   <div id="disqus_thread"></div>
   <script type="text/javascript">

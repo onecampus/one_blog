@@ -9,7 +9,7 @@
         <div class="post-text">
           <div class="post-inf">
             <p ng-bind-html="p.content" ng-if="p.markdown == null || p.markdown == ''"></p>
-            <p ng-bind-html="p.markdown" ng-if="p.content == null || p.content == ''"></p>
+            <p ng-bind-html="markdown(p.markdown)" ng-if="p.content == null || p.content == ''"></p>
           </div>
           <div class="post-picture">
             <div class="post-picture-box">

@@ -35,4 +35,12 @@ angular.module('ngblogApp')
     $controller('BaseCtrl', {
       $scope: $scope
     });
+    $scope.markdown = function(ngModel) {
+      marked.setOptions({
+        highlight: function(code) {
+          return hljs.highlightAuto(code).value;
+        }
+      });
+      return marked(ngModel);
+    };
   }]);

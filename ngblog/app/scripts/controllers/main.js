@@ -49,30 +49,40 @@ angular.module('ngblogApp')
     $scope.load = true;
     $scope.busy = false;
     $scope.keyword = $routeParams.keyword;
+    var postslength = null;
+    var postscount = null;
     if($scope.keyword === null || $scope.keyword === '' || typeof $scope.keyword === 'undefined') {
       $scope.messageMark = true;
       postsService.getPosts(1, $scope.postsitem, 0).
       success(function(data) {
         $scope.mobileposts = data.data.posts;
+        postscount = data.data.total_count
+        postslength = $scope.mobileposts.length;
       });
       $scope.loadMore = function() {
-        if($scope.load === false) {
-          $scope.loadMark = true;
+        if (postslength < 10 || postscount == postslength) {
+          return false;
         }
-        if($scope.load === true) {
-          $scope.loadMark = false;
-          $scope.load = false;
-        }
-        postsService.getPosts(1, $scope.postsitem, 0).
-        success(function(data) {
-          $scope.busy = true;
-          $timeout(function(){
-            $scope.mobileposts = data.data.posts;
+        else {
+          if($scope.load === false) {
+            $scope.loadMark = true;
+          }
+          if($scope.load === true) {
             $scope.loadMark = false;
-            $scope.busy = false;
-          },1000);
-        });
-      $scope.postsitem += 10;
+            $scope.load = false;
+          }
+          postsService.getPosts(1, $scope.postsitem, 0).
+          success(function(data) {
+            $scope.busy = true;
+            $timeout(function(){
+              $scope.mobileposts = data.data.posts;
+              postslength = $scope.mobileposts.length;
+              $scope.loadMark = false;
+              $scope.busy = false;
+            },1000);
+          });
+        $scope.postsitem += 10;
+        }
       };
     }
     else {
@@ -86,4 +96,12 @@ angular.module('ngblogApp')
         }
       });
     }
+    $scope.markdown = function(ngModel) {
+      marked.setOptions({
+        highlight: function(code) {
+          return hljs.highlightAuto(code).value;
+        }
+      });
+      return marked(ngModel);
+    };
   }]);
