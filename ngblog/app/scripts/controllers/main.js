@@ -56,11 +56,11 @@ angular.module('ngblogApp')
       postsService.getPosts(1, $scope.postsitem, 0).
       success(function(data) {
         $scope.mobileposts = data.data.posts;
-        postscount = data.data.total_count
+        postscount = data.data.total_count;
         postslength = $scope.mobileposts.length;
       });
       $scope.loadMore = function() {
-        if (postslength < 10 || postscount == postslength) {
+        if (postslength < 10 || postscount === postslength) {
           return false;
         }
         else {

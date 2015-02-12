@@ -8,7 +8,7 @@
  * Controller of the ngblogApp
  */
 angular.module('ngblogApp')
-  .controller('PostShowCtrl', ['$scope', '$log', 'postsService', '$routeParams', '$controller', '$location', '$http', function($scope, $log, postsService, $routeParams, $controller, $location, $http) {
+  .controller('PostShowCtrl', ['$scope', '$log', 'postsService', '$routeParams', '$controller', function($scope, $log, postsService, $routeParams, $controller) {
 
     $scope.post = null;
     $scope.postimg = null;

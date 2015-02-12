@@ -27,6 +27,11 @@
   left: 51%;
   bottom: 0;
   right: 0;
+  overflow-y: auto;
+}
+
+#result img {
+  width: 100%;
 }
 
 .m-pill {
@@ -108,11 +113,11 @@
     <div class="form-group">
       <label for="content" class="col-md-1 control-label">内容</label>
       <div class="col-md-11">
-        <tabset justified="true">
+        <tabset justified="true" active=contentActive>
           <tab heading="富文本编辑器">
             <textarea ueditor ng-model="post.content"></textarea>
           </tab>
-          <tab heading="markdown语法">
+          <tab heading="markdown语法" active=markdownActive>
             <div nclass="form-control" id="markdown">
               <div id="editor-tool-bar">
                 <span><a class="m-pill" href="http://wowubuntu.com/markdown/" target="_blank">语法参考</a></span>

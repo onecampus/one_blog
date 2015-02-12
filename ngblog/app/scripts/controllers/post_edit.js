@@ -27,7 +27,15 @@ angular.module('ngblogApp')
       /* jshint camelcase: false */
     success(function(data) {
       $scope.post = data.post;
-
+      $scope.postcontent = data.post.content;
+      if($scope.postcontent === null || $scope.postcontent === '') {
+        $scope.contentActive = false;
+        $scope.markdownActive = true;
+      }
+      else {
+        $scope.contentActive = true;
+        $scope.markdownActive = false;
+      }
       $scope.post.is_recommend = $scope.post.is_recommend === 1 ? true : false;
       $scope.post.is_published = $scope.post.is_published === 1 ? true : false;
       $scope.post.can_comment = $scope.post.can_comment === 1 ? true : false;
