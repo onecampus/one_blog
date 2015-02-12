@@ -1,1 +1,30 @@
-<navmenu></navmenu> <breadcrumbs></breadcrumbs> <div class="col-md-11 right-side right-box"> <div class="table-responsive"> <table class="table table-hover"> <thead> <tr> <th>ID <th>用户名 <th>邮箱 <th>操作   <tbody> <tr ng-repeat="u in users"> <td>{{u.id}} <td>{{u.name}} <td>{{u.email}} <td> <a class="btn btn-primary" href="/#/admin/users/{{u.id}}">详情</a> <button type="button" class="btn btn-success" ng-click="delUser(u.id)">删除</button>    </table> </div> <div> <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-xm" ng-change="pageChanged()" boundary-links="true"></pagination> </div> </div>
+<navmenu></navmenu>
+<breadcrumbs></breadcrumbs>
+<div class="col-md-11 right-side right-box">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>用户名</th>
+          <th>邮箱</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="u in users">
+          <td>{{u.id}}</td>
+          <td>{{u.name}}</td>
+          <td>{{u.email}}</td>
+          <td>
+            <a class="btn btn-primary" href="/#/admin/users/{{u.id}}">详情</a>
+            <button type="button" class="btn btn-success" ng-click="delUser(u.id)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-xm" ng-change="pageChanged()" boundary-links="true"></pagination>
+  </div>
+</div>

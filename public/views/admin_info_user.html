@@ -1,4 +1,5 @@
-<style type="text/css">.form-horizontal  {
+<style type="text/css">
+  .form-horizontal  {
     margin-top: 50px;
   }
   .btn-group {
@@ -25,4 +26,29 @@
   }
   .last {
     margin-bottom: 50px;
-  }</style> <navmenu></navmenu> <breadcrumbs></breadcrumbs> <div class="col-md-11 right-side right-box"> <form class="form-horizontal col-md-12"> <div class="form-group"> <label for="name" class="col-md-1 control-label">用户名：</label> <div class="col-md-11"> <input type="text" class="form-control" ng-model="user.name" id="name" required> </div> </div> <div class="form-group"> <label for="email" class="col-md-1 control-label">邮箱：</label> <div class="col-md-11"> <input type="text" class="form-control" ng-model="user.email" id="email" required> </div> </div> <div class="form-group last"> <label for="avatar" class="col-md-1 control-label">头像：</label> <div class="col-md-11"> <img ng-src="{{user.avatar}}" alt="请上传你的头像"> </div> </div> </form> </div>
+  }
+</style>
+<navmenu></navmenu>
+<breadcrumbs></breadcrumbs>
+<div class="col-md-11 right-side right-box">
+  <form class="form-horizontal col-md-12">
+    <div class="form-group">
+      <label for="name" class="col-md-1 control-label">用户名：</label>
+      <div class="col-md-11">
+        <input type="text" class="form-control" ng-model="user.name" id="name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-md-1 control-label">邮箱：</label>
+      <div class="col-md-11">
+        <input type="text" class="form-control" ng-model="user.email" id="email" required>
+      </div>
+    </div>
+    <div class="form-group last">
+      <label for="avatar" class="col-md-1 control-label">头像：</label>
+      <div class="col-md-11">
+          <img ng-src="{{user.avatar}}" alt="请上传你的头像" />
+      </div>
+    </div>
+  </form>
+</div>
