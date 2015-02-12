@@ -1,5 +1,4 @@
-<style>
-.pre-image {
+<style>.pre-image {
   width: 50%;
   margin-bottom: 10px;
 }
@@ -26,26 +25,4 @@
   background: #66afe9;
   color: #ffffff;
   font-size: 24px;
-}
-</style>
-<navmenu></navmenu>
-<breadcrumbs></breadcrumbs>
-<div class="col-md-11 right-side right-box" style="margin-top: 50px;">
-  <form class="form-horizontal col-md-12" ng-submit="updateAvatar(user.id)">
-    <div class="form-group　upload-image">
-      <label for="avatar" class="col-md-1 control-label">头像：</label>
-      <div class="col-md-11">
-        <input type="file" nv-file-select uploader="uploader"/><br/>
-        <div class="pre-image">
-          <p>现头像</p>
-          <p><img ng-src="{{user.avatar}}" alt="请上传头像" /></p>
-        </div>
-      </div>
-    </div>
-    <div class="btn-group">
-      <div class="btn-box">
-        <button type="submit" class="btn btn-lg btn-save">更新</button>
-      </div>
-    </div>
-  </form>
-</div>
+}</style> <navmenu></navmenu> <breadcrumbs></breadcrumbs> <div class="col-md-11 right-side right-box" style="margin-top: 50px"> <form class="form-horizontal col-md-12" ng-submit="updateAvatar(user.id)"> <div class="form-group　upload-image"> <label for="avatar" class="col-md-1 control-label">头像：</label> <div class="col-md-11"> <input type="file" nv-file-select uploader="uploader"><br> <div class="pre-image"> <p>现头像</p> <p><img ng-src="{{user.avatar}}" alt="请上传头像"></p> </div> </div> </div> <div class="btn-group"> <div class="btn-box"> <button type="submit" class="btn btn-lg btn-save">更新</button> </div> </div> </form> </div>
