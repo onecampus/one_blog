@@ -103,9 +103,6 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     interception (0.5)
-    jbuilder (2.2.6)
-      activesupport (>= 3.0.0, < 5)
-      multi_json (~> 1.2)
     json (1.8.2)
     kaminari (0.16.2)
       actionpack (>= 3.0.0)
@@ -202,6 +199,9 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    swagger-docs (0.1.9)
+      activesupport (>= 3, < 5)
+      rails (>= 3, < 5)
     temple (0.6.10)
     terminal-table (1.4.5)
     thor (0.19.1)
@@ -227,7 +227,6 @@ DEPENDENCIES
   capistrano-rvm
   carrierwave
   did_you_mean
-  jbuilder (~> 2.0)
   kaminari
   mini_magick
   mysql2
@@ -237,3 +236,4 @@ DEPENDENCIES
   rdoc
   sdoc (~> 0.4.0)
   spring
+  swagger-docs

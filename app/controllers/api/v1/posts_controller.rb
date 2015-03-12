@@ -7,6 +7,18 @@ class Api::V1::PostsController < ApplicationController
   skip_before_action :authenticate_request, only: [:index, :post_tags, :show, :ajax_img_upload, :search]
   before_action :set_post, only: [:show, :update, :destroy]
 
+
+  swagger_controller :posts, "Posts Management"
+
+  swagger_api :index do
+    summary "Fetches all Posts items"
+    notes "This lists all the active Posts"
+    param :query, :page, :integer, :optional, "Page number"
+    param :path, :nested_id, :integer, :optional, "Team Id"
+    response :not_acceptable, "The request you made is not acceptable"
+    response :requested_range_not_satisfiable
+  end
+
   def index
 		page = params[:page]
 		per_page = params[:per_page]

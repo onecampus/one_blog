@@ -21,3 +21,6 @@
 /public/uploads/*
 
 /.capistrano
+
+/public/apidocs/
+/public/swagger-ui/
