@@ -9,8 +9,8 @@
 time_start = Time.now
 
 user = User.new(
-  name: 'yang',
-  email: 'yang@gmail.com',
+  name: 'onecampusblog',
+  email: 'o@thecampus.cc',
   password: User.hash_password('123456'),
   avatar: '/test.png',
   auth_token: User.generate_auth_token,
