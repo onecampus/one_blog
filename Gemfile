@@ -22,7 +22,7 @@ group :development, :test do
   gem 'did_you_mean'
   gem 'awesome_print', require: false
 
-  gem 'capistrano', '~> 3.3.0'
+  gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'

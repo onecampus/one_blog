@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.3.5'
+lock '3.4.0'
 
 set :application, 'one_blog'
 set :repo_url, 'git@github.com:onecampus/one_blog.git'
