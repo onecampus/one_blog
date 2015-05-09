@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:onecampus/one_blog.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/flowerwrong/www/one_blog'
+set :deploy_to, '/data/www/one_blog'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -35,5 +35,12 @@ set :linked_dirs, fetch(:linked_dirs, []).push('public/uploads', 'public/system'
 # set :keep_releases, 5
 
 namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
 
+  after :publishing, :restart
 end
